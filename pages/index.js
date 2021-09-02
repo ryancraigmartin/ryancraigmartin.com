@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Image from 'next/image'
+import profilePhoto from '../public/images/profile.jpg'
 
 export default function Home() {
   return (
@@ -10,15 +12,23 @@ export default function Home() {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
           integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-          referrerpolicy="no-referrer"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
       </Head>
 
       <body>
         <div className="wrap">
           <div className="profile">
+            <Image
+              className="photo shake"
+              src={profilePhoto}
+              alt="Photo of Ryan"
+              width={275}
+              height={275}
+            />
             <h1 className="profile_name">Ryan Craig Martin</h1>
-            <h2 className="at">@ryancraigmartin</h2>
+            <h2 className="at">- @ryancraigmartin - </h2>
             {/* <div className="card"></div> */}
           </div>
           <div className="links">
@@ -71,7 +81,10 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          {/* <div className="card"></div> */}
+          <div className="card">
+            <p className="card-text">Thanks for stopping by! 👋🏼</p>
+            <p className="card-text">Hope to connect soon!</p>
+          </div>
         </div>
       </body>
     </>
