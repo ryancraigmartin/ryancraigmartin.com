@@ -1,20 +1,5 @@
-// @font-face {
-//   font-family: "VulfMono-Regular";
-//   src: url("/public/fonts/VulfMono-Regular.otf");
-//   font-style: normal;
-//   font-weight: 400;
-//   font-display: swap;
-// }
-// @font-face {
-//   font-family: "VulfSans-Regular";
-//   src: url("public/fonts/VulfSans-Regular.otf");
-//   font-style: medium;
-//   font-weight: 400;
-//   font-display: swap;
-// }
-
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 3rem;
 
@@ -31,12 +16,16 @@ body {
 }
 
 .wrap {
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  place-self: center;
-  width: 100%;
+  left: 0;
+  margin: auto;
   max-width: 320px;
-  margin: 0 auto;
+  place-self: center;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 .profile {
   text-align: center;
@@ -127,8 +116,10 @@ body {
 }
 
 .shake {
-  animation: shake-animation 2.72s ease infinite;
-  transform-origin: 50% 50%;
+  :hover {
+    animation: shake-animation 2.72s ease infinite;
+    transform-origin: 50% 50%;
+  }
 }
 .element {
   margin: 0 auto;
@@ -175,7 +166,7 @@ body {
 .linktree {
   width: 120px;
   height: 120px;
-  background-image: url('https://i.imgur.com/oggcsIH.jpg');
+  background-image: url("https://i.imgur.com/oggcsIH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
