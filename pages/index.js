@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import profilePhoto from '../public/images/profile.jpg'
+import profilePhoto from '../public/images/profile.png'
 
 export default function Home() {
   return (
