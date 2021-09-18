@@ -29,7 +29,11 @@ export default function Home() {
             />
             <h1 className="profile_name">Ryan Craig Martin</h1>
             <h2 className="at">- @ryancraigmartin - </h2>
-            {/* <div className="card"></div> */}
+            <div className="card">
+              <p className="card-text">👋🏼</p>
+              <p className="card-text">Thanks for stopping by! </p>
+              <p className="card-text">Hope to connect soon!</p>
+            </div>
           </div>
           <div className="links">
             <ul>
@@ -49,6 +53,16 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
+                <a href="https://github.com/ryancraigmartin" className="link">
+                  <i className="fab fa-github"></i> Github
+                </a>
+              </li>
+              <li className="shake">
+                <a href="https://mbsy.co/aceable/103290650" className="link">
+                  <i className="fas fa-home"></i> Become a Licensed Realtor
+                </a>
+              </li>
+              <li className="shake">
                 <a
                   href="https://open.spotify.com/user/1230181600?si=224fb6f0b902456f"
                   className="link"
@@ -65,11 +79,6 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
-                <a href="https://github.com/ryancraigmartin" className="link">
-                  <i className="fab fa-github"></i> Github
-                </a>
-              </li>
-              <li className="shake">
                 <a href="https://www.youtube.com/channel/UCvV0JZfZDxo_o-tz9VZz2hw" className="link">
                   <i className="fab fa-youtube"></i> Subscribe on YouTube
                 </a>
@@ -81,10 +90,14 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className="card">
-            <p className="card-text">Thanks for stopping by! 👋🏼</p>
-            <p className="card-text">Hope to connect soon!</p>
-          </div>
+          <iframe
+            className="calendly"
+            src="https://calendly.com/ryancraigmartin"
+            width="100%"
+            height="950"
+            scrolling="no"
+            frameborder="0"
+          ></iframe>
         </div>
       </body>
     </>
