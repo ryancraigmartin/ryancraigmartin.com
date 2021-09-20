@@ -43,7 +43,7 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
-                <a href="https://www.twitter.com/ryancraigmartin" className="link">
+                <a href="https://www.twitter.com/ryancraigmartin" Name="link">
                   <i className="fab fa-twitter"></i> Twitter
                 </a>
               </li>
@@ -53,13 +53,23 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
+                <a href="https://ryanmartin-resume.netlify.app" className="link">
+                  <i className="far fa-file"></i> Resume
+                </a>
+              </li>
+              <li className="shake">
                 <a href="https://github.com/ryancraigmartin" className="link">
                   <i className="fab fa-github"></i> Github
                 </a>
               </li>
               <li className="shake">
                 <a href="https://mbsy.co/aceable/103290650" className="link">
-                  <i className="fas fa-home"></i> Become a Licensed Realtor
+                  <i className="fas fa-home"></i> Become a Licensed Realtor!
+                </a>
+              </li>
+              <li className="shake">
+                <a href="https://namecheap.pxf.io/ryancraigmartin" className="link">
+                  <i className="far fa-address-card"></i> Purchase a Website Domain!
                 </a>
               </li>
               <li className="shake">
