@@ -43,7 +43,7 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
-                <a href="https://www.twitter.com/ryancraigmartin" Name="link">
+                <a href="https://www.twitter.com/ryancraigmartin" className="link">
                   <i className="fab fa-twitter"></i> Twitter
                 </a>
               </li>
@@ -63,16 +63,6 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
-                <a href="https://mbsy.co/aceable/103290650" className="link">
-                  <i className="fas fa-home"></i> Become a Licensed Realtor!
-                </a>
-              </li>
-              <li className="shake">
-                <a href="https://namecheap.pxf.io/ryancraigmartin" className="link">
-                  <i className="far fa-address-card"></i> Purchase a Website Domain!
-                </a>
-              </li>
-              <li className="shake">
                 <a
                   href="https://open.spotify.com/user/1230181600?si=224fb6f0b902456f"
                   className="link"
@@ -86,6 +76,16 @@ export default function Home() {
                   className="link"
                 >
                   <i className="fas fa-headphones-alt"></i> Discover New Music
+                </a>
+              </li>
+              <li className="shake">
+                <a href="https://mbsy.co/aceable/103290650" className="link">
+                  <i className="fas fa-home"></i> Become a Licensed Realtor
+                </a>
+              </li>
+              <li className="shake">
+                <a href="https://namecheap.pxf.io/ryancraigmartin" className="link">
+                  <i className="far fa-address-card"></i> Purchase a Website Domain
                 </a>
               </li>
               <li className="shake">
@@ -108,6 +108,9 @@ export default function Home() {
             scrolling="no"
             frameBorder="0"
           ></iframe>
+          <a href="https://github.com/ryancraigmartin" className="copyright-text">
+            View this code on Github
+          </a>
         </div>
       </body>
     </>
