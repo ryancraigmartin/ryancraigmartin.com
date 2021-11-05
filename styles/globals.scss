@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Atkinson+Hyperlegible:wght@700&display=swap');
+
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -39,6 +40,7 @@ h2 {
   place-self: center;
   width: 100%;
 }
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -46,11 +48,13 @@ h2 {
   font-size: 1.5rem;
   color: #fff;
 }
+
 .photo {
   border-radius: 5%;
   max-height: 150px;
   max-width: 150px;
 }
+
 .profile_name {
   font-weight: bold;
   display: block;
@@ -80,14 +84,17 @@ h2 {
 .at {
   font-size: 1.1rem;
 }
+
 .links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .links ul li {
   margin: 14px 0;
 }
+
 .link {
   padding: 14px;
   display: block;
@@ -98,6 +105,7 @@ h2 {
   transition: ease all 0.3s;
   color: #fff;
 }
+
 .card {
   padding: 10px;
   background-color: #fff;
@@ -107,10 +115,12 @@ h2 {
   place-content: center;
   margin: 1rem;
 }
+
 .card h3 {
   margin: 0;
   color: #202024;
 }
+
 .card p {
   margin: 5px 0;
   font-size: 16px;

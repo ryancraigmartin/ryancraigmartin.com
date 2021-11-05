@@ -1,4 +1,4 @@
-# ryanmartin.io
+# ryancraigmartin.com
 
 This is my personal website. Currently serving as a basic Linktree alternative.
 

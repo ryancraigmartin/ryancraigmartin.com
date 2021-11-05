@@ -38,6 +38,11 @@ export default function Home() {
           <div className="links">
             <ul>
               <li className="shake">
+                <a href="https://www.linkedin.com/in/ryancraigmartin/" className="link">
+                  Linked<i className="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li className="shake">
                 <a href="https://www.instagram.com/ryancraigmartin" className="link">
                   <i className="fab fa-instagram"></i> Instagram
                 </a>
@@ -48,18 +53,13 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
-                <a href="https://www.linkedin.com/in/ryancraigmartin/" className="link">
-                  Linked<i className="fab fa-linkedin-in"></i>
+                <a href="https://github.com/ryancraigmartin" className="link">
+                  <i className="fab fa-github"></i> Github
                 </a>
               </li>
               <li className="shake">
                 <a href="https://ryanmartin-resume.netlify.app" className="link">
                   <i className="far fa-file"></i> Resume
-                </a>
-              </li>
-              <li className="shake">
-                <a href="https://github.com/ryancraigmartin" className="link">
-                  <i className="fab fa-github"></i> Github
                 </a>
               </li>
               <li className="shake">
@@ -79,20 +79,20 @@ export default function Home() {
                 </a>
               </li>
               <li className="shake">
+                <a href="https://namecheap.pxf.io/ryancraigmartin" className="link">
+                  <i className="far fa-address-card"></i> Get your own .COM
+                </a>
+              </li>
+              {/* <li className="shake">
                 <a href="https://mbsy.co/aceable/103290650" className="link">
                   <i className="fas fa-home"></i> Become a Licensed Realtor
                 </a>
-              </li>
-              <li className="shake">
-                <a href="https://namecheap.pxf.io/ryancraigmartin" className="link">
-                  <i className="far fa-address-card"></i> Purchase a Website Domain
-                </a>
-              </li>
-              <li className="shake">
+              </li> */}
+              {/* <li className="shake">
                 <a href="https://www.youtube.com/channel/UCvV0JZfZDxo_o-tz9VZz2hw" className="link">
                   <i className="fab fa-youtube"></i> Subscribe on YouTube
                 </a>
-              </li>
+              </li> */}
               <li className="shake">
                 <a href="mailto:contact@ryanmartin.io" subject="👋🏼" className="link">
                   <i className="far fa-envelope"></i> Email Me
@@ -109,7 +109,7 @@ export default function Home() {
             frameBorder="0"
           ></iframe>
           <a href="https://github.com/ryancraigmartin" className="copyright-text">
-            View this code on Github
+            This website is Open Sourced on Github
           </a>
         </div>
       </body>
