@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Atkinson+Hyperlegible:wght@700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 3rem;
+  width: 100wh;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(-45deg, #82aaff, #c386ec);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 8s ease infinite;
+  -moz-animation: Gradient 8s ease infinite;
+  animation: Gradient 8s ease infinite;
+  display: grid;
+  flex-direction: column;
+}
