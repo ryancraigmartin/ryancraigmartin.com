@@ -1,8 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "api": "apps/api",
-    "api-interfaces": "libs/api-interfaces",
     "ryancraigmartin.com": "apps/ryancraigmartin.com",
     "ryancraigmartin.com-e2e": "apps/ryancraigmartin.com-e2e"
   }
