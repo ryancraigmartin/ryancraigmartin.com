@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "analytics": "libs/analytics",
     "ryancraigmartin.com": "apps/ryancraigmartin.com",
     "ryancraigmartin.com-e2e": "apps/ryancraigmartin.com-e2e"
   }

@@ -38,6 +38,18 @@ h2 {
     font-weight: bold;
     display: block;
     color: #fff;
+    @media (min-width: 576px) {
+      min-width: 300px;
+    }
+    @media (min-width: 768px) {
+      min-width: 400px;
+    }
+    @media (min-width: 992px) {
+      min-width: 450px;
+    }
+    @media (min-width: 1200px) {
+      min-width: 450px;
+    }
   }
   .at {
     font-size: 1.1rem;
