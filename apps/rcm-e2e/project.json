@@ -1,0 +1,28 @@
+{
+  "root": "apps/rcm-e2e",
+  "sourceRoot": "apps/rcm-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/rcm-e2e/cypress.json",
+        "devServerTarget": "rcm:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "rcm:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rcm-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["rcm"]
+}

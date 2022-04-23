@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
+    "clean:install": "npx rimraf node_modules dist && npm i",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test"
@@ -48,6 +49,7 @@
     "@nrwl/nx-cloud": "latest",
     "@nrwl/tao": "13.8.1",
     "@nrwl/workspace": "13.8.1",
+    "@nx-extend/strapi": "^2.0.2",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.10.0",
