@@ -1,10 +1,6 @@
 <div class="wrap">
   <div class="profile">
-    <img
-      class="photo shake"
-      src="/assets/images/profile.png"
-      alt="Profile photo of Ryan Craig Martin"
-    />
+    <img class="photo shake" src="{{ profilePhoto }}" alt="Profile photo of Ryan Craig Martin" />
     <h1 class="profile_name">Ryan Craig Martin</h1>
     <h2 class="at">- @ryancraigmartin -</h2>
     <div class="card">
@@ -21,60 +17,8 @@
           Linked<i class="fab fa-linkedin-in"></i>
         </a>
       </li>
-      <li class="shake">
-        <a href="https://www.instagram.com/ryancraigmartin" class="link">
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
-      </li>
-      <li class="shake">
-        <a href="https://www.twitter.com/ryancraigmartin" class="link">
-          <i class="fab fa-twitter"></i> Twitter
-        </a>
-      </li>
-      <li class="shake">
-        <a href="https://github.com/ryancraigmartin" class="link">
-          <i class="fab fa-github"></i> Github
-        </a>
-      </li>
-      <li class="shake">
-        <a href="https://ryanmartin-resume.netlify.app" class="link">
-          <i class="far fa-file"></i> Resume
-        </a>
-      </li>
-      <li class="shake">
-        <a href="https://open.spotify.com/user/1230181600?si=224fb6f0b902456f" class="link">
-          <i class="fab fa-spotify"></i> Follow on Spotify
-        </a>
-      </li>
-      <li class="shake">
-        <a
-          href="https://open.spotify.com/playlist/1jzF8m0S75XQB5mPtq6Q7f?si=585cb45b69764772"
-          class="link"
-        >
-          <i class="fas fa-headphones-alt"></i> Discover New Music
-        </a>
-      </li>
-      <li class="shake">
-        <a href="https://namecheap.pxf.io/ryancraigmartin" class="link">
-          <i class="far fa-address-card"></i> Get your own .COM
-        </a>
-      </li>
-
-      <!-- <li class="shake">
-        <a href="https://mbsy.co/aceable/103290650" class="link">
-          <i class="fas fa-home"></i> Become a Licensed Realtor
-        </a>
-      </li> -->
-
-      <li class="shake">
-        <a href="https://www.youtube.com/channel/UCvV0JZfZDxo_o-tz9VZz2hw" class="link">
-          <i class="fab fa-youtube"></i> Subscribe on YouTube
-        </a>
-      </li>
-      <li class="shake">
-        <a href="mailto:contact@ryanmartin.io" subject="👋🏼" class="link">
-          <i class="far fa-envelope"></i> Email Me
-        </a>
+      <li class="shake" *ngFor="let link of links">
+        <a href="{{ link.url }}" class="link"> <i class="{{ link.icon }}"></i> {{ link.text }} </a>
       </li>
     </ul>
   </div>
@@ -88,7 +32,12 @@
     frameBorder="0"
   ></iframe>
 
-    <a href="https://github.com/ryancraigmartin" class="github-logo">
-      <i class="fab fa-github" alt="Github"></i>
-    </a>
+  <a
+    href="https://github.com/ryancraigmartin"
+    class="github-logo"
+    role="link"
+    alt="View this code on Github"
+  >
+    <i class="fab fa-github" alt="Github"></i>
+  </a>
 </div>
