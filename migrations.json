@@ -5,7 +5,7 @@
       "description": "Split global configuration files into individual project.json files. This migration has been added automatically to the beginning of your migration set to retroactively make them work with the new version of Nx.",
       "cli": "nx",
       "implementation": "./src/migrations/update-15-7-0/split-configuration-into-project-json-files",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "15-7-0-split-configuration-into-project-json-files"
     },
     {
@@ -133,7 +133,7 @@
       "description": "Replace @nrwl/tao with nx",
       "cli": "nx",
       "implementation": "./src/migrations/update-13-9-0/replace-tao-with-nx",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "13-9-0-replace-tao-with-nx"
     },
     {
@@ -141,15 +141,15 @@
       "description": "Update the decorate-angular-cli script to require nx instead of @nrwl/cli",
       "cli": "nx",
       "implementation": "./src/migrations/update-13-10-0/update-decorate-cli",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "13-10-0-update-decorate-cli"
     },
     {
       "version": "13.10.0-beta.0",
-      "description": "Update the tasks runner property to import it from the nx package instead of @nrwl/workspace",
+      "description": "Update the tasks runner property to import it from the nx package instead of @nx/workspace",
       "cli": "nx",
       "implementation": "./src/migrations/update-13-10-0/update-tasks-runner",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "13-10-0-update-tasks-runner"
     },
     {
@@ -157,15 +157,15 @@
       "description": "Changes the presets in nx.json to come from the nx package",
       "cli": "nx",
       "implementation": "./src/migrations/update-14-0-0/change-nx-json-presets",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "14-0-0-change-nx-json-presets"
     },
     {
       "version": "14.0.0-beta.0",
-      "description": "Migrates from @nrwl/workspace:run-script to nx:run-script",
+      "description": "Migrates from @nx/workspace:run-script to nx:run-script",
       "cli": "nx",
       "implementation": "./src/migrations/update-14-0-0/change-npm-script-executor",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "14-0-0-change-npm-script-executor"
     },
     {
@@ -173,15 +173,15 @@
       "description": "Explicitly enable sourceAnalysis for all workspaces extending from npm.json or core.json (this was default behavior prior to 14.2)",
       "cli": "nx",
       "implementation": "./src/migrations/update-14-2-0/enable-source-analysis",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "14-2-0-enable-source-analysis"
     },
     {
       "version": "14.8.0-beta.0",
-      "description": "Migrates from @nrwl/workspace:run-commands to nx:run-commands",
+      "description": "Migrates from @nx/workspace:run-commands to nx:run-commands",
       "cli": "nx",
       "implementation": "./src/migrations/update-14-8-0/change-run-commands-executor",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "14-8-0-change-run-commands-executor"
     },
     {
@@ -189,15 +189,15 @@
       "description": "Split global configuration files (e.g., workspace.json) into individual project.json files.",
       "cli": "nx",
       "implementation": "./src/migrations/update-15-7-0/split-configuration-into-project-json-files",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "15-7-0-split-configuration-into-project-json-files"
     },
     {
       "cli": "nx",
       "version": "16.0.0-beta.1",
-      "description": "Replace @nrwl/workspace with @nx/workspace",
+      "description": "Replace @nx/workspace with @nx/workspace",
       "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "update-16-0-0-add-nx-packages"
     },
     {
@@ -205,7 +205,7 @@
       "description": "Generates a plugin called 'workspace-plugin' containing your workspace generators.",
       "cli": "nx",
       "implementation": "./src/migrations/update-16-0-0/move-workspace-generators-to-local-plugin",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "16-0-0-move-workspace-generators-into-local-plugin"
     },
     {
@@ -213,7 +213,7 @@
       "description": "Fix .babelrc presets if it contains an invalid entry for @nx/web/babel.",
       "cli": "nx",
       "implementation": "./src/migrations/update-16-0-0/fix-invalid-babelrc",
-      "package": "@nrwl/workspace",
+      "package": "@nx/workspace",
       "name": "16-0-0-fix-invalid-babelrc"
     },
     {
