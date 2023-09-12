@@ -4,7 +4,7 @@ This project was generated using [Nx](https://nx.dev).
 
 ## Generate a library
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+Run `ng g @nx/angular:lib my-lib` to generate a library.
 
 > You can also use any of the plugins above to generate libraries as well.
 
