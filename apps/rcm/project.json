@@ -81,7 +81,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/rcm"],
+      "outputs": ["{workspaceRoot}/coverage/apps/rcm"],
       "options": {
         "jestConfig": "apps/rcm/jest.config.js",
         "passWithNoTests": true
