@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "rcm": "apps/rcm",
-    "rcm-e2e": "apps/rcm-e2e"
-  }
-}

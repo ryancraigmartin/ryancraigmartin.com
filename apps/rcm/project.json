@@ -1,6 +1,7 @@
 {
+  "name": "rcm",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/rcm",
   "sourceRoot": "apps/rcm/src",
   "prefix": "ryancraigmartin",
   "targets": {
@@ -14,10 +15,7 @@
         "polyfills": "apps/rcm/src/polyfills.ts",
         "tsConfig": "apps/rcm/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/rcm/src/favicon.ico",
-          "apps/rcm/src/assets"
-        ],
+        "assets": ["apps/rcm/src/favicon.ico", "apps/rcm/src/assets"],
         "styles": ["apps/rcm/src/styles.scss"],
         "scripts": []
       },
@@ -78,10 +76,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/rcm/src/**/*.ts",
-          "apps/rcm/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/rcm/src/**/*.ts", "apps/rcm/src/**/*.html"]
       }
     },
     "test": {

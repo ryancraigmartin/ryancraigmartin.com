@@ -1,5 +1,6 @@
 {
-  "root": "apps/rcm-e2e",
+  "name": "rcm-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/rcm-e2e/src",
   "projectType": "application",
   "targets": {
