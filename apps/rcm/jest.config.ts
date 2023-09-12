@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   displayName: 'rcm',
   preset: '../../jest.preset.js',
