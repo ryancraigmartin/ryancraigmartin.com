@@ -39,11 +39,14 @@
     },
     "e2e": {
       "inputs": ["default", "^production"]
+    },
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     }
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "sharedGlobals": [],
-    "production": ["default"]
+    "production": ["default", "!{projectRoot}/.eslintrc.json"]
   }
 }
