@@ -309,7 +309,7 @@
       "version": "14.1.9-beta.0",
       "description": "Adds @swc/core and @swc-node as a dev dep if you are using them",
       "factory": "./src/migrations/update-14-1-9/add-swc-deps-if-needed",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "add-swc-deps"
     },
     {
@@ -317,7 +317,7 @@
       "version": "14.2.3-beta.0",
       "description": "Adds @swc/core and @swc-node as a dev dep if you are using them (repeated due to prior mistake)",
       "factory": "./src/migrations/update-14-1-9/add-swc-deps-if-needed",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "add-swc-deps-again"
     },
     {
@@ -325,7 +325,7 @@
       "version": "14.4.4",
       "description": "Adds @typescript-eslint/utils as a dev dep",
       "factory": "./src/migrations/update-14-4-4/experimental-to-utils-deps",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "experimental-to-utils-deps"
     },
     {
@@ -333,7 +333,7 @@
       "version": "14.4.4",
       "description": "Switch from  @typescript-eslint/experimental-utils to @typescript-eslint/utils in all rules and rules.spec files",
       "factory": "./src/migrations/update-14-4-4/experimental-to-utils-rules",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "experimental-to-utils-rules"
     },
     {
@@ -341,7 +341,7 @@
       "version": "15.0.0-beta.0",
       "description": "Stop hashing eslint config files for build targets and dependent tasks",
       "factory": "./src/migrations/update-15-0-0/add-eslint-inputs",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "add-eslint-inputs"
     },
     {
@@ -349,22 +349,22 @@
       "version": "15.7.1-beta.0",
       "description": "Add node_modules to root eslint ignore",
       "factory": "./src/migrations/update-15-7-1/add-eslint-ignore",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "add-eslint-ignore"
     },
     {
       "cli": "nx",
       "version": "16.0.0-beta.1",
-      "description": "Replace @nrwl/linter with @nx/linter",
+      "description": "Replace @nx/linter with @nx/linter",
       "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "update-16-0-0-add-nx-packages"
     },
     {
       "version": "16.8.0",
       "description": "update-16-8-0-add-ignored-files",
       "implementation": "./src/migrations/update-16-8-0-add-ignored-files/update-16-8-0-add-ignored-files",
-      "package": "@nrwl/linter",
+      "package": "@nx/linter",
       "name": "update-16-8-0-add-ignored-files"
     },
     {

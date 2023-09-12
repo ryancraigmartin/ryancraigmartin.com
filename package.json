@@ -40,7 +40,6 @@
     "@nestjs/schematics": "10.0.2",
     "@nestjs/testing": "10.2.5",
     "@nrwl/jest": "16.8.1",
-    "@nrwl/linter": "16.8.1",
     "@nrwl/nest": "16.8.1",
     "@nrwl/node": "16.8.1",
     "@nx-extend/strapi": "^2.0.2",
@@ -62,6 +61,7 @@
     "nx": "16.8.1",
     "@nx/workspace": "16.8.1",
     "@nx/eslint-plugin": "16.8.1",
-    "@nx/cypress": "16.8.1"
+    "@nx/cypress": "16.8.1",
+    "@nx/linter": "16.8.1"
   }
 }
