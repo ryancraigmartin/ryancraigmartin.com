@@ -372,7 +372,7 @@
       "cli": "nx",
       "description": "Update move jest config files to .ts files.",
       "factory": "./src/migrations/update-14-0-0/update-jest-config-ext",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-jest-config-extensions"
     },
     {
@@ -380,7 +380,7 @@
       "cli": "nx",
       "description": "Update to export default in jest config and revert jest.preset.ts to jest.preset.js",
       "factory": "./src/migrations/update-14-1-5/update-exports-jest-config",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-to-export-default"
     },
     {
@@ -388,7 +388,7 @@
       "cli": "nx",
       "description": "Exclude jest.config.ts from tsconfig where missing.",
       "factory": "./src/migrations/update-14-0-0/update-jest-config-ext",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "exclude-jest-config-from-ts-config"
     },
     {
@@ -396,7 +396,7 @@
       "cli": "nx",
       "description": "Update jest configs to support jest 28 changes (https://jestjs.io/docs/upgrading-to-jest28#configuration-options)",
       "factory": "./src/migrations/update-14-6-0/update-configs-jest-28",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-configs-jest-28"
     },
     {
@@ -404,7 +404,7 @@
       "cli": "nx",
       "description": "Update jest test files to support jest 28 changes (https://jestjs.io/docs/upgrading-to-jest28)",
       "factory": "./src/migrations/update-14-6-0/update-tests-jest-28",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-tests-jest-28"
     },
     {
@@ -412,7 +412,7 @@
       "cli": "nx",
       "description": "Stop hashing jest spec files and config files for build targets and dependent tasks",
       "factory": "./src/migrations/update-15-0-0/add-jest-inputs",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "add-jest-inputs"
     },
     {
@@ -420,7 +420,7 @@
       "cli": "nx",
       "description": "Update jest configs to support jest 29 changes (https://jestjs.io/docs/upgrading-to-jest29)",
       "factory": "./src/migrations/update-15-8-0/update-configs-jest-29",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-configs-jest-29"
     },
     {
@@ -428,15 +428,15 @@
       "cli": "nx",
       "description": "Update jest test files to support jest 29 changes (https://jestjs.io/docs/upgrading-to-jest29)",
       "factory": "./src/migrations/update-15-8-0/update-tests-jest-29",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-tests-jest-29"
     },
     {
       "cli": "nx",
       "version": "16.0.0-beta.1",
-      "description": "Replace @nrwl/jest with @nx/jest",
+      "description": "Replace @nx/jest with @nx/jest",
       "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "update-16-0-0-add-nx-packages"
     },
     {
@@ -444,7 +444,7 @@
       "version": "16.5.0-beta.2",
       "description": "Add test-setup.ts to ignored files in production input",
       "implementation": "./src/migrations/update-16-5-0/add-test-setup-to-inputs-ignore",
-      "package": "@nrwl/jest",
+      "package": "@nx/jest",
       "name": "add-test-setup-to-inputs-ignore"
     },
     {
