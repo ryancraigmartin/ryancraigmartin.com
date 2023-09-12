@@ -45,7 +45,6 @@
     "@nrwl/linter": "16.8.1",
     "@nrwl/nest": "16.8.1",
     "@nrwl/node": "16.8.1",
-    "@nrwl/nx-cloud": "16.4.0",
     "@nrwl/tao": "16.8.1",
     "@nrwl/workspace": "16.8.1",
     "@nx-extend/strapi": "^2.0.2",
@@ -62,6 +61,7 @@
     "prettier": "2.8.8",
     "ts-jest": "29.1.1",
     "typescript": "5.1.6",
-    "jest-environment-jsdom": "28.1.3"
+    "jest-environment-jsdom": "28.1.3",
+    "nx-cloud": "16.4.0"
   }
 }
