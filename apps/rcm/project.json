@@ -83,8 +83,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/rcm"],
       "options": {
-        "jestConfig": "apps/rcm/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/rcm/jest.config.ts"
       }
     }
   },
