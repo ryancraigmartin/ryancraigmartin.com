@@ -13,17 +13,13 @@ body {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Sf Pro Text', sans-serif;
   margin: 0;
   padding: 3rem;
   width: 100wh;
   height: 100vh;
-  color: #fff;
-  background: linear-gradient(-45deg, #82aaff, #c386ec);
-  background-size: 400% 400%;
-  -webkit-animation: Gradient 8s ease infinite;
-  -moz-animation: Gradient 8s ease infinite;
-  animation: Gradient 8s ease infinite;
+  color: #1e2326;
+  background: #FFFBEF;
   display: grid;
   flex-direction: column;
 }

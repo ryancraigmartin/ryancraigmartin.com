@@ -3,7 +3,6 @@
     <img class="photo shake" [src]="profilePhoto" alt="Profile photo of Ryan Craig Martin" />
     <h1 class="profile_name">Ryan Craig Martin</h1>
     <!-- <h2 class="at">- @ryancraigmartin -</h2> -->
-    <div class="card">
       <p class="card-text">👋🏼</p>
       <p class="card-text">Thanks for stopping by!</p>
       <p class="card-text">Hope to connect soon!</p>
@@ -13,7 +12,7 @@
   <div class="links">
     <ul>
       <li class="shake" *ngFor="let link of links">
-        <a href="{{ link.url }}" class="link"> <i class="{{ link.icon }}"></i> {{ link.text }} </a>
+        <a [href]="link.url" class="link"> <i [class]="link.icon"></i> {{ link.text }} </a>
       </li>
     </ul>
   </div>
