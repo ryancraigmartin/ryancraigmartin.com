@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Atkinson+Hyperlegible:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 html,
 body {
@@ -13,13 +10,13 @@ body {
 }
 
 body {
-  font-family: 'Sf Pro Text', sans-serif;
+  font-family: 'Manrope', sans-serif;
   margin: 0;
   padding: 3rem;
   width: 100wh;
   height: 100vh;
   color: #1e2326;
-  background: #FFFBEF;
+  background: #fffbef;
   display: grid;
   flex-direction: column;
 }

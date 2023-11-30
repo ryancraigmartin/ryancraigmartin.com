@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-import { LinktreeComponent } from './analog-welcome.component';
+import { LinktreeComponent } from './linktree.component';
 
 @Component({
   selector: 'rcmdotcom-home',
   standalone: true,
   imports: [LinktreeComponent],
-  template: ` <rcmdotcom-analog-welcome /> `,
+  template: ` <rcmdotcom-linktree /> `,
 })
 export default class HomeComponent {}

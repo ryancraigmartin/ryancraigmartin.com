@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./links.component.scss'],
 })
 export class LinksComponent implements OnInit {
-  profilePhoto = '/assets/profile.png'
+  profilePhoto = 'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo.webp'
   links = [
     {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
