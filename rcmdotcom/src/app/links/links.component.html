@@ -1,0 +1,27 @@
+<div class="wrap">
+  <div class="profile">
+    <img class="photo shake" [src]="profilePhoto" alt="Profile photo of Ryan Craig Martin" />
+    <h1 class="profile_name">Ryan Craig Martin</h1>
+    <!-- <h2 class="at">- @ryancraigmartin -</h2> -->
+    <div class="card">
+      <p class="card-text">👋🏼</p>
+      <p class="card-text">Thanks for stopping by!</p>
+      <p class="card-text">Hope to connect soon!</p>
+    </div>
+  </div>
+
+  <div class="links">
+    <ul>
+      <li class="shake" *ngFor="let link of links">
+        <a href="{{ link.url }}" class="link"> <i class="{{ link.icon }}"></i> {{ link.text }} </a>
+      </li>
+    </ul>
+  </div>
+
+  <iframe class="calendly" src="https://calendly.com/ryancraigmartin" width="100%" height="950" scrolling="no"
+    frameBorder="0"></iframe>
+
+  <a href="https://github.com/ryancraigmartin" class="github-logo" role="link" alt="View this code on Github">
+    <i class="fab fa-github" alt="Github"></i>
+  </a>
+</div>

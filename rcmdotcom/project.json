@@ -1,0 +1,68 @@
+{
+  "name": "rcmdotcom",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "./rcmdotcom/src",
+  "targets": {
+    "build": {
+      "executor": "@analogjs/platform:vite",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/rcmdotcom/.nitro",
+        "{workspaceRoot}/dist/rcmdotcom/ssr",
+        "{workspaceRoot}/dist/rcmdotcom/analog"
+      ],
+      "options": {
+        "main": "rcmdotcom/src/main.ts",
+        "configFile": "rcmdotcom/vite.config.ts",
+        "outputPath": "dist/rcmdotcom/client",
+        "tsConfig": "rcmdotcom/tsconfig.app.json"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@analogjs/platform:vite-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "rcmdotcom:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "rcmdotcom:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "rcmdotcom:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "rcmdotcom:build"
+      }
+    },
+    "test": {
+      "executor": "@analogjs/platform:vitest",
+      "outputs": ["{projectRoot}/coverage"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./rcmdotcom/**/*.{ts,html}"]
+      }
+    }
+  },
+  "tags": []
+}
