@@ -27,39 +27,17 @@ h2 {
     max-height: 275px;
   }
   .profile-name {
-    color: #5e6e6e;
+    color: #4e5e6e;
     display: block;
     font-weight: bold;
-    margin-block-end: 0.5em;
-    margin-block-start: 0.5em;
+    margin-block-end: 0.25em;
+    margin-block-start: 0.25em;
     max-width: 31.25rem;
     place-self: center;
-    font-size: 32px
+    font-size: 32px;
   }
   .at {
     font-size: 1.1rem;
-  }
-  .card {
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-    place-content: center;
-    margin: 1rem;
-  }
-  .card h3 {
-    margin: 0;
-    color: #202024;
-  }
-
-  .card p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #202024;
-    display: flex;
-    flex-direction: column;
-    place-self: center;
   }
 }
 
@@ -185,5 +163,30 @@ h2 {
   display: flex;
   place-self: center;
   text-decoration: none;
-  margin-bottom: 0.625rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+h2 {
+  display: block;
+  min-width: 25rem;
+  color: #4e5e6e;
+  font-size: 1rem;
+  a,
+  a:link {
+    color: #144e5a;
+    text-decoration: none;
+    background-position-y: -0%;
+    background-image: linear-gradient(#fffbef 50%, #e3eeee 50%);
+    transition: background 500ms ease;
+    background-size: 2px;
+    background-size: auto 175%;
+  }
+
+  a:hover {
+    background-position-y: 100%;
+  }
 }
