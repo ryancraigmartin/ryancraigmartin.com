@@ -1,15 +1,16 @@
-import { CommonModule } from '@angular/common'
+import { CommonModule, NgOptimizedImage } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'rcmdotcom-links',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss'],
 })
-export class LinksComponent implements OnInit {
-  profilePhoto = 'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo.webp'
+export class LinksComponent {
+  profilePhoto =
+    'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo.webp'
   links = [
     {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
@@ -62,7 +63,4 @@ export class LinksComponent implements OnInit {
     //   text: 'Subscribe on YouTube',
     // },
   ]
-  constructor() {}
-
-  ngOnInit(): void {}
 }
