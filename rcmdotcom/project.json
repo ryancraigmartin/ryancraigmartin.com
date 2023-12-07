@@ -16,7 +16,12 @@
         "main": "rcmdotcom/src/main.ts",
         "configFile": "rcmdotcom/vite.config.ts",
         "outputPath": "dist/rcmdotcom/client",
-        "tsConfig": "rcmdotcom/tsconfig.app.json"
+        "tsConfig": "rcmdotcom/tsconfig.app.json",
+        "assets": [
+          "@sommset/ui-web/src/favicon.ico",
+          "@sommset/ui-web/src/robots.txt",
+          "@sommset/ui-web/src/sitemap.xml"
+        ]
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -54,13 +59,19 @@
     },
     "test": {
       "executor": "@analogjs/platform:vitest",
-      "outputs": ["{projectRoot}/coverage"]
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["./rcmdotcom/**/*.{ts,html}"]
+        "lintFilePatterns": [
+          "./rcmdotcom/**/*.{ts,html}"
+        ]
       }
     }
   },
