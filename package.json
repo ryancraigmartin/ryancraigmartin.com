@@ -1,13 +1,12 @@
 {
-  "name": "@ryancraigmartin.com/source",
-  "version": "0.0.0",
+  "name": "ryancraigmartin.com",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start": "nx serve rcmdotcom",
     "build": "nx build rcmdotcom",
     "ulh": "npx unlighthouse@latest --site https://ryancraigmartin.com"
   },
-  "private": true,
   "dependencies": {
     "@analogjs/content": "0.2.22",
     "@analogjs/router": "0.2.22",
