@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core'
 })
 export class LinksComponent {
   profilePhoto =
-    'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo.webp'
+    'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo'
   links = [
     {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
