@@ -3,6 +3,7 @@
 
 # dependencies
 .history
+.unlighthouse
 .nx
 /node_modules
 /.pnp
