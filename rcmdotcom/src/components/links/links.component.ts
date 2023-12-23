@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common'
+import { CommonModule, NgOptimizedImage, provideCloudinaryLoader } from '@angular/common'
 import { Component } from '@angular/core'
 
 @Component({
@@ -7,39 +7,41 @@ import { Component } from '@angular/core'
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss'],
+  providers: [provideCloudinaryLoader('https://res.cloudinary.com/ryan-martin')],
 })
 export class LinksComponent {
-  profilePhoto =
-    'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo'
+  baseWhiteIconAssetUrl = 'https://res.cloudinary.com/ryan-martin/image/upload/icons/'
+  profilePhoto = 'https://res.cloudinary.com/ryan-martin/image/upload/ryan-martin-profile-photo'
   links = [
     {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
-      icon: 'fab fa-linkedin',
+      icon: this.baseWhiteIconAssetUrl + 'linkedin-icon-white.svg',
       text: 'LinkedIn',
     },
     {
       url: 'https://www.instagram.com/ryancraigmartin',
-      icon: 'fab fa-instagram',
+      icon: this.baseWhiteIconAssetUrl + 'instagram-icon-white.svg',
       text: 'Instagram',
     },
     {
       url: 'https://www.twitter.com/ryancraigmartin',
-      icon: 'fab fa-twitter',
+      // icon: this.baseWhiteIconAssetUrl + 'x-twitter-icon-white.svg',
+      icon: 'https://res.cloudinary.com/ryan-martin/image/upload/v1703354823/icons/x-twitter-icon-white.svg',
       text: 'Twitter',
     },
     {
       url: 'https://github.com/ryancraigmartin',
-      icon: 'fab fa-github',
+      icon: this.baseWhiteIconAssetUrl + 'github-icon-white.svg',
       text: 'GitHub',
     },
     {
       url: 'https://open.spotify.com/playlist/1jzF8m0S75XQB5mPtq6Q7f?si=585cb45b69764772',
-      icon: 'fas fa-headphones-alt',
+      icon: this.baseWhiteIconAssetUrl + 'headphones-icon-white.svg',
       text: 'Discover New Music',
     },
     {
       url: 'mailto:contact@ryanmartin.io',
-      icon: 'far fa-envelope',
+      icon: this.baseWhiteIconAssetUrl + 'envelope-icon-white.svg',
       text: 'Email Me',
     },
     // {
