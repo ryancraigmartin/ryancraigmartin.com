@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve rcmdotcom",
-    "build": "nx build rcmdotcom"
+    "build": "nx build rcmdotcom",
+    "ulh": "npx unlighthouse@latest --site https://ryancraigmartin.com"
   },
   "private": true,
   "dependencies": {
