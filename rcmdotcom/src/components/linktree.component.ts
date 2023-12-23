@@ -1,5 +1,6 @@
-import { LinksComponent } from '../links/links.component'
 import { Component } from '@angular/core'
+
+import { LinksComponent } from './links/links.component'
 
 @Component({
   selector: 'rcmdotcom-linktree',

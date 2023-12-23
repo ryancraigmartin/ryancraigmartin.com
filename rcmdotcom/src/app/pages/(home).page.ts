@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
-import { LinktreeComponent } from './linktree.component';
+import { LinktreeComponent } from '../../components/linktree.component'
 
 @Component({
   selector: 'rcmdotcom-home',

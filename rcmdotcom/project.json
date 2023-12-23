@@ -59,19 +59,13 @@
     },
     "test": {
       "executor": "@analogjs/platform:vitest",
-      "outputs": [
-        "{projectRoot}/coverage"
-      ]
+      "outputs": ["{projectRoot}/coverage"]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "./rcmdotcom/**/*.{ts,html}"
-        ]
+        "lintFilePatterns": ["./rcmdotcom/**/*.{ts,html}"]
       }
     }
   },

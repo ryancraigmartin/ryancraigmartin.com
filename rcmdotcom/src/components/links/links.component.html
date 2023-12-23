@@ -1,0 +1,63 @@
+<div class="wrap">
+  <div class="profile">
+    <img
+      class="photo shake"
+      [ngSrc]="profilePhoto"
+      [height]="275"
+      [width]="275"
+      priority
+      alt="Profile photo of Ryan Craig Martin"
+    />
+    <h1 class="profile-name">Ryan Craig Martin</h1>
+    <h2>
+      Engineering Program Manager building <a href="https://www.sommsation.com/">Sommsation</a> 🍷
+    </h2>
+  </div>
+
+  <div class="links">
+    <ul>
+      @for (link of links; track link.url;) {
+      <li class="shake">
+        <a [href]="link.url" class="link"><i [class]="link.icon"></i> {{ link.text }} </a>
+      </li>
+      }
+    </ul>
+  </div>
+
+  <iframe
+    title="calendly"
+    class="calendly"
+    src="https://calendly.com/ryancraigmartin"
+    width="100%"
+    height="950"
+    scrolling="no"
+    frameBorder="0"
+    loading="lazy"
+  ></iframe>
+
+  <iframe
+    title="Spotify Now Playing"
+    width="100%"
+    height="450"
+    src="https://spotify-github-profile.vercel.app/api/view?uid=1230181600&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=true&bar_color=03a157&bar_color_cover=true"
+    frameborder="0"
+    loading="lazy"
+  ></iframe>
+
+  <a href="https://angular.dev/">
+    <p style="display: flex; align-items: center; gap: 20px; margin-top: 2rem">
+      Built with
+      <img ngSrc="assets/angular.svg" [height]="200" [width]="250" alt="Angular Logo" />
+    </p>
+  </a>
+
+  <a
+    href="https://github.com/ryancraigmartin"
+    class="github-logo"
+    role="link"
+    alt="View this code on Github"
+    title="Github"
+  >
+    <i class="fab fa-github" alt="Github"></i>
+  </a>
+</div>
