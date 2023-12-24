@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve rcmdotcom",
     "build": "nx build rcmdotcom",
-    "ulh": "npx unlighthouse@latest --site https://ryancraigmartin.com"
+    "ulh": "npx unlighthouse@latest --site https://ryancraigmartin.com",
+    "pretty": "npx prettier@latest -w *"
+
   },
   "dependencies": {
     "@analogjs/content": "0.2.22",

@@ -1,7 +1,7 @@
 import { MarkdownComponent, injectContent } from '@analogjs/content'
 import { AsyncPipe, NgIf } from '@angular/common'
 import { Component } from '@angular/core'
-import { BlogPost } from '../../post'
+import { BlogPost } from '../../BlogPost.types'
 
 @Component({
   standalone: true,
@@ -9,7 +9,7 @@ import { BlogPost } from '../../post'
   template: `
     <div *ngIf="post$ | async as post">
       <h1>{{ post.attributes.title }}</h1>
-      <br>
+      <br />
       <analog-markdown [content]="post.content" />
     </div>
   `,

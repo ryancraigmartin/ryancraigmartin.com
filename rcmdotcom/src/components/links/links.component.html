@@ -16,10 +16,10 @@
 
   <div class="links">
     <ul>
-      @for (link of links; track link.url;) {
-      <li class="shake">
-        <a [href]="link.url" class="link"><i [class]="link.icon"></i> {{ link.text }} </a>
-      </li>
+      @for (link of links; track link.url) {
+        <li class="shake">
+          <a [href]="link.url" class="link"><i [class]="link.icon"></i> {{ link.text }} </a>
+        </li>
       }
     </ul>
   </div>
