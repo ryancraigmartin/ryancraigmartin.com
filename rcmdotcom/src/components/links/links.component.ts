@@ -11,8 +11,6 @@ import { Component } from '@angular/core'
 export class LinksComponent {
   profilePhoto =
     'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo'
-  angularLogo =
-    'https://res.cloudinary.com/ryan-martin/image/upload/q_auto/icons/angular-logo-full.svg'
   links = [
     {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
