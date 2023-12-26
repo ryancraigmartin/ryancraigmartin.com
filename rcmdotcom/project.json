@@ -65,7 +65,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["./rcmdotcom/**/*.{ts,html}"]
+        "lintFilePatterns": ["rcmdotcom", "./rcmdotcom/**/*.{ts,html}"]
       }
     }
   },
