@@ -55,7 +55,7 @@
     "@typescript-eslint/eslint-plugin": "7.10.0",
     "@typescript-eslint/parser": "7.10.0",
     "autoprefixer": "^10.4.0",
-    "cypress": "^13.0.0",
+    "cypress": "^13.6.6",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "jsdom": "^22.0.0",
