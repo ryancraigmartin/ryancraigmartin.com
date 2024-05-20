@@ -3,8 +3,13 @@
   "targetDefaults": {
     "build": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "@nx/eslint:lint": {
       "cache": true,
@@ -17,8 +22,15 @@
     }
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": ["default", "!{projectRoot}/.eslintrc.json", "!{projectRoot}/eslint.config.js"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js"
+    ],
     "sharedGlobals": []
   },
   "generators": {
@@ -36,5 +48,6 @@
       "style": "css"
     }
   },
-  "nxCloudAccessToken": "YjI0ZDc0YWUtN2U4Yi00MWU5LTkxN2UtMzdkMzdmZmUwZTQxfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "YjI0ZDc0YWUtN2U4Yi00MWU5LTkxN2UtMzdkMzdmZmUwZTQxfHJlYWQtd3JpdGU=",
+  "useInferencePlugins": false
 }
