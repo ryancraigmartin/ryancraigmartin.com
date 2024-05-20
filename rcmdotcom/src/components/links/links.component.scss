@@ -127,17 +127,28 @@ h2 {
 }
 
 @keyframes shake-animation {
-  0% {
-    transform: translate(0, 0) rotate(0) scale(1);
-  }
-  40% {
-    transform: translate(-7px, 0) rotate(-7deg) scale(0.7);
-  }
-  70% {
-    transform: translate(0px, 0) rotate(0deg) scale(0.7);
-  }
+  0%,
   100% {
-    transform: translate(0, 0) rotate(0) scale(1);
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  10%,
+  90% {
+    transform: translate(-2px, 0) rotate(-2deg) scale(1.02);
+  }
+  20%,
+  80% {
+    transform: translate(2px, 0) rotate(2deg) scale(0.98);
+  }
+  30%,
+  70% {
+    transform: translate(-3px, 0) rotate(-3deg) scale(1.03);
+  }
+  40%,
+  60% {
+    transform: translate(3px, 0) rotate(3deg) scale(0.97);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
 }
 
