@@ -1,7 +1,7 @@
 <div class="wrap">
   <div class="profile">
     <img
-      class="photo shake"
+      class="photo"
       [ngSrc]="profilePhoto"
       [height]="275"
       [width]="275"
@@ -17,8 +17,10 @@
   <div class="links">
     <ul>
       @for (link of links; track link.url) {
-      <li class="shake">
-        <a [href]="link.url" class="link"><i [class]="link.icon"></i> {{ link.text }} </a>
+      <li>
+        <ul>
+          <a [href]="link.url" class="link"><i [class]="link.icon"></i> {{ link.text }} </a>
+        </ul>
       </li>
       }
     </ul>

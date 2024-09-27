@@ -119,39 +119,6 @@ h2 {
   }
 }
 
-.shake {
-  :hover {
-    animation: shake-animation 1.72s ease infinite;
-    transform-origin: 50% 50%;
-  }
-}
-
-@keyframes shake-animation {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  10%,
-  90% {
-    transform: translate(-2px, 0) rotate(-2deg) scale(1.02);
-  }
-  20%,
-  80% {
-    transform: translate(2px, 0) rotate(2deg) scale(0.98);
-  }
-  30%,
-  70% {
-    transform: translate(-3px, 0) rotate(-3deg) scale(1.03);
-  }
-  40%,
-  60% {
-    transform: translate(3px, 0) rotate(3deg) scale(0.97);
-  }
-  50% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-}
-
 .calendly {
   max-height: 400px;
   border-radius: 10%;
