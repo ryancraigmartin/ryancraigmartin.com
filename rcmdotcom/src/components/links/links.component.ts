@@ -16,31 +16,37 @@ export class LinksComponent {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
       icon: 'fab fa-linkedin',
       text: 'LinkedIn',
-    },
-    {
-      url: 'https://www.instagram.com/ryancraigmartin',
-      icon: 'fab fa-instagram',
-      text: 'Instagram',
-    },
-    {
-      url: 'https://www.twitter.com/ryancraigmartin',
-      icon: 'fab fa-twitter',
-      text: 'Twitter',
+      color: '#0077B5', // LinkedIn Blue
     },
     {
       url: 'https://github.com/ryancraigmartin',
       icon: 'fab fa-github',
       text: 'GitHub',
+      color: '#333', // GitHub Dark Gray
+    },
+    {
+      url: 'https://www.twitter.com/ryancraigmartin',
+      icon: 'fab fa-twitter',
+      text: 'Twitter',
+      color: '#1DA1F2', // Twitter Blue
+    },
+    {
+      url: 'https://www.instagram.com/ryancraigmartin',
+      icon: 'fab fa-instagram',
+      text: 'Instagram',
+      color: '#E1306C', // Instagram Pink
     },
     {
       url: 'https://open.spotify.com/playlist/1jzF8m0S75XQB5mPtq6Q7f?si=585cb45b69764772',
       icon: 'fas fa-headphones-alt',
       text: 'Discover New Music',
+      color: '#1DB954', // Spotify Green
     },
     {
       url: 'mailto:contact@ryanmartin.io',
       icon: 'far fa-envelope',
       text: 'Email Me',
+      color: '#FFB400', // Custom Yellow
     },
     // {
     //   url: 'https://ryanmartin-resume.netlify.app',

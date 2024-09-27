@@ -19,7 +19,9 @@
       @for (link of links; track link.url) {
       <li>
         <ul>
-          <a [href]="link.url" class="link"><i [class]="link.icon"></i> {{ link.text }} </a>
+          <a [href]="link.url" class="link" [ngStyle]="{ 'background-color': link.color }"
+            ><i [class]="link.icon"></i> {{ link.text }}
+          </a>
         </ul>
       </li>
       }
