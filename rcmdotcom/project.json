@@ -2,11 +2,19 @@
   "name": "rcmdotcom",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "./rcmdotcom/src",
-  "tags": [],
   "targets": {
     "build": {
       "executor": "@analogjs/platform:vite",
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      },
       "outputs": [
         "{options.outputPath}",
         "{workspaceRoot}/dist/rcmdotcom/.nitro",
@@ -52,21 +60,11 @@
         }
       }
     },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "browserTarget": "rcmdotcom:build"
-      }
-    },
     "test": {
-      "executor": "@analogjs/platform:vitest",
+      "executor": "@analogjs/vitest-angular:test",
       "outputs": ["{projectRoot}/coverage"]
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["./rcmdotcom/**/*.{ts,html}"]
-      }
     }
-  }
+  },
+  "tags": [],
+  "sourceRoot": "./rcmdotcom/src"
 }

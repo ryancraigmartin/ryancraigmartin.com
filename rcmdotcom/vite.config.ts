@@ -7,10 +7,18 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    publicDir: 'src/public',
+    root: __dirname,
+    cacheDir: `../node_modules/.vite`,
 
     build: {
+      outDir: '../dist/./rcmdotcom/client',
+      reportCompressedSize: true,
       target: ['es2020'],
+    },
+    server: {
+      fs: {
+        allow: ['.'],
+      },
     },
     plugins: [analog(), nxViteTsPaths(), splitVendorChunkPlugin()],
     test: {
@@ -18,9 +26,7 @@ export default defineConfig(({ mode }) => {
       environment: 'jsdom',
       setupFiles: ['src/test-setup.ts'],
       include: ['**/*.spec.ts'],
-      cache: {
-        dir: `../node_modules/.vitest`,
-      },
+      reporters: ['default'],
     },
     define: {
       'import.meta.vitest': mode !== 'production',
