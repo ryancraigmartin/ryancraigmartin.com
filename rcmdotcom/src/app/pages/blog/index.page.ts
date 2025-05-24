@@ -5,9 +5,8 @@ import { RouterLink } from '@angular/router'
 import { BlogPost } from '../../BlogPost.types'
 
 @Component({
-  standalone: true,
-  imports: [NgFor, RouterLink, AsyncPipe],
-  template: `
+    imports: [NgFor, RouterLink, AsyncPipe],
+    template: `
     <h2>Recent Posts:</h2>
     <br />
     <ul>
@@ -17,7 +16,7 @@ import { BlogPost } from '../../BlogPost.types'
         </li>
       }
     </ul>
-  `,
+  `
 })
 export default class IndexPage {
   posts = injectContentFiles<BlogPost>()

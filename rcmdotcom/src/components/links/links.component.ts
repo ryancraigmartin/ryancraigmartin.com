@@ -2,11 +2,10 @@ import { CommonModule, NgOptimizedImage } from '@angular/common'
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'rcmdotcom-links',
-  standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
-  templateUrl: './links.component.html',
-  styleUrls: ['./links.component.scss'],
+    selector: 'rcmdotcom-links',
+    imports: [CommonModule, NgOptimizedImage],
+    templateUrl: './links.component.html',
+    styleUrls: ['./links.component.scss']
 })
 export class LinksComponent {
   profilePhoto =

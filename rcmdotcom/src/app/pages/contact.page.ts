@@ -2,9 +2,8 @@ import { Component } from '@angular/core'
 import { FooterComponent } from '../../components/footer.component';
 
 @Component({
-  standalone: true,
-  imports: [FooterComponent],
-  template: `
+    imports: [FooterComponent],
+    template: `
     <div class="flex w-full min-h-screen justify-center items-center">
       <div
         class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-primary-parchment w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden"
@@ -161,7 +160,7 @@ import { FooterComponent } from '../../components/footer.component';
       </div>
     </div>
     <rcmdotcom-footer />
-  `,
+  `
 })
 export default class ContactPage {
   // posts = injectContentFiles<BlogPost>()
