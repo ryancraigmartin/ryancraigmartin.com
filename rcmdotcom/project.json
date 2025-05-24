@@ -1,20 +1,13 @@
 {
   "name": "rcmdotcom",
+  "sourceRoot": "rcmdotcom/src",
+  "tags": [],
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@analogjs/platform:vite",
       "defaultConfiguration": "production",
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "sourcemap": false,
-          "mode": "production"
-        }
-      },
       "outputs": [
         "{options.outputPath}",
         "{workspaceRoot}/dist/rcmdotcom/.nitro",
@@ -27,12 +20,11 @@
         "outputPath": "dist/rcmdotcom/client",
         "tsConfig": "rcmdotcom/tsconfig.app.json",
         "assets": [
-          "@sommset/ui-web/src/favicon.ico",
-          "@sommset/ui-web/src/robots.txt",
-          "@sommset/ui-web/src/sitemap.xml"
+          "{projectRoot}/favicon.ico",
+          "{projectRoot}/robots.txt",
+          "{projectRoot}/sitemap.xml"
         ]
       },
-      "defaultConfiguration": "production",
       "configurations": {
         "development": {
           "mode": "development"
@@ -64,7 +56,5 @@
       "executor": "@analogjs/vitest-angular:test",
       "outputs": ["{projectRoot}/coverage"]
     }
-  },
-  "tags": [],
-  "sourceRoot": "./rcmdotcom/src"
+  }
 }
