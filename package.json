@@ -6,7 +6,8 @@
     "start": "nx serve rcmdotcom",
     "build": "nx build rcmdotcom",
     "ulh": "npx unlighthouse@latest --site https://ryancraigmartin.com",
-    "pretty": "npx prettier@latest -w *"
+    "pretty": "npx prettier@latest -w *",
+    "pb:serve": "./pocketbase serve"
   },
   "dependencies": {
     "@analogjs/content": "1.14.1",
@@ -29,6 +30,7 @@
     "marked-highlight": "^2.0.1",
     "marked-mangle": "^1.1.7",
     "mermaid": "^11.6.0",
+    "pocketbase": "^0.26.0",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.4.0",
