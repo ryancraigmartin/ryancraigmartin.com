@@ -336,6 +336,45 @@ import { InputComponent } from '../../../components/ui/input.component'
     `
       .blog-listing-container {
         @apply min-h-screen bg-primary-white;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .hero-content {
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .blog-stats .stat {
+        animation: bounceIn 0.6s ease-out;
+        animation-fill-mode: both;
+      }
+
+      .blog-stats .stat:nth-child(1) { animation-delay: 0.2s; }
+      .blog-stats .stat:nth-child(2) { animation-delay: 0.4s; }
+      .blog-stats .stat:nth-child(3) { animation-delay: 0.6s; }
+
+      @keyframes bounceIn {
+        0% { opacity: 0; transform: scale(0.3); }
+        50% { opacity: 1; transform: scale(1.05); }
+        70% { transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+
+      .filter-tags ui-button {
+        @apply transition-all duration-200;
+      }
+
+      .filter-tags ui-button:hover {
+        @apply transform scale-105 shadow-medium;
       }
 
       /* Header Section */

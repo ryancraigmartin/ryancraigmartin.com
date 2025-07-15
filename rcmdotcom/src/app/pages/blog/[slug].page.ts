@@ -315,8 +315,63 @@ import { StructuredDataService } from '../../services/structured-data.service'
   `,
   styles: [
     `
+      /* Enhanced animation effects */
       .blog-post-container {
         @apply min-h-screen bg-primary-white;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .content-sections :deep(.prose h2) {
+        @apply text-3xl mt-12 mb-6 pb-3 border-b-2 border-primary-green/20;
+        animation: slideInLeft 0.6s ease-out;
+      }
+
+      .content-sections :deep(.prose h2)::before {
+        content: counter(section-counter);
+        counter-increment: section-counter;
+        @apply inline-flex items-center justify-center w-8 h-8 bg-primary-green text-primary-white rounded-full text-sm font-bold mr-4;
+        animation: bounceIn 0.8s ease-out;
+      }
+
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      @keyframes bounceIn {
+        0% { opacity: 0; transform: scale(0.3); }
+        50% { opacity: 1; transform: scale(1.05); }
+        70% { transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+
+      /* Staggered animation for action modules */
+      ui-action-module {
+        animation: slideUp 0.6s ease-out;
+        animation-fill-mode: both;
+      }
+
+      ui-action-module:nth-child(1) { animation-delay: 0.1s; }
+      ui-action-module:nth-child(2) { animation-delay: 0.2s; }
+      ui-action-module:nth-child(3) { animation-delay: 0.3s; }
+
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Hover effects for interactive elements */
+      .takeaway-list li {
+        @apply transition-all duration-200;
+      }
+
+      .takeaway-list li:hover {
+        @apply transform translate-x-2 text-primary-green;
       }
 
       /* Hero Section */
@@ -398,6 +453,7 @@ import { StructuredDataService } from '../../services/structured-data.service'
       .content-sections :deep(.prose) {
         @apply max-w-none;
         color: #374151;
+        line-height: 1.8;
       }
 
       .content-sections :deep(.prose h1),
@@ -412,6 +468,16 @@ import { StructuredDataService } from '../../services/structured-data.service'
 
       .content-sections :deep(.prose h2) {
         @apply text-3xl mt-12 mb-6 pb-3 border-b-2 border-primary-green/20;
+      }
+
+      .content-sections :deep(.prose h2)::before {
+        content: counter(section-counter);
+        counter-increment: section-counter;
+        @apply inline-flex items-center justify-center w-8 h-8 bg-primary-green text-primary-white rounded-full text-sm font-bold mr-4;
+      }
+
+      .content-sections :deep(.prose) {
+        counter-reset: section-counter;
       }
 
       .content-sections :deep(.prose h3) {
@@ -436,7 +502,13 @@ import { StructuredDataService } from '../../services/structured-data.service'
       }
 
       .content-sections :deep(.prose pre) {
-        @apply bg-primary-800 text-primary-white p-6 rounded-xl overflow-x-auto my-8;
+        @apply bg-primary-800 text-primary-white p-6 rounded-xl overflow-x-auto my-8 shadow-medium;
+        position: relative;
+      }
+
+      .content-sections :deep(.prose pre)::before {
+        content: '💻';
+        @apply absolute top-4 right-4 text-lg opacity-60;
       }
 
       .content-sections :deep(.prose pre code) {
@@ -444,7 +516,13 @@ import { StructuredDataService } from '../../services/structured-data.service'
       }
 
       .content-sections :deep(.prose blockquote) {
-        @apply border-l-4 border-primary-green bg-primary-green/5 pl-6 py-4 my-8 text-lg italic;
+        @apply border-l-4 border-primary-green bg-primary-green/5 pl-6 py-4 my-8 text-lg italic rounded-r-lg;
+        position: relative;
+      }
+
+      .content-sections :deep(.prose blockquote)::before {
+        content: '"';
+        @apply absolute -left-2 -top-2 text-4xl text-primary-green font-bold opacity-50;
       }
 
       .content-sections :deep(.prose ul),
@@ -456,8 +534,27 @@ import { StructuredDataService } from '../../services/structured-data.service'
         @apply mb-2 leading-relaxed;
       }
 
+      .content-sections :deep(.prose ul li)::marker {
+        content: '▸';
+        color: #4ca179;
+        font-weight: bold;
+      }
+
+      .content-sections :deep(.prose ol li)::marker {
+        color: #4ca179;
+        font-weight: bold;
+      }
+
       .content-sections :deep(.prose img) {
         @apply rounded-xl shadow-medium my-8;
+      }
+
+      .content-sections :deep(.prose strong) {
+        @apply text-primary-800 font-bold;
+      }
+
+      .content-sections :deep(.prose em) {
+        @apply text-primary-green-dark;
       }
 
       /* Action Module Enhancements */
