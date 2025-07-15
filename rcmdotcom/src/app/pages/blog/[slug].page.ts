@@ -9,191 +9,304 @@ import { BlogPost } from '../../models/BlogPost.interface'
 import { ButtonComponent } from '../../../components/ui/button.component'
 import { CardComponent } from '../../../components/ui/card.component'
 import { BadgeComponent } from '../../../components/ui/badge.component'
+import { CalloutComponent } from '../../../components/ui/callout.component'
+import { ActionModuleComponent } from '../../../components/ui/action-module.component'
+import { TableOfContentsComponent } from '../../../components/ui/table-of-contents.component'
+import { SectionNumberComponent } from '../../../components/ui/section-number.component'
 import { StructuredDataService } from '../../services/structured-data.service'
 
 @Component({
   standalone: true,
-  imports: [CommonModule, NgIf, FormsModule, DatePipe, RouterLink, ButtonComponent, CardComponent, BadgeComponent],
+  imports: [CommonModule, NgIf, FormsModule, DatePipe, RouterLink, ButtonComponent, CardComponent, BadgeComponent, CalloutComponent, ActionModuleComponent, TableOfContentsComponent, SectionNumberComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <div class="min-h-screen bg-gradient-primary" *ngIf="post()">
-      <!-- Hero Section -->
-      <div class="relative h-96 overflow-hidden">
-        <img 
-          [src]="post()?.cardImage || 'https://picsum.photos/1200/400'" 
-          [alt]="post()?.title"
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary-900/80 to-transparent"></div>
-        <div class="absolute inset-0 flex items-end">
-          <div class="container-main pb-12">
-            <div class="flex flex-wrap gap-2 mb-4">
-              @for(tag of post()?.tags?.slice(0, 3); track tag) {
-              <ui-badge variant="primary">
+    <div class="blog-post-container" *ngIf="post()">
+      <!-- Minimal Hero Section -->
+      <div class="hero-section">
+        <div class="container-main">
+          <!-- Breadcrumb Navigation -->
+          <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol class="breadcrumb-list">
+              <li><a routerLink="/" class="breadcrumb-link">Home</a></li>
+              <li><a routerLink="/blog" class="breadcrumb-link">Blog</a></li>
+              <li class="breadcrumb-current">{{ post()?.title }}</li>
+            </ol>
+          </nav>
+
+          <!-- Article Header -->
+          <header class="article-header">
+            <div class="article-meta">
+              <time [dateTime]="post()?.date" class="article-date">
+                {{ post()?.date | date : 'longDate' }}
+              </time>
+              <span class="reading-time">{{ readingTime() }} min read</span>
+            </div>
+            
+            <h1 class="article-title">{{ post()?.title }}</h1>
+            
+            <div class="article-excerpt" *ngIf="post()?.excerpt">
+              <p>{{ post()?.excerpt }}</p>
+            </div>
+
+            <div class="article-tags" *ngIf="post()?.tags?.length">
+              <ui-badge 
+                *ngFor="let tag of post()?.tags; track tag" 
+                variant="default"
+                size="sm"
+              >
                 {{ tag }}
               </ui-badge>
-              }
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-primary-white mb-4 text-balance">
-              {{ post()?.title }}
-            </h1>
-            <div class="flex items-center gap-4 text-primary-white/80">
-              <span>{{ post()?.date | date : 'longDate' }}</span>
-              <span>•</span>
-              <span>{{ readingTime() }} min read</span>
-            </div>
-          </div>
+          </header>
         </div>
       </div>
 
-      <!-- Content Section -->
-      <div class="container-main py-12">
-        <div class="max-w-4xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
-            <!-- Main Content -->
-            <article class="lg:col-span-3">
-              <ui-card [padding]="false" class="overflow-visible">
-                <div class="prose prose-lg max-w-none p-8">
-                  <analog-markdown [content]="post()?.content"></analog-markdown>
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <div class="container-main">
+          <div class="content-grid">
+            
+            <!-- Article Content -->
+            <main class="article-main">
+              
+              <!-- Introduction Callout -->
+              <ui-callout variant="tip" title="What You'll Learn">
+                This comprehensive guide covers the essential concepts and best practices 
+                for the topic discussed. Each section builds upon the previous one, 
+                providing you with actionable insights and practical knowledge.
+              </ui-callout>
+
+              <!-- Dynamic Content Sections -->
+              <div class="content-sections">
+                <analog-markdown [content]="post()?.content"></analog-markdown>
+              </div>
+
+              <!-- Key Takeaways Module -->
+              <ui-action-module 
+                variant="success" 
+                [icon]="true"
+                title="Key Takeaways"
+                description="Here are the most important points to remember from this article:"
+                class="mb-8"
+              >
+                <svg slot="icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                
+                <ul class="takeaway-list">
+                  <li>Modern architecture patterns enable scalable applications</li>
+                  <li>Performance optimization should be considered from the start</li>
+                  <li>Proper testing strategies reduce bugs and improve reliability</li>
+                  <li>Continuous learning and adaptation are essential for success</li>
+                </ul>
+              </ui-action-module>
+
+              <!-- Next Steps Action Module -->
+              <ui-action-module 
+                variant="primary" 
+                [icon]="true"
+                title="Ready to Get Started?"
+                description="Take the next step in your journey with these recommended actions:"
+                ctaText="Explore More Articles"
+                (ctaClick)="navigateToRelatedPosts()"
+                class="mb-8"
+              >
+                <svg slot="icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                
+                <div class="next-steps-grid">
+                  <div class="next-step">
+                    <h4>Practice</h4>
+                    <p>Apply these concepts in your own projects</p>
+                  </div>
+                  <div class="next-step">
+                    <h4>Learn More</h4>
+                    <p>Explore related topics and advanced techniques</p>
+                  </div>
+                  <div class="next-step">
+                    <h4>Share</h4>
+                    <p>Discuss your insights with the community</p>
+                  </div>
                 </div>
-              </ui-card>
+              </ui-action-module>
 
               <!-- Share Section -->
-              <div class="mt-8">
-                <ui-card>
-                  <div class="flex items-center justify-between">
-                    <h3 class="text-lg font-semibold text-primary-800">Share this post</h3>
-                    <div class="flex gap-3">
-                      <ui-button 
-                        variant="ghost" 
-                        size="sm"
-                        (onClick)="shareToTwitter()"
-                      >
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
-                        </svg>
-                        Twitter
-                      </ui-button>
-                      <ui-button 
-                        variant="ghost" 
-                        size="sm"
-                        (onClick)="shareToLinkedIn()"
-                      >
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                        </svg>
-                        LinkedIn
-                      </ui-button>
-                      <ui-button 
-                        variant="ghost" 
-                        size="sm"
-                        (onClick)="copyToClipboard()"
-                      >
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-                        </svg>
-                        Copy Link
-                      </ui-button>
-                    </div>
-                  </div>
-                </ui-card>
-              </div>
+              <ui-action-module 
+                variant="secondary" 
+                [icon]="true"
+                title="Share This Article"
+                description="Found this helpful? Share it with others who might benefit too."
+                class="mb-8"
+              >
+                <svg slot="icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                </svg>
+                
+                <div class="share-buttons">
+                  <ui-button 
+                    variant="ghost" 
+                    size="sm"
+                    (onClick)="shareToTwitter()"
+                  >
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                    </svg>
+                    Twitter
+                  </ui-button>
+                  <ui-button 
+                    variant="ghost" 
+                    size="sm"
+                    (onClick)="shareToLinkedIn()"
+                  >
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                    LinkedIn
+                  </ui-button>
+                  <ui-button 
+                    variant="ghost" 
+                    size="sm"
+                    (onClick)="copyToClipboard()"
+                  >
+                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                    </svg>
+                    Copy Link
+                  </ui-button>
+                </div>
+              </ui-action-module>
 
               <!-- Comments Section -->
-              <div class="mt-8">
-                <ui-card>
-                  <h3 class="text-xl font-semibold text-primary-800 mb-6">Comments</h3>
-                  
-                  <!-- Comment Form -->
-                  <form (submit)="addComment($event)" class="mb-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                      <input
-                        type="text"
-                        [(ngModel)]="newComment.author"
-                        name="author"
-                        placeholder="Your name"
-                        class="px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-primary-green focus:outline-none"
-                        required
-                      />
-                      <input
-                        type="email"
-                        [(ngModel)]="newComment.email"
-                        name="email"
-                        placeholder="Your email"
-                        class="px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-primary-green focus:outline-none"
-                        required
-                      />
-                    </div>
-                    <textarea
-                      [(ngModel)]="newComment.text"
-                      name="comment"
-                      placeholder="Share your thoughts..."
-                      rows="4"
-                      class="w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-primary-green focus:outline-none mb-4"
+              <ui-card class="comments-section">
+                <h3 class="comments-title">Join the Discussion</h3>
+                <p class="comments-subtitle">Share your thoughts and connect with other readers</p>
+                
+                <!-- Comment Form -->
+                <form (submit)="addComment($event)" class="comment-form">
+                  <div class="form-grid">
+                    <input
+                      type="text"
+                      [(ngModel)]="newComment.author"
+                      name="author"
+                      placeholder="Your name"
+                      class="form-input"
                       required
-                    ></textarea>
-                    <ui-button type="submit" variant="primary">
-                      Post Comment
-                    </ui-button>
-                  </form>
-
-                  <!-- Comments List -->
-                  <div class="space-y-6">
-                    @for(comment of comments(); track $index) {
-                    <div class="border-l-4 border-primary-green pl-4">
-                      <div class="flex items-start justify-between mb-2">
-                        <h4 class="font-semibold text-primary-800">{{ comment.author }}</h4>
-                        <span class="text-sm text-secondary-500">{{ comment.timestamp | date : 'short' }}</span>
-                      </div>
-                      <p class="text-secondary-700">{{ comment.text }}</p>
-                    </div>
-                    }
-                    @if(comments().length === 0) {
-                    <p class="text-center text-secondary-500 py-8">
-                      Be the first to share your thoughts on this post!
-                    </p>
-                    }
+                    />
+                    <input
+                      type="email"
+                      [(ngModel)]="newComment.email"
+                      name="email"
+                      placeholder="Your email"
+                      class="form-input"
+                      required
+                    />
                   </div>
-                </ui-card>
-              </div>
-            </article>
+                  <textarea
+                    [(ngModel)]="newComment.text"
+                    name="comment"
+                    placeholder="Share your thoughts..."
+                    rows="4"
+                    class="form-textarea"
+                    required
+                  ></textarea>
+                  <ui-button type="submit" variant="primary">
+                    Post Comment
+                  </ui-button>
+                </form>
 
-            <!-- Sidebar -->
-            <aside class="lg:col-span-1">
-              <div class="sticky top-8 space-y-6">
-                <!-- Navigation -->
-                <ui-card>
-                  <h3 class="font-semibold text-primary-800 mb-4">Navigation</h3>
-                  <nav class="space-y-2">
-                    <a routerLink="/blog" class="block text-primary-green hover:text-primary-green-dark transition-colors">
-                      ← Back to Blog
-                    </a>
-                    <a routerLink="/" class="block text-primary-green hover:text-primary-green-dark transition-colors">
-                      Home
-                    </a>
-                  </nav>
-                </ui-card>
+                <!-- Comments List -->
+                <div class="comments-list" *ngIf="comments().length > 0">
+                  <div *ngFor="let comment of comments(); track $index" class="comment">
+                    <div class="comment-header">
+                      <h4 class="comment-author">{{ comment.author }}</h4>
+                      <time class="comment-date">{{ comment.timestamp | date : 'short' }}</time>
+                    </div>
+                    <p class="comment-text">{{ comment.text }}</p>
+                  </div>
+                </div>
+                
+                <div class="empty-comments" *ngIf="comments().length === 0">
+                  <p>Be the first to share your thoughts on this article!</p>
+                </div>
+              </ui-card>
+            </main>
 
-                <!-- Table of Contents (if available) -->
-                @if(tableOfContents().length > 0) {
-                <ui-card>
-                  <h3 class="font-semibold text-primary-800 mb-4">Table of Contents</h3>
-                  <nav class="space-y-1">
-                    @for(heading of tableOfContents(); track heading.id) {
-                    <a 
-                      [href]="'#' + heading.id" 
-                      class="block text-sm text-secondary-600 hover:text-primary-green transition-colors"
-                      [class.pl-4]="heading.level === 3"
-                      [class.pl-6]="heading.level === 4"
-                    >
-                      {{ heading.text }}
-                    </a>
-                    }
-                  </nav>
-                </ui-card>
-                }
-              </div>
+            <!-- Enhanced Sidebar -->
+            <aside class="article-sidebar">
+              <!-- Table of Contents -->
+              <ui-table-of-contents
+                [items]="tableOfContents()"
+                [estimatedReadTime]="readingTime()"
+                title="Article Overview"
+                (itemClick)="onTocItemClick($event)"
+              ></ui-table-of-contents>
+
+              <!-- Author Info Module -->
+              <ui-action-module 
+                variant="info" 
+                [icon]="true"
+                title="About the Author"
+                size="compact"
+                class="mb-6"
+              >
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+                
+                <p class="text-sm text-secondary-600 mb-3">
+                  Ryan Craig Martin is a software developer and writer sharing insights 
+                  about modern web development and technology.
+                </p>
+                
+                <div slot="footer">
+                  <ui-button variant="ghost" size="sm" routerLink="/about">
+                    View Profile
+                  </ui-button>
+                </div>
+              </ui-action-module>
+
+              <!-- Related Articles -->
+              <ui-card class="related-articles">
+                <h3 class="related-title">Related Articles</h3>
+                <div class="related-list">
+                  <a *ngFor="let related of getRelatedPosts(); track related.slug" 
+                     [routerLink]="['/blog', related.slug]" 
+                     class="related-item">
+                    <h4 class="related-item-title">{{ related.title }}</h4>
+                    <p class="related-item-excerpt">{{ related.excerpt }}</p>
+                    <div class="related-item-tags">
+                      <ui-badge 
+                        *ngFor="let tag of related.tags?.slice(0, 2); track tag" 
+                        variant="default" 
+                        size="sm"
+                      >
+                        {{ tag }}
+                      </ui-badge>
+                    </div>
+                  </a>
+                </div>
+                
+                <ui-button variant="ghost" routerLink="/blog" class="mt-4">
+                  View All Articles
+                </ui-button>
+              </ui-card>
+
+              <!-- Newsletter Signup -->
+              <ui-action-module 
+                variant="primary" 
+                [icon]="true"
+                title="Stay Updated"
+                description="Get notified about new articles and insights."
+                ctaText="Subscribe"
+                (ctaClick)="onNewsletterSignup()"
+                size="compact"
+              >
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </ui-action-module>
             </aside>
           </div>
         </div>
@@ -202,76 +315,306 @@ import { StructuredDataService } from '../../services/structured-data.service'
   `,
   styles: [
     `
-      .prose {
-        color: #424242;
+      .blog-post-container {
+        @apply min-h-screen bg-primary-white;
       }
 
-      .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-        color: #212121;
-        font-weight: 700;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+      /* Hero Section */
+      .hero-section {
+        @apply bg-primary-cream border-b border-primary-300 py-8;
       }
 
-      .prose h2 {
-        font-size: 1.875rem;
-        border-bottom: 2px solid #E8E4D9;
-        padding-bottom: 0.5rem;
+      .breadcrumb-nav {
+        @apply mb-6;
       }
 
-      .prose h3 {
-        font-size: 1.5rem;
+      .breadcrumb-list {
+        @apply flex items-center space-x-2 text-sm text-secondary-600;
       }
 
-      .prose a {
-        color: #4ca179;
+      .breadcrumb-link {
+        @apply hover:text-primary-green transition-colors;
+      }
+
+      .breadcrumb-current {
+        @apply text-primary-800 font-medium truncate;
+      }
+
+      .breadcrumb-list li:not(:last-child)::after {
+        content: '→';
+        @apply ml-2 text-secondary-400;
+      }
+
+      .article-header {
+        @apply max-w-4xl;
+      }
+
+      .article-meta {
+        @apply flex items-center gap-4 text-sm text-secondary-600 mb-4;
+      }
+
+      .article-date {
+        @apply font-medium;
+      }
+
+      .reading-time {
+        @apply bg-primary-green/10 text-primary-green px-3 py-1 rounded-full text-xs font-medium;
+      }
+
+      .article-title {
+        @apply text-4xl md:text-5xl font-bold text-primary-800 mb-6 leading-tight max-w-4xl;
+      }
+
+      .article-excerpt {
+        @apply text-xl text-secondary-700 mb-6 leading-relaxed max-w-3xl;
+      }
+
+      .article-tags {
+        @apply flex flex-wrap gap-2;
+      }
+
+      /* Main Content */
+      .main-content {
+        @apply py-12;
+      }
+
+      .content-grid {
+        @apply grid grid-cols-1 lg:grid-cols-4 gap-12 max-w-7xl mx-auto;
+      }
+
+      .article-main {
+        @apply lg:col-span-3;
+      }
+
+      .article-sidebar {
+        @apply lg:col-span-1 space-y-6;
+      }
+
+      .content-sections {
+        @apply mb-12;
+      }
+
+      /* Enhanced Prose Styles */
+      .content-sections :deep(.prose) {
+        @apply max-w-none;
+        color: #374151;
+      }
+
+      .content-sections :deep(.prose h1),
+      .content-sections :deep(.prose h2),
+      .content-sections :deep(.prose h3),
+      .content-sections :deep(.prose h4),
+      .content-sections :deep(.prose h5),
+      .content-sections :deep(.prose h6) {
+        @apply text-primary-800 font-bold scroll-mt-24;
+        position: relative;
+      }
+
+      .content-sections :deep(.prose h2) {
+        @apply text-3xl mt-12 mb-6 pb-3 border-b-2 border-primary-green/20;
+      }
+
+      .content-sections :deep(.prose h3) {
+        @apply text-2xl mt-10 mb-4;
+      }
+
+      .content-sections :deep(.prose h4) {
+        @apply text-xl mt-8 mb-3;
+      }
+
+      .content-sections :deep(.prose p) {
+        @apply text-lg leading-relaxed mb-6;
+      }
+
+      .content-sections :deep(.prose a) {
+        @apply text-primary-green font-medium border-b border-primary-green/30 hover:border-primary-green transition-colors;
         text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.3s ease;
       }
 
-      .prose a:hover {
-        border-bottom-color: #4ca179;
+      .content-sections :deep(.prose code) {
+        @apply bg-primary-green/10 text-primary-green-dark px-2 py-1 rounded text-sm font-mono;
       }
 
-      .prose code {
-        background-color: #f5f5f5;
-        color: #e11d48;
-        padding: 0.125rem 0.25rem;
-        border-radius: 0.25rem;
-        font-size: 0.875em;
+      .content-sections :deep(.prose pre) {
+        @apply bg-primary-800 text-primary-white p-6 rounded-xl overflow-x-auto my-8;
       }
 
-      .prose pre {
-        background-color: #1a1a1a;
-        color: #e5e5e5;
-        padding: 1.5rem;
-        border-radius: 0.75rem;
-        overflow-x: auto;
-        line-height: 1.7;
+      .content-sections :deep(.prose pre code) {
+        @apply bg-transparent text-inherit p-0;
       }
 
-      .prose pre code {
-        background: none;
-        color: inherit;
-        padding: 0;
+      .content-sections :deep(.prose blockquote) {
+        @apply border-l-4 border-primary-green bg-primary-green/5 pl-6 py-4 my-8 text-lg italic;
       }
 
-      .prose blockquote {
-        border-left: 4px solid #4ca179;
-        padding-left: 1.5rem;
-        margin: 2rem 0;
-        font-style: italic;
-        color: #546E7A;
+      .content-sections :deep(.prose ul),
+      .content-sections :deep(.prose ol) {
+        @apply my-6 pl-6;
       }
 
-      .prose ul, .prose ol {
-        margin: 1rem 0;
-        padding-left: 1.5rem;
+      .content-sections :deep(.prose li) {
+        @apply mb-2 leading-relaxed;
       }
 
-      .prose li {
-        margin: 0.5rem 0;
+      .content-sections :deep(.prose img) {
+        @apply rounded-xl shadow-medium my-8;
+      }
+
+      /* Action Module Enhancements */
+      .takeaway-list {
+        @apply space-y-3;
+      }
+
+      .takeaway-list li {
+        @apply flex items-start gap-3 text-sm;
+      }
+
+      .takeaway-list li::before {
+        content: '✓';
+        @apply text-success-500 font-bold flex-shrink-0 mt-0.5;
+      }
+
+      .next-steps-grid {
+        @apply grid grid-cols-1 md:grid-cols-3 gap-4 mt-4;
+      }
+
+      .next-step {
+        @apply text-center p-4 bg-primary-white/50 rounded-lg;
+      }
+
+      .next-step h4 {
+        @apply font-semibold text-primary-800 mb-2;
+      }
+
+      .next-step p {
+        @apply text-sm text-secondary-600;
+      }
+
+      .share-buttons {
+        @apply flex gap-3 flex-wrap;
+      }
+
+      /* Comments */
+      .comments-section {
+        @apply mt-12;
+      }
+
+      .comments-title {
+        @apply text-2xl font-bold text-primary-800 mb-2;
+      }
+
+      .comments-subtitle {
+        @apply text-secondary-600 mb-8;
+      }
+
+      .comment-form {
+        @apply mb-8 pb-8 border-b border-primary-200;
+      }
+
+      .form-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-4 mb-4;
+      }
+
+      .form-input {
+        @apply px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-primary-green focus:outline-none transition-colors;
+      }
+
+      .form-textarea {
+        @apply w-full px-4 py-3 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-primary-green focus:outline-none mb-4 transition-colors;
+      }
+
+      .comments-list {
+        @apply space-y-6;
+      }
+
+      .comment {
+        @apply border-l-4 border-primary-green/30 pl-4 pb-4;
+      }
+
+      .comment-header {
+        @apply flex items-start justify-between mb-3;
+      }
+
+      .comment-author {
+        @apply font-semibold text-primary-800;
+      }
+
+      .comment-date {
+        @apply text-sm text-secondary-500;
+      }
+
+      .comment-text {
+        @apply text-secondary-700 leading-relaxed;
+      }
+
+      .empty-comments {
+        @apply text-center py-12 text-secondary-500;
+      }
+
+      /* Sidebar */
+      .related-articles {
+        @apply mb-6;
+      }
+
+      .related-title {
+        @apply text-lg font-bold text-primary-800 mb-4;
+      }
+
+      .related-list {
+        @apply space-y-4 mb-4;
+      }
+
+      .related-item {
+        @apply block p-4 border border-primary-200 rounded-lg hover:border-primary-green/50 hover:bg-primary-green/5 transition-all duration-200;
+      }
+
+      .related-item-title {
+        @apply font-semibold text-primary-800 mb-2 text-sm line-clamp-2;
+      }
+
+      .related-item-excerpt {
+        @apply text-xs text-secondary-600 mb-3 line-clamp-2;
+      }
+
+      .related-item-tags {
+        @apply flex gap-1 flex-wrap;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 1024px) {
+        .content-grid {
+          @apply grid-cols-1 gap-8;
+        }
+
+        .article-sidebar {
+          @apply order-first lg:order-last;
+        }
+
+        .article-title {
+          @apply text-3xl;
+        }
+
+        .article-excerpt {
+          @apply text-lg;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .article-meta {
+          @apply flex-col items-start gap-2;
+        }
+
+        .form-grid {
+          @apply grid-cols-1;
+        }
+
+        .share-buttons {
+          @apply flex-col;
+        }
+
+        .next-steps-grid {
+          @apply grid-cols-1;
+        }
       }
     `,
   ],
@@ -424,6 +767,45 @@ export default class BlogPostPage {
       const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(post.url || window.location.href)}`
       window.open(url, '_blank')
     }
+  }
+
+  onTocItemClick(item: any): void {
+    // Optional: Add analytics or other tracking
+    console.log('TOC item clicked:', item)
+  }
+
+  navigateToRelatedPosts(): void {
+    // Navigate to blog page or related posts
+    window.location.href = '/blog'
+  }
+
+  onNewsletterSignup(): void {
+    // Handle newsletter signup
+    alert('Newsletter signup functionality would be implemented here!')
+  }
+
+  getRelatedPosts(): BlogPost[] {
+    // Mock related posts - in real implementation, this would fetch related content
+    return [
+      {
+        title: 'Advanced TypeScript Patterns',
+        slug: 'advanced-typescript-patterns',
+        excerpt: 'Learn advanced TypeScript patterns for better code organization and type safety.',
+        url: '/blog/advanced-typescript-patterns',
+        date: 'January 5, 2025',
+        tags: ['typescript', 'development', 'patterns'],
+        content: ''
+      },
+      {
+        title: 'Modern CSS Grid Layouts',
+        slug: 'modern-css-grid-layouts',
+        excerpt: 'Master CSS Grid to create complex, responsive layouts with ease.',
+        url: '/blog/modern-css-grid-layouts', 
+        date: 'December 28, 2024',
+        tags: ['css', 'frontend', 'layouts'],
+        content: ''
+      }
+    ].slice(0, 3)
   }
 
   async copyToClipboard(): Promise<void> {
