@@ -7,8 +7,10 @@ import { FooterComponent } from '../../components/footer.component'
     selector: 'rcmdotcom-home',
     imports: [LinktreeComponent, FooterComponent],
     template: `
-    <rcmdotcom-linktree />
-    <rcmdotcom-footer />
+    <div class="min-h-screen bg-gradient-primary">
+      <rcmdotcom-linktree />
+      <rcmdotcom-footer />
+    </div>
   `
 })
 export default class HomeComponent {}
