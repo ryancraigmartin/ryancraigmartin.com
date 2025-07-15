@@ -9,6 +9,7 @@ import { BlogPost } from '../../models/BlogPost.interface'
 import { ButtonComponent } from '../../../components/ui/button.component'
 import { CardComponent } from '../../../components/ui/card.component'
 import { BadgeComponent } from '../../../components/ui/badge.component'
+import { StructuredDataService } from '../../services/structured-data.service'
 
 @Component({
   standalone: true,
@@ -279,6 +280,7 @@ export default class BlogPostPage {
   private content = injectContent<BlogPost>()
   private meta = inject(Meta)
   private title = inject(Title)
+  private structuredDataService = inject(StructuredDataService)
   
   post = signal<BlogPost | null>(null)
   comments = signal<{ author: string; email: string; text: string; timestamp: Date }[]>([])
@@ -356,6 +358,16 @@ export default class BlogPostPage {
 
     // Canonical URL
     this.meta.updateTag({ rel: 'canonical', href: post.url || '' })
+
+    // Add structured data
+    this.structuredDataService.addBlogPostSchema({
+      title: post.title,
+      excerpt: post.excerpt || '',
+      date: post.date,
+      url: post.url || '',
+      cardImage: post.cardImage,
+      tags: post.tags
+    })
   }
 
   private calculateReadingTime(content: string | object): void {
