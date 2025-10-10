@@ -9,7 +9,7 @@ import { Component } from '@angular/core'
 })
 export class LinksComponent {
   profilePhoto =
-    'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan-martin-profile-photo'
+    'https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan_craig_martin'
   links = [
     {
       url: 'https://www.linkedin.com/in/ryancraigmartin/',
