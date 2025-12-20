@@ -75,6 +75,7 @@ export const RECIPES: Recipe[] = [
     meta: {
       cuisine: ['French', 'European'],
       features: ['Layered', 'Aromatic', 'Vegetarian', 'Freezer-friendly'],
+      mainIngredients: ['lentils', 'bell peppers', 'onion', 'garlic', 'tomatoes', 'potato'],
     },
   },
   {
@@ -133,6 +134,7 @@ export const RECIPES: Recipe[] = [
     meta: {
       cuisine: ['Mexican', 'Latin American'],
       features: ['Smoky', 'Bright', 'Quick', 'Vegan'],
+      mainIngredients: ['lentils', 'bell peppers', 'onion', 'garlic', 'tomatoes'],
     },
   },
   {
@@ -198,6 +200,7 @@ export const RECIPES: Recipe[] = [
     meta: {
       cuisine: ['Indian', 'South Asian'],
       features: ['Aromatic', 'Creamy', 'Complex', 'Vegan'],
+      mainIngredients: ['lentils', 'bell peppers', 'onion', 'garlic', 'coconut milk'],
     },
   },
 ]

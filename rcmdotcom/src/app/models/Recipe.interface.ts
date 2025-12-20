@@ -3,6 +3,7 @@ export interface RecipeIngredient {
   name: string // Ingredient name
   amount: number // Base amount
   unit: string // Unit of measurement
+  category?: string // Ingredient category for search (e.g., "protein", "vegetable", "spice")
 }
 
 export interface RecipeInstruction {
@@ -14,6 +15,7 @@ export interface RecipeInstruction {
 export interface RecipeMeta {
   cuisine: string[] // Cuisine types for filtering
   features: string[] // Special features (quick, freezer-friendly, etc.)
+  mainIngredients?: string[] // Key ingredients for search/filtering
 }
 
 export interface Recipe {

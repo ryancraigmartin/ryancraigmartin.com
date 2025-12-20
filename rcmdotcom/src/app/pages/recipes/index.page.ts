@@ -1,11 +1,13 @@
 import { Component, computed, signal } from '@angular/core'
 import { RouterLink } from '@angular/router'
+import { FormsModule } from '@angular/forms'
 import { RECIPES } from '../../data/recipes.data'
 import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
+import { filterRecipesByIngredients } from '../../utils/ingredient-categorization'
 
 @Component({
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   template: `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Header -->
@@ -20,6 +22,44 @@ import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
           Delicious lentil-based recipes for every occasion
         </p>
       </header>
+
+      <!-- Ingredient Search Section -->
+      <div class="mb-8 bg-primary-white rounded-xl p-6 shadow-lg">
+        <h2 class="text-2xl font-bold text-primary-800 mb-4">Find Recipes by Ingredients</h2>
+        <p class="text-secondary-600 mb-4">
+          Enter ingredients you have on hand (comma-separated) to find matching recipes
+        </p>
+        <div class="flex gap-3">
+          <input
+            type="text"
+            [(ngModel)]="ingredientSearchInput"
+            (input)="onIngredientSearchChange()"
+            placeholder="e.g., chicken, rice, vegetables"
+            class="flex-1 px-4 py-2 border-2 border-primary-green rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green"
+            aria-label="Search by ingredients"
+          />
+          <button
+            (click)="clearIngredientSearch()"
+            class="px-6 py-2 bg-secondary-200 text-secondary-800 rounded-lg font-medium hover:bg-secondary-300 transition-colors"
+          >
+            Clear
+          </button>
+        </div>
+        @if (searchIngredients().length > 0) {
+        <div class="mt-4">
+          <p class="text-sm font-semibold text-secondary-700 mb-2">Searching for:</p>
+          <div class="flex flex-wrap gap-2">
+            @for (ingredient of searchIngredients(); track ingredient) {
+            <span
+              class="px-3 py-1 bg-primary-green text-primary-white rounded-full text-sm font-medium"
+            >
+              {{ ingredient }}
+            </span>
+            }
+          </div>
+        </div>
+        }
+      </div>
 
       <!-- Navigation Tabs -->
       <div class="flex justify-center gap-4 mb-10">
@@ -56,7 +96,7 @@ import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
       <!-- Recipe Cards Grid -->
       @if (activeTab() === 'recipes') {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        @for (recipe of recipes(); track recipe.id) {
+        @for (recipe of filteredRecipes(); track recipe.id) {
         <article
           class="bg-primary-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col"
           [routerLink]="['/recipes', recipe.id]"
@@ -94,6 +134,21 @@ import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
             </button>
           </div>
         </article>
+        }
+        @if (filteredRecipes().length === 0 && searchIngredients().length > 0) {
+        <div class="col-span-full text-center py-12 bg-primary-alabaster rounded-xl">
+          <h3 class="text-2xl font-bold text-primary-800 mb-3">No matching recipes found</h3>
+          <p class="text-secondary-600">
+            Try searching with different ingredients or
+            <button
+              (click)="clearIngredientSearch()"
+              class="text-primary-green font-semibold hover:underline"
+            >
+              clear the search
+            </button>
+            to see all recipes.
+          </p>
+        </div>
         }
       </div>
       }
@@ -184,6 +239,19 @@ export default class RecipesIndexPage {
   selectedRecipes = signal<Set<string>>(new Set())
   checkedShoppingItems = signal<Set<string>>(new Set())
 
+  // Ingredient search
+  ingredientSearchInput = ''
+  searchIngredients = signal<string[]>([])
+  filteredRecipes = computed(() => {
+    const searchTerms = this.searchIngredients()
+    if (searchTerms.length === 0) {
+      return this.recipes()
+    }
+
+    const matches = filterRecipesByIngredients(this.recipes(), searchTerms, 0.2)
+    return matches.map((m) => m.recipe)
+  })
+
   // Consolidated ingredients from selected recipes
   consolidatedIngredients = computed(() => {
     const selected = this.selectedRecipes()
@@ -227,6 +295,19 @@ export default class RecipesIndexPage {
 
   setActiveTab(tab: 'recipes' | 'shopping') {
     this.activeTab.set(tab)
+  }
+
+  onIngredientSearchChange() {
+    const ingredients = this.ingredientSearchInput
+      .split(',')
+      .map((i) => i.trim().toLowerCase())
+      .filter((i) => i.length > 0)
+    this.searchIngredients.set(ingredients)
+  }
+
+  clearIngredientSearch() {
+    this.ingredientSearchInput = ''
+    this.searchIngredients.set([])
   }
 
   toggleRecipe(recipeId: string) {
