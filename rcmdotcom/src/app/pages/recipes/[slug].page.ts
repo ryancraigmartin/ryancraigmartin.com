@@ -1,0 +1,460 @@
+import { Component, computed, effect, inject, signal } from '@angular/core'
+import { ActivatedRoute, RouterLink } from '@angular/router'
+import { RECIPES } from '../../data/recipes.data'
+import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
+
+// Utility function to scale ingredient amounts and format with fractions
+function scaleAndFormatAmount(amount: number, scale: number): string {
+  const scaled = amount * scale
+  const whole = Math.floor(scaled)
+  const decimal = scaled - whole
+
+  // Convert decimal to common fractions
+  if (decimal < 0.1) return whole > 0 ? whole.toString() : '0'
+  if (decimal >= 0.9) return (whole + 1).toString()
+  if (Math.abs(decimal - 0.25) < 0.1) return whole > 0 ? `${whole} 1/4` : '1/4'
+  if (Math.abs(decimal - 0.33) < 0.1) return whole > 0 ? `${whole} 1/3` : '1/3'
+  if (Math.abs(decimal - 0.5) < 0.1) return whole > 0 ? `${whole} 1/2` : '1/2'
+  if (Math.abs(decimal - 0.67) < 0.1) return whole > 0 ? `${whole} 2/3` : '2/3'
+  if (Math.abs(decimal - 0.75) < 0.1) return whole > 0 ? `${whole} 3/4` : '3/4'
+
+  // Default to decimal representation for other values
+  return scaled.toFixed(2).replace(/\.?0+$/, '')
+}
+
+interface Timer {
+  id: string
+  stepTitle: string
+  duration: number
+  remaining: number
+  isActive: boolean
+}
+
+@Component({
+  standalone: true,
+  imports: [RouterLink],
+  template: `
+    @if (recipe()) {
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Navigation -->
+      <div class="mb-6">
+        <a
+          routerLink="/recipes"
+          class="inline-flex items-center text-primary-green hover:text-primary-800 transition-colors"
+        >
+          ← Back to All Recipes
+        </a>
+      </div>
+
+      <!-- Header -->
+      <header class="mb-8">
+        <h1 class="text-5xl font-bold text-primary-800 mb-4">{{ recipe()!.title }}</h1>
+        <p class="text-xl text-secondary-700 mb-6">{{ recipe()!.description }}</p>
+
+        <!-- Time and Servings Info -->
+        <div class="flex flex-wrap gap-6 items-center mb-6">
+          <div class="text-secondary-600">
+            <span class="font-semibold">Prep:</span> {{ recipe()!.prepTime }}
+          </div>
+          <div class="text-secondary-600">
+            <span class="font-semibold">Cook:</span> {{ recipe()!.cookTime }}
+          </div>
+          <div class="text-secondary-600">
+            <span class="font-semibold">Total:</span> {{ recipe()!.totalTime }}
+          </div>
+        </div>
+
+        <!-- Servings Control -->
+        <div class="flex items-center gap-4 mb-6">
+          <span class="font-semibold text-primary-800">Servings:</span>
+          <div class="flex items-center gap-3">
+            <button
+              (click)="decreaseServings()"
+              [disabled]="servings() <= 1"
+              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              aria-label="Decrease servings"
+            >
+              -
+            </button>
+            <span class="text-2xl font-bold text-primary-800 min-w-[3rem] text-center">
+              {{ servings() }}
+            </span>
+            <button
+              (click)="increaseServings()"
+              [disabled]="servings() >= 20"
+              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              aria-label="Increase servings"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="flex flex-wrap gap-2">
+          @for (feature of recipe()!.meta.features; track feature) {
+          <span
+            class="px-3 py-1 text-sm font-medium bg-primary-alabaster rounded-full text-secondary-700"
+          >
+            {{ feature }}
+          </span>
+          }
+        </div>
+      </header>
+
+      <!-- Main Content: Ingredients and Instructions -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Ingredients Section (Sticky on Desktop) -->
+        <div class="lg:col-span-1">
+          <div class="bg-primary-white rounded-xl p-6 shadow-lg lg:sticky lg:top-4">
+            <h2 class="text-2xl font-bold text-primary-800 mb-4">Ingredients</h2>
+
+            @for (ingredient of scaledIngredients(); track $index; let idx = $index) { @if
+            (ingredient.section && (!scaledIngredients()[idx - 1] ||
+            scaledIngredients()[idx - 1].section !== ingredient.section)) {
+            <h3 class="font-semibold text-primary-green mt-4 mb-2">{{ ingredient.section }}</h3>
+            }
+
+            <label class="flex items-start gap-3 mb-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                [checked]="checkedIngredients().has(idx)"
+                (change)="toggleIngredient(idx)"
+                class="mt-1 w-5 h-5 rounded border-2 border-primary-green text-primary-green focus:ring-primary-green focus:ring-offset-0 cursor-pointer"
+              />
+              <span
+                [class.line-through]="checkedIngredients().has(idx)"
+                [class.text-secondary-400]="checkedIngredients().has(idx)"
+                class="text-secondary-700 group-hover:text-primary-800 transition-colors"
+              >
+                <span class="font-semibold">{{ ingredient.formattedAmount }}</span>
+                {{ ingredient.unit }} {{ ingredient.name }}
+              </span>
+            </label>
+            }
+          </div>
+        </div>
+
+        <!-- Instructions Section -->
+        <div class="lg:col-span-2">
+          <div class="bg-primary-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-2xl font-bold text-primary-800 mb-6">Instructions</h2>
+
+            @for (instruction of recipe()!.instructions; track $index; let idx = $index) {
+            <div class="mb-6 pb-6 border-b border-primary-alabaster last:border-0">
+              <div class="flex items-start gap-4">
+                <div
+                  class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-green text-primary-white flex items-center justify-center font-bold"
+                >
+                  {{ idx + 1 }}
+                </div>
+                <div class="flex-grow">
+                  <h3 class="text-lg font-semibold text-primary-800 mb-2">
+                    {{ instruction.title }}
+                  </h3>
+                  <p class="text-secondary-700 mb-3">{{ instruction.description }}</p>
+
+                  @if (instruction.timer) {
+                  <button
+                    (click)="startTimer(instruction.title, instruction.timer!, idx)"
+                    [disabled]="activeTimers().has(idx)"
+                    class="px-4 py-2 bg-primary-green text-primary-white rounded-lg text-sm font-medium hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    @if (activeTimers().has(idx)) { ⏸️ Timer Active ({{ formatTime(getTimerRemaining(idx)) }}) } @else { ⏱️ Start
+                    {{ formatTime(instruction.timer) }} Timer }
+                  </button>
+                  }
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Toppings Section -->
+      @if (recipe()!.toppings.length > 0) {
+      <section class="bg-primary-white rounded-xl p-6 shadow-lg mb-8">
+        <h2 class="text-2xl font-bold text-primary-800 mb-4">Recommended Toppings</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          @for (topping of recipe()!.toppings; track topping) {
+          <li class="flex items-center gap-2 text-secondary-700">
+            <span class="text-primary-green">✓</span>
+            {{ topping }}
+          </li>
+          }
+        </ul>
+      </section>
+      }
+
+      <!-- Notes Section -->
+      @if (recipe()!.notes.length > 0) {
+      <section class="bg-primary-white rounded-xl p-6 shadow-lg">
+        <h2 class="text-2xl font-bold text-primary-800 mb-4">Chef's Notes</h2>
+        <ul class="space-y-3">
+          @for (note of recipe()!.notes; track note) {
+          <li class="flex items-start gap-3 text-secondary-700">
+            <span class="text-primary-green mt-1">💡</span>
+            <span>{{ note }}</span>
+          </li>
+          }
+        </ul>
+      </section>
+      }
+    </div>
+
+    <!-- Timer Overlay -->
+    @if (timers().length > 0) {
+    <div class="fixed bottom-4 right-4 z-50 space-y-2">
+      @for (timer of timers(); track timer.id) {
+      <div class="bg-primary-800 text-primary-white px-4 py-3 rounded-lg shadow-xl min-w-[250px]">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-semibold text-sm">{{ timer.stepTitle }}</span>
+          <button
+            (click)="stopTimer(timer.id)"
+            class="text-primary-white hover:text-primary-alabaster transition-colors"
+            aria-label="Stop timer"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="text-2xl font-bold">{{ formatTime(timer.remaining) }}</div>
+        @if (timer.remaining === 0) {
+        <div class="text-sm mt-1 text-primary-green">Time's up! 🎉</div>
+        }
+      </div>
+      }
+    </div>
+    }
+    } @else {
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center">
+        <h1 class="text-3xl font-bold text-primary-800 mb-4">Recipe Not Found</h1>
+        <p class="text-secondary-600 mb-6">The recipe you're looking for doesn't exist.</p>
+        <a
+          routerLink="/recipes"
+          class="inline-block bg-primary-green text-primary-white px-6 py-3 rounded-lg font-medium hover:bg-primary-800 transition-colors"
+        >
+          Back to All Recipes
+        </a>
+      </div>
+    </div>
+    }
+  `,
+  styles: [
+    `
+      :host {
+        display: block;
+        min-height: 100vh;
+        background: #fffbef;
+      }
+    `,
+  ],
+})
+export default class RecipeDetailPage {
+  private route = inject(ActivatedRoute)
+  private recipeId = signal<string>('')
+
+  // Recipe data
+  recipe = computed(() => {
+    const id = this.recipeId()
+    return RECIPES.find((r) => r.id === id) || null
+  })
+
+  // Servings scaling
+  servings = signal<number>(4)
+  servingsScale = computed(() => {
+    const recipe = this.recipe()
+    if (!recipe) return 1
+    return this.servings() / recipe.baseServings
+  })
+
+  // Scaled ingredients
+  scaledIngredients = computed(() => {
+    const recipe = this.recipe()
+    if (!recipe) return []
+
+    const scale = this.servingsScale()
+    return recipe.ingredients.map((ing) => ({
+      ...ing,
+      formattedAmount: scaleAndFormatAmount(ing.amount, scale),
+    }))
+  })
+
+  // Ingredient checkboxes
+  checkedIngredients = signal<Set<number>>(new Set())
+
+  // Timers
+  timers = signal<Timer[]>([])
+  activeTimers = signal<Set<number>>(new Set())
+  private timerIntervals = new Map<string, number>()
+
+  constructor() {
+    // Get recipe ID from route params
+    effect(() => {
+      const params = this.route.snapshot.paramMap
+      const id = params.get('slug')
+      if (id) {
+        this.recipeId.set(id)
+        const recipe = this.recipe()
+        if (recipe) {
+          this.servings.set(recipe.baseServings)
+          this.loadPersistedState(id)
+        }
+      }
+    })
+  }
+
+  increaseServings() {
+    if (this.servings() < 20) {
+      this.servings.update((s) => s + 1)
+      this.savePersistedState()
+    }
+  }
+
+  decreaseServings() {
+    if (this.servings() > 1) {
+      this.servings.update((s) => s - 1)
+      this.savePersistedState()
+    }
+  }
+
+  toggleIngredient(index: number) {
+    this.checkedIngredients.update((checked) => {
+      const newChecked = new Set(checked)
+      if (newChecked.has(index)) {
+        newChecked.delete(index)
+      } else {
+        newChecked.add(index)
+      }
+      return newChecked
+    })
+    this.savePersistedState()
+  }
+
+  startTimer(stepTitle: string, duration: number, stepIndex: number) {
+    const timerId = `${this.recipeId()}-${stepIndex}-${Date.now()}`
+
+    // Add to active timers
+    this.activeTimers.update((active) => new Set([...active, stepIndex]))
+
+    // Create timer
+    const timer: Timer = {
+      id: timerId,
+      stepTitle,
+      duration,
+      remaining: duration,
+      isActive: true,
+    }
+
+    this.timers.update((timers) => [...timers, timer])
+
+    // Start countdown
+    const intervalId = window.setInterval(() => {
+      this.timers.update((timers) =>
+        timers.map((t) => {
+          if (t.id === timerId && t.remaining > 0) {
+            return { ...t, remaining: t.remaining - 1 }
+          }
+          return t
+        }),
+      )
+
+      // Check if timer completed
+      const currentTimer = this.timers().find((t) => t.id === timerId)
+      if (currentTimer && currentTimer.remaining === 0) {
+        this.timerCompleted(timerId, stepTitle)
+      }
+    }, 1000)
+
+    this.timerIntervals.set(timerId, intervalId)
+  }
+
+  stopTimer(timerId: string) {
+    // Clear interval
+    const intervalId = this.timerIntervals.get(timerId)
+    if (intervalId) {
+      clearInterval(intervalId)
+      this.timerIntervals.delete(timerId)
+    }
+
+    // Remove from active timers
+    const timer = this.timers().find((t) => t.id === timerId)
+    if (timer) {
+      const stepIndex = parseInt(timer.id.split('-')[1])
+      this.activeTimers.update((active) => {
+        const newActive = new Set(active)
+        newActive.delete(stepIndex)
+        return newActive
+      })
+    }
+
+    // Remove timer
+    this.timers.update((timers) => timers.filter((t) => t.id !== timerId))
+  }
+
+  private timerCompleted(timerId: string, stepTitle: string) {
+    // Clear interval
+    const intervalId = this.timerIntervals.get(timerId)
+    if (intervalId) {
+      clearInterval(intervalId)
+      this.timerIntervals.delete(timerId)
+    }
+
+    // Show browser notification if supported
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('Timer Complete!', {
+        body: `Timer for "${stepTitle}" has finished.`,
+        icon: '/favicon.ico',
+      })
+    }
+
+    // Play sound (optional - would need audio file)
+    // Can add later if desired
+  }
+
+  getTimerRemaining(stepIndex: number): number {
+    const timerId = this.timers().find((t) => t.id.startsWith(`${this.recipeId()}-${stepIndex}`))
+    return timerId ? timerId.remaining : 0
+  }
+
+  formatTime(seconds: number): string {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
+  private loadPersistedState(recipeId: string) {
+    // Load checked ingredients
+    const checkedStr = localStorage.getItem(`recipe-${recipeId}-checked`)
+    if (checkedStr) {
+      const checked = JSON.parse(checkedStr)
+      this.checkedIngredients.set(new Set(checked))
+    }
+
+    // Load servings
+    const servingsStr = localStorage.getItem(`recipe-${recipeId}-servings`)
+    if (servingsStr) {
+      this.servings.set(parseInt(servingsStr))
+    }
+  }
+
+  private savePersistedState() {
+    const recipeId = this.recipeId()
+    if (!recipeId) return
+
+    // Save checked ingredients
+    localStorage.setItem(
+      `recipe-${recipeId}-checked`,
+      JSON.stringify(Array.from(this.checkedIngredients())),
+    )
+
+    // Save servings
+    localStorage.setItem(`recipe-${recipeId}-servings`, this.servings().toString())
+  }
+
+  ngOnDestroy() {
+    // Clean up all timers
+    this.timerIntervals.forEach((intervalId) => clearInterval(intervalId))
+  }
+}
