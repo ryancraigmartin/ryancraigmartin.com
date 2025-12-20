@@ -3,7 +3,20 @@ import { ActivatedRoute, RouterLink } from '@angular/router'
 import { RECIPES } from '../../data/recipes.data'
 import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
 
-// Utility function to scale ingredient amounts and format with fractions
+/**
+ * Scales ingredient amounts and formats them with common fractions
+ * for better readability in recipe display.
+ * 
+ * @param amount - The base ingredient amount
+ * @param scale - The scaling factor (servings / baseServings)
+ * @returns Formatted string with whole numbers and/or fractions
+ * 
+ * @example
+ * scaleAndFormatAmount(1.5, 2) // "3"
+ * scaleAndFormatAmount(1, 0.5) // "1/2"
+ * scaleAndFormatAmount(2, 0.5) // "1"
+ * scaleAndFormatAmount(1, 1.5) // "1 1/2"
+ */
 function scaleAndFormatAmount(amount: number, scale: number): string {
   const scaled = amount * scale
   const whole = Math.floor(scaled)
@@ -345,6 +358,15 @@ export default class RecipeDetailPage implements OnDestroy {
     this.savePersistedState()
   }
 
+  /**
+   * Starts a countdown timer for a cooking step.
+   * Supports multiple concurrent timers and persists across page refreshes.
+   * Shows browser notification when timer completes (if permission granted).
+   * 
+   * @param stepTitle - The name of the cooking step
+   * @param duration - Timer duration in seconds
+   * @param stepIndex - Index of the step for tracking active state
+   */
   startTimer(stepTitle: string, duration: number, stepIndex: number) {
     const timerId = `${this.recipeId()}-${stepIndex}-${Date.now()}`
 
