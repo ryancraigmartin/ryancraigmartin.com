@@ -65,25 +65,27 @@ interface Timer {
         </div>
 
         <!-- Servings Control -->
-        <div class="flex items-center gap-4 mb-6">
+        <div class="flex items-center gap-4 mb-6" role="group" aria-label="Servings adjustment">
           <span class="font-semibold text-primary-800">Servings:</span>
           <div class="flex items-center gap-3">
             <button
               (click)="decreaseServings()"
               [disabled]="servings() <= 1"
-              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
               aria-label="Decrease servings"
+              type="button"
             >
               -
             </button>
-            <span class="text-2xl font-bold text-primary-800 min-w-[3rem] text-center">
+            <span class="text-2xl font-bold text-primary-800 min-w-[3rem] text-center" aria-live="polite" aria-atomic="true">
               {{ servings() }}
             </span>
             <button
               (click)="increaseServings()"
               [disabled]="servings() >= 20"
-              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
               aria-label="Increase servings"
+              type="button"
             >
               +
             </button>
@@ -109,29 +111,34 @@ interface Timer {
           <div class="bg-primary-white rounded-xl p-6 shadow-lg lg:sticky lg:top-4">
             <h2 class="text-2xl font-bold text-primary-800 mb-4">Ingredients</h2>
 
-            @for (ingredient of scaledIngredients(); track $index; let idx = $index) { @if
-            (ingredient.section && (!scaledIngredients()[idx - 1] ||
-            scaledIngredients()[idx - 1].section !== ingredient.section)) {
-            <h3 class="font-semibold text-primary-green mt-4 mb-2">{{ ingredient.section }}</h3>
-            }
+            <div role="list" aria-label="Recipe ingredients">
+              @for (ingredient of scaledIngredients(); track $index; let idx = $index) { @if
+              (ingredient.section && (!scaledIngredients()[idx - 1] ||
+              scaledIngredients()[idx - 1].section !== ingredient.section)) {
+              <h3 class="font-semibold text-primary-green mt-4 mb-2" role="presentation">
+                {{ ingredient.section }}
+              </h3>
+              }
 
-            <label class="flex items-start gap-3 mb-3 cursor-pointer group">
-              <input
-                type="checkbox"
-                [checked]="checkedIngredients().has(idx)"
-                (change)="toggleIngredient(idx)"
-                class="mt-1 w-5 h-5 rounded border-2 border-primary-green text-primary-green focus:ring-primary-green focus:ring-offset-0 cursor-pointer"
-              />
-              <span
-                [class.line-through]="checkedIngredients().has(idx)"
-                [class.text-secondary-400]="checkedIngredients().has(idx)"
-                class="text-secondary-700 group-hover:text-primary-800 transition-colors"
-              >
-                <span class="font-semibold">{{ ingredient.formattedAmount }}</span>
-                {{ ingredient.unit }} {{ ingredient.name }}
-              </span>
-            </label>
-            }
+              <label class="flex items-start gap-3 mb-3 cursor-pointer group" role="listitem">
+                <input
+                  type="checkbox"
+                  [checked]="checkedIngredients().has(idx)"
+                  (change)="toggleIngredient(idx)"
+                  [attr.aria-label]="'Mark ' + ingredient.name + ' as completed'"
+                  class="mt-1 w-5 h-5 rounded border-2 border-primary-green text-primary-green focus:ring-primary-green focus:ring-offset-0 cursor-pointer"
+                />
+                <span
+                  [class.line-through]="checkedIngredients().has(idx)"
+                  [class.text-secondary-400]="checkedIngredients().has(idx)"
+                  class="text-secondary-700 group-hover:text-primary-800 transition-colors"
+                >
+                  <span class="font-semibold">{{ ingredient.formattedAmount }}</span>
+                  {{ ingredient.unit }} {{ ingredient.name }}
+                </span>
+              </label>
+              }
+            </div>
           </div>
         </div>
 
@@ -140,34 +147,39 @@ interface Timer {
           <div class="bg-primary-white rounded-xl p-6 shadow-lg">
             <h2 class="text-2xl font-bold text-primary-800 mb-6">Instructions</h2>
 
-            @for (instruction of recipe()!.instructions; track $index; let idx = $index) {
-            <div class="mb-6 pb-6 border-b border-primary-alabaster last:border-0">
-              <div class="flex items-start gap-4">
-                <div
-                  class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-green text-primary-white flex items-center justify-center font-bold"
-                >
-                  {{ idx + 1 }}
-                </div>
-                <div class="flex-grow">
-                  <h3 class="text-lg font-semibold text-primary-800 mb-2">
-                    {{ instruction.title }}
-                  </h3>
-                  <p class="text-secondary-700 mb-3">{{ instruction.description }}</p>
-
-                  @if (instruction.timer) {
-                  <button
-                    (click)="startTimer(instruction.title, instruction.timer!, idx)"
-                    [disabled]="activeTimers().has(idx)"
-                    class="px-4 py-2 bg-primary-green text-primary-white rounded-lg text-sm font-medium hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            <ol role="list" aria-label="Cooking instructions" class="space-y-6">
+              @for (instruction of recipe()!.instructions; track $index; let idx = $index) {
+              <li class="mb-6 pb-6 border-b border-primary-alabaster last:border-0">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-green text-primary-white flex items-center justify-center font-bold"
+                    aria-hidden="true"
                   >
-                    @if (activeTimers().has(idx)) { ⏸️ Timer Active ({{ formatTime(getTimerRemaining(idx)) }}) } @else { ⏱️ Start
-                    {{ formatTime(instruction.timer) }} Timer }
-                  </button>
-                  }
+                    {{ idx + 1 }}
+                  </div>
+                  <div class="flex-grow">
+                    <h3 class="text-lg font-semibold text-primary-800 mb-2">
+                      Step {{ idx + 1 }}: {{ instruction.title }}
+                    </h3>
+                    <p class="text-secondary-700 mb-3">{{ instruction.description }}</p>
+
+                    @if (instruction.timer) {
+                    <button
+                      (click)="startTimer(instruction.title, instruction.timer!, idx)"
+                      [disabled]="activeTimers().has(idx)"
+                      class="px-4 py-2 bg-primary-green text-primary-white rounded-lg text-sm font-medium hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
+                      [attr.aria-label]="activeTimers().has(idx) ? 'Timer active for ' + instruction.title : 'Start ' + formatTime(instruction.timer) + ' timer for ' + instruction.title"
+                      type="button"
+                    >
+                      @if (activeTimers().has(idx)) { ⏸️ Timer Active ({{ formatTime(getTimerRemaining(idx)) }}) } @else { ⏱️ Start
+                      {{ formatTime(instruction.timer) }} Timer }
+                    </button>
+                    }
+                  </div>
                 </div>
-              </div>
-            </div>
-            }
+              </li>
+              }
+            </ol>
           </div>
         </div>
       </div>
@@ -205,22 +217,23 @@ interface Timer {
 
     <!-- Timer Overlay -->
     @if (timers().length > 0) {
-    <div class="fixed bottom-4 right-4 z-50 space-y-2">
+    <div class="fixed bottom-4 right-4 z-50 space-y-2" role="region" aria-label="Active timers" aria-live="polite">
       @for (timer of timers(); track timer.id) {
       <div class="bg-primary-800 text-primary-white px-4 py-3 rounded-lg shadow-xl min-w-[250px]">
         <div class="flex items-center justify-between mb-2">
           <span class="font-semibold text-sm">{{ timer.stepTitle }}</span>
           <button
             (click)="stopTimer(timer.id)"
-            class="text-primary-white hover:text-primary-alabaster transition-colors"
-            aria-label="Stop timer"
+            class="text-primary-white hover:text-primary-alabaster transition-colors focus:ring-2 focus:ring-primary-white focus:ring-offset-2 focus:ring-offset-primary-800"
+            [attr.aria-label]="'Stop timer for ' + timer.stepTitle"
+            type="button"
           >
             ✕
           </button>
         </div>
-        <div class="text-2xl font-bold">{{ formatTime(timer.remaining) }}</div>
+        <div class="text-2xl font-bold" aria-live="off" aria-atomic="true">{{ formatTime(timer.remaining) }}</div>
         @if (timer.remaining === 0) {
-        <div class="text-sm mt-1 text-primary-green">Time's up! 🎉</div>
+        <div class="text-sm mt-1 text-primary-green" role="alert">Time's up! 🎉</div>
         }
       </div>
       }
