@@ -40,28 +40,75 @@ A comprehensive recipe management system for lentil-based recipes, featuring int
 - Checkable items to track shopping progress
 - Select which recipes to include
 
+### Ingredient-Based Search
+- Search for recipes by ingredients you have on hand
+- Enter comma-separated ingredients
+- Recipes ranked by match percentage
+- Minimum 20% match threshold
+- Visual ingredient pills display
+- Clear search functionality
+
 ## Recipes
 
-### 1. Elevated Lentil Stew (French-Inspired)
+### Lentil Stews
+
+#### 1. Elevated Lentil Stew (French-Inspired)
 - **Prep Time**: 15 min
 - **Cook Time**: 30 min
 - **Servings**: 4
 - **Features**: Layered, Aromatic, Vegetarian, Freezer-friendly
 - **Key Spices**: Fennel, Anise, Smoked Paprika
 
-### 2. Mexican-Inspired Stew
+#### 2. Mexican-Inspired Stew
 - **Prep Time**: 10 min
 - **Cook Time**: 25 min
 - **Servings**: 4
 - **Features**: Smoky, Bright, Quick, Vegan
 - **Key Spices**: Cumin, Ancho Chile, Turmeric
 
-### 3. Indian-Spiced Curry
+#### 3. Indian-Spiced Curry
 - **Prep Time**: 10 min
 - **Cook Time**: 25 min
 - **Servings**: 4
 - **Features**: Aromatic, Creamy, Complex, Vegan
 - **Key Spices**: Garam Masala, Cumin, Turmeric
+
+### Thai Cuisine
+
+#### 4. Fish Patties (Tod Mun Pla)
+- **Prep Time**: 15 min
+- **Cook Time**: 25 min
+- **Servings**: 4
+- **Features**: Appetizer, Crispy, Spicy
+- **Key Ingredients**: Fish, String Beans, Lemongrass, Fish Sauce
+
+#### 5. Steamed Clams with Fresh Ginger
+- **Prep Time**: 10 min
+- **Cook Time**: 15 min
+- **Servings**: 4
+- **Features**: Quick, Seafood, Steamed
+- **Key Ingredients**: Clams, Ginger, Yellow Bean Sauce
+
+#### 6. String Beans with Fresh Ginger (Pad Puk King)
+- **Prep Time**: 10 min
+- **Cook Time**: 10 min
+- **Servings**: 3
+- **Features**: Quick, Vegetarian, Spicy, Vegan
+- **Key Ingredients**: String Beans, Lemongrass, Coconut Milk
+
+#### 7. Thai Iced Coffee
+- **Prep Time**: 5 min
+- **Cook Time**: 0 min
+- **Servings**: 2
+- **Features**: Quick, Beverage, Sweet, Cold
+- **Key Ingredients**: Coffee, Condensed Milk, Ice
+
+#### 8. Asparagus with Shrimp and Black Mushrooms
+- **Prep Time**: 20 min
+- **Cook Time**: 10 min
+- **Servings**: 3
+- **Features**: Quick, Seafood, Stir-fry, High-protein
+- **Key Ingredients**: Shrimp, Asparagus, Mushrooms, Oyster Sauce
 
 ## Technical Implementation
 
@@ -117,6 +164,28 @@ Scales ingredient amounts and converts decimals to common fractions:
 - 0.5 → "1/2"
 - 0.67 → "2/3"
 - 0.75 → "3/4"
+
+#### Ingredient Categorization System (`ingredient-categorization.ts`)
+Provides ingredient-based recipe search and filtering:
+
+**`categorizeIngredient(name: string): IngredientCategory`**
+- Categorizes ingredients into 13 types: protein, vegetable, grain, legume, dairy, spice, herb, sauce, oil, nut, fruit, pantry, other
+- Used for shopping list organization and search
+
+**`extractRecipeIngredients(recipe: Recipe): string[]`**
+- Extracts normalized ingredient names from recipes
+- Removes preparation notes in parentheses
+- Converts to lowercase for matching
+
+**`calculateIngredientMatch(recipeIngredients, availableIngredients): number`**
+- Returns match score (0-1) representing percentage of matching ingredients
+- Supports partial matching (e.g., "chicken" matches "chicken breast")
+
+**`filterRecipesByIngredients(recipes, availableIngredients, minThreshold): Array`**
+- Filters recipes based on available ingredients
+- Returns recipes sorted by match score (highest first)
+- Default minimum threshold: 30%
+- Includes list of missing ingredients per recipe
 
 #### Timer System
 - Multiple concurrent timers
