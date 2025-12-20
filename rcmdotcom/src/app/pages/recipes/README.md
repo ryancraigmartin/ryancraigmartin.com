@@ -1,6 +1,6 @@
 # Recipe Application
 
-A comprehensive recipe management system for lentil-based recipes, featuring interactive cooking tools and shopping list generation.
+A comprehensive recipe management system featuring 104 recipes (3 lentil stews + 101 Thai dishes), with interactive cooking tools and ingredient-based search.
 
 ## Features
 
@@ -73,42 +73,36 @@ A comprehensive recipe management system for lentil-based recipes, featuring int
 - **Features**: Aromatic, Creamy, Complex, Vegan
 - **Key Spices**: Garam Masala, Cumin, Turmeric
 
-### Thai Cuisine
+### Thai Cuisine (101 recipes)
 
-#### 4. Fish Patties (Tod Mun Pla)
-- **Prep Time**: 15 min
-- **Cook Time**: 25 min
-- **Servings**: 4
-- **Features**: Appetizer, Crispy, Spicy
-- **Key Ingredients**: Fish, String Beans, Lemongrass, Fish Sauce
+The application includes 101 authentic Thai recipes covering:
 
-#### 5. Steamed Clams with Fresh Ginger
-- **Prep Time**: 10 min
-- **Cook Time**: 15 min
-- **Servings**: 4
-- **Features**: Quick, Seafood, Steamed
-- **Key Ingredients**: Clams, Ginger, Yellow Bean Sauce
+**Appetizers** (11 recipes)
+- Fish Patties (Tod Mun Pla), Shrimp Rolls, Crisp Noodles, Stuffed Tofu, Bangkok Stuffed Wings, Summer Rolls, Crispy Crab Claws, Crispy Fried Shrimp, Satay on Skewers, Son-in-Law Eggs, Vegetable Tempura
 
-#### 6. String Beans with Fresh Ginger (Pad Puk King)
-- **Prep Time**: 10 min
-- **Cook Time**: 10 min
-- **Servings**: 3
-- **Features**: Quick, Vegetarian, Spicy, Vegan
-- **Key Ingredients**: String Beans, Lemongrass, Coconut Milk
+**Soups** (10+ recipes)
+- Tom Yum variations, coconut soups, clear broths
 
-#### 7. Thai Iced Coffee
-- **Prep Time**: 5 min
-- **Cook Time**: 0 min
-- **Servings**: 2
-- **Features**: Quick, Beverage, Sweet, Cold
-- **Key Ingredients**: Coffee, Condensed Milk, Ice
+**Salads** (10+ recipes)
+- Green Papaya Salad, Yum variations, Thai-style salads
 
-#### 8. Asparagus with Shrimp and Black Mushrooms
-- **Prep Time**: 20 min
-- **Cook Time**: 10 min
-- **Servings**: 3
-- **Features**: Quick, Seafood, Stir-fry, High-protein
-- **Key Ingredients**: Shrimp, Asparagus, Mushrooms, Oyster Sauce
+**Main Dishes** (40+ recipes)
+- **Curries**: Red, Green, Yellow, Massaman, Panang varieties
+- **Seafood**: Clams, fish, shrimp, crab preparations
+- **Poultry**: Various chicken dishes
+- **Beef & Pork**: Stir-fries and curries
+- **Vegetables**: Thai vegetable preparations
+
+**Rice & Noodles** (10+ recipes)
+- Fried rice, Pad Thai, noodle soups
+
+**Desserts & Beverages** (8+ recipes)
+- Thai iced coffee, iced tea, traditional sweets
+
+**Sauces & Garnishes** (10+ recipes)
+- Cucumber sauce, peanut sauce, spring roll sauce, decorative vegetable carvings
+
+All Thai recipes include detailed ingredients, step-by-step instructions, and are fully searchable by ingredient.
 
 ## Technical Implementation
 
