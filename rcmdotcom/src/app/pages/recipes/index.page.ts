@@ -19,7 +19,7 @@ import { filterRecipesByIngredients } from '../../utils/ingredient-categorizatio
           ></div>
         </div>
         <p class="text-xl text-secondary-700 mt-4">
-          Delicious lentil-based recipes for every occasion
+          Delicious lentil-based and Thai recipes for every occasion
         </p>
       </header>
 
