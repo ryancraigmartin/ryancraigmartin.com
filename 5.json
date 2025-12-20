@@ -1,0 +1,169 @@
+[
+  {
+    "id": "asparagus-shrimp-mushrooms",
+    "title": "Asparagus with Shrimp and Black Mushrooms",
+    "description": "Asparagus and shrimp stir-fried with savory Chinese black mushrooms.",
+    "servings": "3-4",
+    "ingredients": [
+      { "name": "shrimp", "amount": "1/2", "unit": "pound" },
+      { "name": "fresh asparagus", "amount": "1", "unit": "pound" },
+      { "name": "dried Chinese black mushrooms", "amount": "1", "unit": "ounce" },
+      { "name": "vegetable oil", "amount": "2", "unit": "tablespoons" },
+      { "name": "garlic", "amount": "2", "unit": "cloves", "notes": "minced" },
+      { "name": "oyster sauce", "amount": "3", "unit": "tablespoons" },
+      { "name": "red chile peppers", "amount": "2-4", "unit": "whole", "notes": "optional" }
+    ],
+    "instructions": [
+      { "description": "Soak mushrooms 15 mins. Fry garlic until brown." },
+      { "description": "Add mushrooms, cook 1 min. Add shrimp, asparagus, sauce. Stir-fry 3 mins." }
+    ],
+    "notes": ["Can also be prepared by steaming."],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "steamed-fish-eggs-dill",
+    "title": "Steamed Fish Eggs with Dill (Mok Kai Pa)",
+    "description": "Northern Thai specialty using fish eggs and aromatic dill.",
+    "servings": "3-4",
+    "ingredients": [
+      { "name": "fish eggs", "amount": "2", "unit": "cups" },
+      { "name": "firm white fish fillet", "amount": "2", "unit": "ounces", "notes": "minced" },
+      { "name": "fresh dill", "amount": "1", "unit": "ounce" },
+      { "name": "eryngium foetidum leaves", "amount": "5", "unit": "whole", "notes": "chopped" },
+      { "name": "fish sauce", "amount": "2-4", "unit": "tablespoons" },
+      { "name": "eggs", "amount": "2", "unit": "whole" },
+      { "name": "cornstarch", "amount": "1", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Mix fish eggs, minced fish, herbs, seasonings, and binder." },
+      { "description": "Pour into pan and steam for 40 minutes." }
+    ],
+    "notes": ["Chopped shrimp can be substituted for fish eggs."],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "shrimp-mixed-vegetables",
+    "title": "Shrimp with Mixed Vegetables",
+    "description": "Quick stir-fry with shrimp and garden vegetables.",
+    "servings": "4",
+    "ingredients": [
+      { "name": "bay shrimp", "amount": "1/2", "unit": "pound" },
+      { "name": "mixed vegetables", "amount": "1/2", "unit": "pound" },
+      { "name": "oyster sauce", "amount": "3-4", "unit": "tablespoons" },
+      { "name": "garlic", "amount": "2", "unit": "cloves" }
+    ],
+    "instructions": [
+      { "description": "Fry garlic. Add shrimp, cook 1-2 mins." },
+      { "description": "Add vegetables and sauce. Cook 3 mins." }
+    ],
+    "notes": ["Serve immediately."],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "chicken-black-mushrooms",
+    "title": "Chicken with Black Mushrooms",
+    "description": "Chicken strips stir-fried with rehydrated mushrooms and ginger.",
+    "servings": "2-3",
+    "ingredients": [
+      { "name": "boneless chicken breasts", "amount": "1", "unit": "pound" },
+      { "name": "dried Chinese black mushrooms", "amount": "10", "unit": "large" },
+      { "name": "common ginger", "amount": "1/2", "unit": "ounce", "notes": "shredded" },
+      { "name": "fish sauce", "amount": "2-4", "unit": "tablespoons" },
+      { "name": "cornstarch", "amount": "1", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Fry garlic, shallots, ginger. Add chicken, cook 2-3 mins." },
+      { "description": "Add mushrooms and sauce mixture. Cook 10 mins." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "beef-sweet-basil",
+    "title": "Beef with Fresh Sweet Basil",
+    "description": "Classic beef stir-fry with kaffir lime leaves and bamboo shoots.",
+    "servings": "2-4",
+    "ingredients": [
+      { "name": "beef", "amount": "1/2", "unit": "pound" },
+      { "name": "kaffir lime leaves", "amount": "3", "unit": "leaves" },
+      { "name": "mushrooms", "amount": "1/2", "unit": "cup" },
+      { "name": "bamboo shoots", "amount": "1/4", "unit": "cup" },
+      { "name": "oyster sauce", "amount": "3", "unit": "tablespoons" },
+      { "name": "sweet basil leaves", "amount": "15", "unit": "leaves" }
+    ],
+    "instructions": [
+      { "description": "Fry garlic and lime leaves. Add beef, veggies, sauce." },
+      { "description": "Cook 5 mins. Stir in basil." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "beef-oyster-sauce",
+    "title": "Beef with Oyster Sauce",
+    "description": "Simple flank steak stir-fry with Chinese mushrooms.",
+    "servings": "4",
+    "ingredients": [
+      { "name": "flank steak", "amount": "1", "unit": "pound" },
+      { "name": "dried Chinese black mushrooms", "amount": "1", "unit": "ounce" },
+      { "name": "oyster sauce", "amount": "3", "unit": "tablespoons" },
+      { "name": "garlic", "amount": "2", "unit": "cloves" }
+    ],
+    "instructions": [
+      { "description": "Fry garlic. Add beef, cook 1-2 mins." },
+      { "description": "Add mushrooms and oyster sauce. Cook 1 min." }
+    ],
+    "notes": ["Good for leftovers."],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "yellow-chicken-curry",
+    "title": "Yellow Chicken Curry (Gang Garee Gai)",
+    "description": "Mild curry with chicken and potatoes.",
+    "servings": "4",
+    "ingredients": [
+      { "name": "boneless chicken breasts", "amount": "1/2", "unit": "pound" },
+      { "name": "potatoes", "amount": "2", "unit": "whole", "notes": "cubed" },
+      { "name": "Yellow Curry Paste", "amount": "1", "unit": "teaspoon" },
+      { "name": "coconut milk", "amount": "1", "unit": "cup" },
+      { "name": "fish sauce", "amount": "2", "unit": "tablespoons" }
+    ],
+    "instructions": [
+      { "description": "Fry curry paste. Add chicken, potatoes, milk, seasonings." },
+      { "description": "Cook 7 minutes." }
+    ],
+    "notes": ["Seafood can be substituted."],
+    "meta": { "cuisine": ["Thai"], "course": "Main Dish" }
+  },
+  {
+    "id": "garnish-folded-cucumber",
+    "title": "Folded Cucumber",
+    "description": "Decorative garnish technique for cucumbers.",
+    "servings": "1",
+    "ingredients": [
+      { "name": "cucumber", "amount": "1", "unit": "whole" },
+      { "name": "salt", "amount": "1", "unit": "tablespoon" }
+    ],
+    "instructions": [
+      { "description": "Cut cucumber into 1-inch sections. Make 6 thin slices." },
+      { "description": "Soak in salt water. Tuck alternating slices." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Garnish" }
+  },
+  {
+    "id": "garnish-cucumber-leaves",
+    "title": "Cucumber Leaves",
+    "description": "Carving technique to make leaves from cucumber strips.",
+    "servings": "1",
+    "ingredients": [
+      { "name": "cucumber", "amount": "1", "unit": "strip" }
+    ],
+    "instructions": [
+      { "description": "Cut thick strip. Notch sides. Etch veins." },
+      { "description": "Soak in ice water." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Garnish" }
+  }
+]

@@ -1,0 +1,343 @@
+[
+  {
+    "id": "thai-iced-coffee",
+    "title": "Thai Iced Coffee",
+    "description": "Strong coffee sweetened with condensed milk and served over ice.",
+    "servings": "2",
+    "ingredients": [
+      { "name": "strong French roasted coffee", "amount": "1/4", "unit": "cup" },
+      { "name": "boiling water", "amount": "1/2", "unit": "cup" },
+      { "name": "sweetened condensed milk", "amount": "2", "unit": "teaspoons" },
+      { "name": "ice cubes", "amount": "1", "unit": "cup", "notes": "to fill glasses" }
+    ],
+    "instructions": [
+      { "description": "Combine coffee, boiling water and condensed milk; stir until blended." },
+      { "description": "Pour into tall glasses filled with ice." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "thai-iced-tea",
+    "title": "Thai Iced Tea",
+    "description": "Traditional strong Thai tea served sweet and cold.",
+    "servings": "2",
+    "ingredients": [
+      { "name": "strong Thai tea", "amount": "1/4", "unit": "cup" },
+      { "name": "boiling water", "amount": "1/2", "unit": "cup" },
+      { "name": "sweetened condensed milk", "amount": "2", "unit": "teaspoons" },
+      { "name": "mint leaves", "amount": "2", "unit": "sprigs", "notes": "for garnish" }
+    ],
+    "instructions": [
+      { "description": "Combine tea, boiling water and condensed milk; stir." },
+      { "description": "Pour into glasses with ice and garnish with mint." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "guava-daiquiri",
+    "title": "Guava Daiquiri",
+    "description": "Slushy cocktail with rum and guava concentrate.",
+    "servings": "2",
+    "ingredients": [
+      { "name": "light rum", "amount": "2", "unit": "ounces" },
+      { "name": "guava juice concentrate", "amount": "2", "unit": "ounces" },
+      { "name": "fresh lime juice", "amount": "1", "unit": "tablespoon" },
+      { "name": "sugar", "amount": "1", "unit": "teaspoon" },
+      { "name": "grenadine", "amount": "1", "unit": "dash" },
+      { "name": "cracked ice", "amount": "1", "unit": "scoop" }
+    ],
+    "instructions": [
+      { "description": "Blend liquid ingredients for 30 seconds." },
+      { "description": "Gradually add ice until slushy." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "lychee-shake",
+    "title": "Lychee Shake",
+    "description": "Smooth shake made with lychee sherbet and milk.",
+    "servings": "2",
+    "ingredients": [
+      { "name": "lychee sherbet", "amount": "2", "unit": "scoops" },
+      { "name": "milk", "amount": "2", "unit": "cups" }
+    ],
+    "instructions": [
+      { "description": "Blend sherbet and milk on high speed until smooth." }
+    ],
+    "notes": ["Coconut, mango, or guava sherbet can be substituted."],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "lilikoi-float",
+    "title": "Lilikoi Float",
+    "description": "Passion fruit sherbet served in lemon-lime soda.",
+    "servings": "2",
+    "ingredients": [
+      { "name": "lilikoi (passion fruit) sherbet", "amount": "2", "unit": "scoops" },
+      { "name": "lemon-lime soda", "amount": "2", "unit": "cups", "notes": "chilled" }
+    ],
+    "instructions": [
+      { "description": "Combine sherbet and soda in tall glass. Stir well." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "evil-princess",
+    "title": "Evil Princess",
+    "description": "A Keo’s original cocktail with jackfruit and rum.",
+    "servings": "2-3",
+    "ingredients": [
+      { "name": "light rum", "amount": "2", "unit": "ounces" },
+      { "name": "fresh jackfruits", "amount": "2", "unit": "cups", "notes": "seeded and sliced" },
+      { "name": "pineapple juice", "amount": "2", "unit": "ounces" },
+      { "name": "orange juice", "amount": "2", "unit": "ounces" },
+      { "name": "coconut milk", "amount": "1", "unit": "ounce" },
+      { "name": "cracked ice", "amount": "1", "unit": "scoop" }
+    ],
+    "instructions": [
+      { "description": "Blend all liquid ingredients and fruit for 30 seconds." },
+      { "description": "Add ice gradually until slushy." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "mango-daiquiri",
+    "title": "Mango Daiquiri",
+    "description": "Fresh mango blended with rum and lemon juice.",
+    "servings": "2",
+    "ingredients": [
+      { "name": "light rum", "amount": "2", "unit": "ounces" },
+      { "name": "ripe mango", "amount": "1", "unit": "large", "notes": "peeled and seeded" },
+      { "name": "fresh lemon juice", "amount": "1", "unit": "tablespoon" },
+      { "name": "sugar", "amount": "1", "unit": "teaspoon", "notes": "optional" },
+      { "name": "cracked ice", "amount": "1", "unit": "scoop" }
+    ],
+    "instructions": [
+      { "description": "Blend ingredients for 30 seconds." },
+      { "description": "Add ice until slushy." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Beverage" }
+  },
+  {
+    "id": "satay-sauce",
+    "title": "Satay Sauce",
+    "description": "Classic peanut dipping sauce for meat and vegetables.",
+    "servings": "3 cups",
+    "ingredients": [
+      { "name": "coconut milk", "amount": "1", "unit": "cup" },
+      { "name": "chunky peanut butter", "amount": "1", "unit": "cup" },
+      { "name": "tamarind paste", "amount": "2", "unit": "teaspoons" },
+      { "name": "fish sauce", "amount": "1-3", "unit": "tablespoons" },
+      { "name": "brown sugar", "amount": "3", "unit": "tablespoons" },
+      { "name": "lemon juice", "amount": "3", "unit": "tablespoons" },
+      { "name": "kaffir lime leaves", "amount": "3", "unit": "leaves" },
+      { "name": "curry powder", "amount": "1/2", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Sauté aromatics (garlic, onion, chiles) in oil." },
+      { "description": "Stir in liquids, spices, and peanut butter." },
+      { "description": "Simmer 30 minutes until thick." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Sauce" }
+  },
+  {
+    "id": "spring-roll-sauce",
+    "title": "Spring Roll Sauce",
+    "description": "Sweet and spicy sauce for deep-fried dishes.",
+    "servings": "1 cup",
+    "ingredients": [
+      { "name": "sugar", "amount": "1/4", "unit": "cup" },
+      { "name": "water", "amount": "1/2", "unit": "cup" },
+      { "name": "red wine vinegar", "amount": "1/2", "unit": "cup" },
+      { "name": "fish sauce", "amount": "1-2", "unit": "tablespoons" },
+      { "name": "red chile peppers", "amount": "2-3", "unit": "teaspoons", "notes": "ground" },
+      { "name": "peanuts", "amount": "1/4", "unit": "cup", "notes": "chopped" }
+    ],
+    "instructions": [
+      { "description": "Boil sugar and water until dissolved." },
+      { "description": "Stir in vinegar, fish sauce, chiles. Chill." },
+      { "description": "Top with carrots and peanuts before serving." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Sauce" }
+  },
+  {
+    "id": "cucumber-sauce",
+    "title": "Cucumber Sauce",
+    "description": "Refreshing vinegar-based sauce for satay and fish cakes.",
+    "servings": "1.5 cups",
+    "ingredients": [
+      { "name": "cucumber", "amount": "1", "unit": "whole", "notes": "Japanese preferred" },
+      { "name": "sugar", "amount": "5", "unit": "tablespoons" },
+      { "name": "boiling water", "amount": "1", "unit": "cup" },
+      { "name": "white vinegar", "amount": "1/2", "unit": "cup" },
+      { "name": "salt", "amount": "1", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Dissolve sugar in boiling water. Add vinegar and salt." },
+      { "description": "Pour over sliced cucumber. Garnish with chiles and shallots." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Sauce" }
+  },
+  {
+    "id": "musamun-curry-paste",
+    "title": "Regular (Musamun) Curry Paste",
+    "description": "Mild, rich Moslem-style curry paste with cinnamon and peanuts.",
+    "servings": "Batch",
+    "ingredients": [
+      { "name": "dried chile peppers", "amount": "20-30", "unit": "whole" },
+      { "name": "lemongrass", "amount": "1", "unit": "stalk" },
+      { "name": "shallots", "amount": "1", "unit": "cup" },
+      { "name": "garlic", "amount": "5", "unit": "cloves" },
+      { "name": "kra chai", "amount": "1", "unit": "tablespoon" },
+      { "name": "kaffir lime leaves", "amount": "10", "unit": "leaves" },
+      { "name": "cinnamon", "amount": "1/2", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Soak peppers. Bake ingredients at 350°F for 15-20 mins." },
+      { "description": "Process until smooth (add oil if using mortar)." }
+    ],
+    "notes": ["Keeps well for several months."],
+    "meta": { "cuisine": ["Thai"], "course": "Paste" }
+  },
+  {
+    "id": "yellow-curry-paste",
+    "title": "Yellow Curry Paste",
+    "description": "The mildest curry paste, featuring turmeric and mustard.",
+    "servings": "Batch",
+    "ingredients": [
+      { "name": "yellow chile peppers", "amount": "5-10", "unit": "whole" },
+      { "name": "lemongrass", "amount": "1", "unit": "stalk" },
+      { "name": "shallots", "amount": "1/4", "unit": "cup" },
+      { "name": "curry powder", "amount": "1", "unit": "teaspoon" },
+      { "name": "dried mustard", "amount": "1", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Combine all ingredients in food processor until smooth." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Paste" }
+  },
+  {
+    "id": "red-curry-paste",
+    "title": "Red Curry Paste",
+    "description": "The original Thai curry paste.",
+    "servings": "Batch",
+    "ingredients": [
+      { "name": "red chile peppers", "amount": "15-20", "unit": "whole" },
+      { "name": "lemongrass", "amount": "2", "unit": "stalks" },
+      { "name": "shallots", "amount": "5", "unit": "whole" },
+      { "name": "garlic", "amount": "1", "unit": "clove" },
+      { "name": "kha (galangal)", "amount": "1", "unit": "tablespoon" },
+      { "name": "shrimp paste", "amount": "1/4", "unit": "teaspoon", "notes": "optional" }
+    ],
+    "instructions": [
+      { "description": "Combine all ingredients in food processor until smooth." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Paste" }
+  },
+  {
+    "id": "green-curry-paste",
+    "title": "Green Curry Paste",
+    "description": "The hottest Thai curry paste using fresh green chiles.",
+    "servings": "Batch",
+    "ingredients": [
+      { "name": "green chile peppers", "amount": "15-20", "unit": "small whole" },
+      { "name": "lemongrass", "amount": "4", "unit": "stalks" },
+      { "name": "shallots", "amount": "3", "unit": "whole" },
+      { "name": "kaffir lime rind", "amount": "1/2", "unit": "teaspoon" },
+      { "name": "coriander", "amount": "1/2", "unit": "teaspoon" }
+    ],
+    "instructions": [
+      { "description": "Combine all ingredients in food processor until smooth." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Paste" }
+  },
+  {
+    "id": "thai-curry-sauce-base",
+    "title": "Thai Curry Sauce (Base Recipe)",
+    "description": "Basic method for turning any paste into a sauce.",
+    "servings": "1 cup",
+    "ingredients": [
+      { "name": "vegetable oil", "amount": "2", "unit": "tablespoons" },
+      { "name": "curry paste", "amount": "1", "unit": "teaspoon", "notes": "Red, Green, Yellow, or Regular" },
+      { "name": "coconut milk", "amount": "1", "unit": "cup" }
+    ],
+    "instructions": [
+      { "description": "Heat oil. Stir fry paste for 1-2 minutes." },
+      { "description": "Add coconut milk, bring to boil, remove from heat." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Sauce" }
+  },
+  {
+    "id": "garnish-tomato-lotus",
+    "title": "Tomato Lotus Flower",
+    "description": "Technique to cut a tomato into a flower shape.",
+    "servings": "1",
+    "ingredients": [
+      { "name": "tomato", "amount": "1", "unit": "whole" }
+    ],
+    "instructions": [
+      { "description": "Cut skin into petals from bottom to stem." },
+      { "description": "Cut smaller petals inside. Peel back outer petals." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Garnish" }
+  },
+  {
+    "id": "garnish-chile-flower",
+    "title": "Red Chile Flower",
+    "description": "Technique to bloom a chile pepper in ice water.",
+    "servings": "1",
+    "ingredients": [
+      { "name": "red chile pepper", "amount": "1", "unit": "whole" }
+    ],
+    "instructions": [
+      { "description": "Trim tip. Cut lengthwise into petals. Remove seeds." },
+      { "description": "Soak in ice water for 5 minutes until open." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Garnish" }
+  },
+  {
+    "id": "garnish-cucumber-fan",
+    "title": "Cucumber Fan",
+    "description": "Decorative cucumber cut.",
+    "servings": "1",
+    "ingredients": [
+      { "name": "cucumber", "amount": "1", "unit": "section" }
+    ],
+    "instructions": [
+      { "description": "Cut diagonal sections. Notch top. Make thin cuts almost to end." },
+      { "description": "Fan open by pressing down." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Garnish" }
+  },
+  {
+    "id": "garnish-green-onion-brush",
+    "title": "Green Onion Brush",
+    "description": "Technique to curl green onion ends.",
+    "servings": "1",
+    "ingredients": [
+      { "name": "green onion", "amount": "1", "unit": "stalk" }
+    ],
+    "instructions": [
+      { "description": "Cut to 2-inch lengths. Shred ends with needle." },
+      { "description": "Soak in ice water until curled." }
+    ],
+    "notes": [],
+    "meta": { "cuisine": ["Thai"], "course": "Garnish" }
+  }
+]
