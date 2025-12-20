@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, signal } from '@angular/core'
+import { Component, computed, effect, inject, signal, OnDestroy } from '@angular/core'
 import { ActivatedRoute, RouterLink } from '@angular/router'
 import { RECIPES } from '../../data/recipes.data'
 import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
@@ -264,7 +264,7 @@ interface Timer {
     `,
   ],
 })
-export default class RecipeDetailPage {
+export default class RecipeDetailPage implements OnDestroy {
   private route = inject(ActivatedRoute)
   private recipeId = signal<string>('')
 
@@ -438,17 +438,30 @@ export default class RecipeDetailPage {
   }
 
   private loadPersistedState(recipeId: string) {
-    // Load checked ingredients
-    const checkedStr = localStorage.getItem(`recipe-${recipeId}-checked`)
-    if (checkedStr) {
-      const checked = JSON.parse(checkedStr)
-      this.checkedIngredients.set(new Set(checked))
+    try {
+      // Load checked ingredients
+      const checkedStr = localStorage.getItem(`recipe-${recipeId}-checked`)
+      if (checkedStr) {
+        const checked = JSON.parse(checkedStr)
+        if (Array.isArray(checked)) {
+          this.checkedIngredients.set(new Set(checked))
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to parse checked ingredients from localStorage', error)
     }
 
-    // Load servings
-    const servingsStr = localStorage.getItem(`recipe-${recipeId}-servings`)
-    if (servingsStr) {
-      this.servings.set(parseInt(servingsStr))
+    try {
+      // Load servings
+      const servingsStr = localStorage.getItem(`recipe-${recipeId}-servings`)
+      if (servingsStr) {
+        const servings = parseInt(servingsStr, 10)
+        if (!isNaN(servings) && servings >= 1 && servings <= 20) {
+          this.servings.set(servings)
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to parse servings from localStorage', error)
     }
   }
 
