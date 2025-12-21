@@ -99,7 +99,9 @@ import { MIN_INGREDIENT_MATCH_THRESHOLD } from '../../constants/recipe.constants
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         @for (recipe of filteredRecipes(); track recipe.id) {
         <article
-          class="bg-primary-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col relative"
+          class="bg-primary-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 flex flex-col relative border-t-4"
+          [class.border-amber-500]="recipe.meta.cuisine.includes('Thai')"
+          [class.border-emerald-500]="!recipe.meta.cuisine.includes('Thai')"
         >
           <!-- Shopping List Badge (if selected) -->
           @if (selectedRecipes().has(recipe.id)) {
@@ -113,9 +115,24 @@ import { MIN_INGREDIENT_MATCH_THRESHOLD } from '../../constants/recipe.constants
           </div>
           }
 
+          <!-- Cuisine Badge -->
+          <div class="absolute top-4 left-4 z-10">
+            @for (cuisine of recipe.meta.cuisine; track cuisine) {
+            <span 
+              class="inline-block px-3 py-1 rounded-full text-xs font-bold shadow-md"
+              [class.bg-amber-100]="cuisine === 'Thai'"
+              [class.text-amber-800]="cuisine === 'Thai'"
+              [class.bg-emerald-100]="cuisine !== 'Thai'"
+              [class.text-emerald-800]="cuisine !== 'Thai'"
+            >
+              {{ cuisine }}
+            </span>
+            }
+          </div>
+
           <!-- Recipe Header (clickable) -->
           <div
-            class="p-6 border-b border-primary-alabaster flex-grow cursor-pointer"
+            class="p-6 pt-12 border-b border-primary-alabaster flex-grow cursor-pointer hover:bg-primary-alabaster/20 transition-colors"
             [routerLink]="['/recipes', recipe.id]"
           >
             <h2 class="text-2xl font-bold text-primary-800 mb-2">{{ recipe.title }}</h2>

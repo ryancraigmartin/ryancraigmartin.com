@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 import { RECIPES } from '../../data/recipes.data'
 import { Recipe } from '../../models/Recipe.interface'
-import { DEFAULT_COMPARISON_RECIPES } from '../../constants/recipe.constants'
+import { DEFAULT_COMPARISON_RECIPES, RECIPE_CATEGORY_FILTERS } from '../../constants/recipe.constants'
 
 @Component({
   standalone: true,
@@ -41,22 +41,59 @@ import { DEFAULT_COMPARISON_RECIPES } from '../../constants/recipe.constants'
       <div class="bg-primary-white rounded-xl p-6 shadow-lg mb-8">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl font-bold text-primary-800">Select Recipes to Compare</h2>
-          <div class="flex gap-3">
-            <button
-              (click)="selectLentilRecipes()"
-              class="px-4 py-2 bg-primary-alabaster text-primary-800 rounded-lg text-sm font-medium hover:bg-primary-green hover:text-primary-white transition-colors"
-              type="button"
-            >
-              Lentil Stews Only
-            </button>
-            <button
-              (click)="clearSelections()"
-              class="px-4 py-2 bg-secondary-200 text-secondary-800 rounded-lg text-sm font-medium hover:bg-secondary-300 transition-colors"
-              type="button"
-            >
-              Clear All
-            </button>
-          </div>
+          <button
+            (click)="clearSelections()"
+            class="px-4 py-2 bg-secondary-200 text-secondary-800 rounded-lg text-sm font-medium hover:bg-secondary-300 transition-colors"
+            type="button"
+          >
+            Clear All
+          </button>
+        </div>
+
+        <!-- Quick Filter Buttons -->
+        <div class="flex flex-wrap gap-3 mb-4">
+          <button
+            (click)="selectCategory('lentils')"
+            class="px-4 py-2 bg-emerald-100 text-emerald-800 rounded-lg text-sm font-medium hover:bg-emerald-200 transition-colors"
+            type="button"
+          >
+            🍲 Lentil Stews
+          </button>
+          <button
+            (click)="selectCategory('soups')"
+            class="px-4 py-2 bg-amber-100 text-amber-800 rounded-lg text-sm font-medium hover:bg-amber-200 transition-colors"
+            type="button"
+          >
+            🍜 Soups
+          </button>
+          <button
+            (click)="selectCategory('salads')"
+            class="px-4 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-medium hover:bg-green-200 transition-colors"
+            type="button"
+          >
+            🥗 Salads
+          </button>
+          <button
+            (click)="selectCategory('beverages')"
+            class="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
+            type="button"
+          >
+            ☕ Beverages
+          </button>
+          <button
+            (click)="selectCategory('appetizers')"
+            class="px-4 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-medium hover:bg-purple-200 transition-colors"
+            type="button"
+          >
+            🍢 Appetizers
+          </button>
+          <button
+            (click)="selectCategory('curries')"
+            class="px-4 py-2 bg-orange-100 text-orange-800 rounded-lg text-sm font-medium hover:bg-orange-200 transition-colors"
+            type="button"
+          >
+            🍛 Curries
+          </button>
         </div>
 
         <div class="mb-4">
@@ -66,17 +103,23 @@ import { DEFAULT_COMPARISON_RECIPES } from '../../constants/recipe.constants'
             (input)="filterRecipes()"
             placeholder="Search recipes by name..."
             class="w-full px-4 py-2 border-2 border-primary-alabaster rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green"
+            aria-label="Search recipes"
           />
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-h-96 overflow-y-auto">
           @for (recipe of filteredAvailableRecipes(); track recipe.id) {
-          <label class="flex items-center gap-2 p-3 rounded-lg bg-primary-alabaster/30 hover:bg-primary-alabaster cursor-pointer transition-colors">
+          <label 
+            class="flex items-center gap-2 p-3 rounded-lg bg-primary-alabaster/30 hover:bg-primary-alabaster cursor-pointer transition-colors"
+            [attr.for]="'recipe-' + recipe.id"
+          >
             <input
+              [id]="'recipe-' + recipe.id"
               type="checkbox"
               [checked]="selectedRecipeIds().has(recipe.id)"
               (change)="toggleRecipeSelection(recipe.id)"
               class="w-5 h-5 rounded border-2 border-primary-green text-primary-green focus:ring-primary-green"
+              [attr.aria-label]="'Select ' + recipe.title + ' for comparison'"
             />
             <span class="text-sm text-secondary-700 flex-1">{{ recipe.title }}</span>
           </label>
@@ -279,6 +322,15 @@ export default class RecipesComparePage {
 
   selectLentilRecipes() {
     this.selectedRecipeIds.set(new Set(DEFAULT_COMPARISON_RECIPES))
+  }
+
+  selectCategory(category: keyof typeof RECIPE_CATEGORY_FILTERS) {
+    const recipeIds = RECIPE_CATEGORY_FILTERS[category]
+    // Find matching recipes that exist in our data
+    const validIds = recipeIds.filter(id => 
+      this.allRecipes.some(r => r.id === id)
+    )
+    this.selectedRecipeIds.set(new Set(validIds))
   }
 
   clearSelections() {

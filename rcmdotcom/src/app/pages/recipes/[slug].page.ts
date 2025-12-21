@@ -207,7 +207,11 @@ interface Timer {
                   </div>
                   <div class="flex-grow">
                     <h3 class="text-lg font-semibold text-primary-800 mb-2">
-                      Step {{ idx + 1 }}: {{ instruction.title }}
+                      @if (instruction.title.toLowerCase().startsWith('step')) {
+                        {{ instruction.title }}
+                      } @else {
+                        Step {{ idx + 1 }}: {{ instruction.title }}
+                      }
                     </h3>
                     <p class="text-secondary-700 mb-3">{{ instruction.description }}</p>
 
@@ -255,7 +259,7 @@ interface Timer {
           @for (note of recipe()!.notes; track note) {
           <li class="flex items-start gap-3 text-secondary-700">
             <span class="text-primary-green mt-1">💡</span>
-            <span>{{ note }}</span>
+            <span [innerHTML]="linkifyRecipes(note)"></span>
           </li>
           }
         </ul>
@@ -541,6 +545,25 @@ export default class RecipeDetailPage implements OnDestroy {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
     return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
+  /**
+   * Converts recipe mentions in chef's notes to clickable links
+   * Looks for recipe names in RECIPES and creates router links
+   */
+  linkifyRecipes(note: string): string {
+    let linkedNote = note
+    
+    // Find all recipe titles and create links
+    RECIPES.forEach(recipe => {
+      // Create a case-insensitive regex to find the recipe title
+      const regex = new RegExp(`\\b${recipe.title}\\b`, 'gi')
+      linkedNote = linkedNote.replace(regex, (match) => {
+        return `<a href="/recipes/${recipe.id}" class="text-primary-green hover:text-primary-800 font-semibold underline transition-colors">${match}</a>`
+      })
+    })
+    
+    return linkedNote
   }
 
   private loadPersistedState(recipeId: string) {
