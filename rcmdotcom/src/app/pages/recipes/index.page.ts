@@ -113,7 +113,7 @@ import { filterRecipesByIngredients } from '../../utils/ingredient-categorizatio
           }
 
           <!-- Recipe Header (clickable) -->
-          <div 
+          <div
             class="p-6 border-b border-primary-alabaster flex-grow cursor-pointer"
             [routerLink]="['/recipes', recipe.id]"
           >

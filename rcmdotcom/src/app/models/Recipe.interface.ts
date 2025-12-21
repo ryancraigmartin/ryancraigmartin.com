@@ -4,6 +4,7 @@ export interface RecipeIngredient {
   amount: number // Base amount
   unit: string // Unit of measurement
   category?: string // Ingredient category for search (e.g., "protein", "vegetable", "spice")
+  notes?: string // Preparation notes (e.g., "Finely Chopped", "For Deep-frying")
 }
 
 export interface RecipeInstruction {

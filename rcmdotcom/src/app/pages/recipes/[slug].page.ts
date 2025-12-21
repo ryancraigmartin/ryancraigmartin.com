@@ -6,11 +6,11 @@ import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
 /**
  * Scales ingredient amounts and formats them with common fractions
  * for better readability in recipe display.
- * 
+ *
  * @param amount - The base ingredient amount
  * @param scale - The scaling factor (servings / baseServings)
  * @returns Formatted string with whole numbers and/or fractions
- * 
+ *
  * @example
  * scaleAndFormatAmount(1.5, 2) // "3"
  * scaleAndFormatAmount(1, 0.5) // "1/2"
@@ -417,12 +417,12 @@ export default class RecipeDetailPage implements OnDestroy {
    */
   addToShoppingList() {
     if (typeof window === 'undefined') return
-    
+
     try {
       const stored = localStorage.getItem(this.shoppingListKey)
       let selections: string[] = stored ? JSON.parse(stored) : []
       const recipeId = this.recipeId()
-      
+
       if (selections.includes(recipeId)) {
         // Remove from list
         selections = selections.filter(id => id !== recipeId)
@@ -435,7 +435,7 @@ export default class RecipeDetailPage implements OnDestroy {
           this.showAddedMessage.set(false)
         }, 5000)
       }
-      
+
       localStorage.setItem(this.shoppingListKey, JSON.stringify(selections))
     } catch (error) {
       console.error('Error updating shopping list:', error)
@@ -446,7 +446,7 @@ export default class RecipeDetailPage implements OnDestroy {
    * Starts a countdown timer for a cooking step.
    * Supports multiple concurrent timers and persists across page refreshes.
    * Shows browser notification when timer completes (if permission granted).
-   * 
+   *
    * @param stepTitle - The name of the cooking step
    * @param duration - Timer duration in seconds
    * @param stepIndex - Index of the step for tracking active state
