@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'
 import { RECIPES } from '../../data/recipes.data'
 import { Recipe, RecipeIngredient } from '../../models/Recipe.interface'
 import { filterRecipesByIngredients } from '../../utils/ingredient-categorization'
+import { MIN_INGREDIENT_MATCH_THRESHOLD } from '../../constants/recipe.constants'
 
 @Component({
   standalone: true,
@@ -347,7 +348,7 @@ export default class RecipesIndexPage {
       return this.recipes()
     }
 
-    const matches = filterRecipesByIngredients(this.recipes(), searchTerms, 0.2)
+    const matches = filterRecipesByIngredients(this.recipes(), searchTerms, MIN_INGREDIENT_MATCH_THRESHOLD)
     return matches.map((m) => m.recipe)
   })
 

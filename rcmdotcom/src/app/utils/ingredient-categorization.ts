@@ -3,6 +3,8 @@
  * Supports ingredient-based recipe search for pantry/fridge matching.
  */
 
+import { MIN_INGREDIENT_MATCH_THRESHOLD } from '../constants/recipe.constants'
+
 export type IngredientCategory =
   | 'protein'
   | 'vegetable'
@@ -232,12 +234,12 @@ export function calculateIngredientMatch(
  *
  * @param recipes - List of all recipes
  * @param availableIngredients - Ingredients the user has
- * @param minMatchThreshold - Minimum match percentage (0-1) to include recipe
+ * @param minMatchThreshold - Minimum match percentage (0-1) to include recipe, defaults to 20%
  */
 export function filterRecipesByIngredients(
   recipes: any[],
   availableIngredients: string[],
-  minMatchThreshold: number = 0.3,
+  minMatchThreshold: number = MIN_INGREDIENT_MATCH_THRESHOLD,
 ): Array<{ recipe: any; matchScore: number; missingIngredients: string[] }> {
   return recipes
     .map((recipe) => {

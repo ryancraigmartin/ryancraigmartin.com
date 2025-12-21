@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 import { RECIPES } from '../../data/recipes.data'
 import { Recipe } from '../../models/Recipe.interface'
+import { DEFAULT_COMPARISON_RECIPES } from '../../constants/recipe.constants'
 
 @Component({
   standalone: true,
@@ -255,7 +256,7 @@ import { Recipe } from '../../models/Recipe.interface'
 })
 export default class RecipesComparePage {
   allRecipes = RECIPES
-  selectedRecipeIds = signal<Set<string>>(new Set(['elevated-lentil-stew', 'mexican-inspired-stew', 'indian-spiced-curry']))
+  selectedRecipeIds = signal<Set<string>>(new Set(DEFAULT_COMPARISON_RECIPES))
   searchTerm = ''
   filteredAvailableRecipes = signal<Recipe[]>(RECIPES)
 
@@ -277,7 +278,7 @@ export default class RecipesComparePage {
   }
 
   selectLentilRecipes() {
-    this.selectedRecipeIds.set(new Set(['elevated-lentil-stew', 'mexican-inspired-stew', 'indian-spiced-curry']))
+    this.selectedRecipeIds.set(new Set(DEFAULT_COMPARISON_RECIPES))
   }
 
   clearSelections() {
