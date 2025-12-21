@@ -6881,5 +6881,1176 @@ export const THAI_RECIPES: Recipe[] = [
       "Cucumber"
     ]
   }
+},
+  {
+  "id": "chickpea-curry",
+  "title": "Chickpea Curry",
+  "description": "A vibrant, creamy Indian chickpea curry with aromatic spices, tomatoes, and coconut milk. Simple, vegetarian, and deeply flavorful.",
+  "prepTime": "15 min",
+  "cookTime": "35 min",
+  "totalTime": "50 min",
+  "baseServings": 2,
+  "ingredients": [
+    {
+      "name": "Onion",
+      "amount": 1,
+      "unit": "whole",
+      "notes": "Diced"
+    },
+    {
+      "name": "Garlic Cloves",
+      "amount": 2,
+      "unit": "cloves",
+      "notes": "Minced"
+    },
+    {
+      "name": "Fresh Ginger",
+      "amount": 1,
+      "unit": "tablespoon",
+      "notes": "Minced"
+    },
+    {
+      "name": "Green Chili Peppers",
+      "amount": 1,
+      "unit": "whole",
+      "notes": "Seeded And Chopped"
+    },
+    {
+      "name": "Tomatoes",
+      "amount": 2,
+      "unit": "whole",
+      "notes": "Diced"
+    },
+    {
+      "name": "Grapeseed Oil",
+      "amount": 2,
+      "unit": "tablespoons"
+    },
+    {
+      "name": "Cumin Seeds",
+      "amount": 1,
+      "unit": "teaspoon",
+      "section": "Spice Blend"
+    },
+    {
+      "name": "Coriander Seeds",
+      "amount": 1,
+      "unit": "teaspoon",
+      "section": "Spice Blend"
+    },
+    {
+      "name": "Chili Powder",
+      "amount": 0.5,
+      "unit": "teaspoon",
+      "section": "Spice Blend"
+    },
+    {
+      "name": "Turmeric",
+      "amount": 0.5,
+      "unit": "teaspoon",
+      "section": "Spice Blend"
+    },
+    {
+      "name": "Garam Masala",
+      "amount": 0.5,
+      "unit": "tablespoon",
+      "section": "Spice Blend"
+    },
+    {
+      "name": "Cane Sugar",
+      "amount": 0.5,
+      "unit": "tablespoon"
+    },
+    {
+      "name": "Pink Salt",
+      "amount": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Canned Chickpeas",
+      "amount": 1,
+      "unit": "can",
+      "notes": "Drained And Rinsed"
+    },
+    {
+      "name": "Full Fat Coconut Milk",
+      "amount": 1,
+      "unit": "can"
+    },
+    {
+      "name": "Fresh Cilantro",
+      "amount": 0.25,
+      "unit": "cup",
+      "notes": "Chopped"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Step 1",
+      "description": "Dice the onion, garlic, and ginger. Remove the seeds from the green chili peppers and chop them. Dice the tomatoes."
+    },
+    {
+      "title": "Step 2",
+      "description": "Heat a sauté pan to medium-high heat. Add the grapeseed oil.",
+      "timer": 60
+    },
+    {
+      "title": "Step 3",
+      "description": "Fry the cumin and coriander seeds for about 30 seconds until fragrant.",
+      "timer": 30
+    },
+    {
+      "title": "Step 4",
+      "description": "Add the diced onion and sauté for about 5 minutes. Then add the garlic, ginger, and chopped chili peppers. Sauté for 3 minutes.",
+      "timer": 480
+    },
+    {
+      "title": "Step 5",
+      "description": "Add the chili powder, turmeric, garam masala, cane sugar, and pink salt. Sauté for about 3 minutes.",
+      "timer": 180
+    },
+    {
+      "title": "Step 6",
+      "description": "Add the chickpeas and sauté for 3-5 minutes.",
+      "timer": 240
+    },
+    {
+      "title": "Step 7",
+      "description": "Add the diced tomatoes and sauté for another 3 minutes.",
+      "timer": 180
+    },
+    {
+      "title": "Step 8",
+      "description": "Add and deglaze the pan with the coconut milk."
+    },
+    {
+      "title": "Step 9",
+      "description": "When the curry starts to bubble, reduce the heat to medium and simmer for 5 minutes.",
+      "timer": 300
+    },
+    {
+      "title": "Step 10",
+      "description": "Plate the curry and garnish with fresh chopped cilantro. Serve with basmati rice and/or fresh homemade flatbread."
+    }
+  ],
+  "toppings": [
+    "Fresh cilantro",
+    "Basmati rice",
+    "Flatbread",
+    "Yogurt"
+  ],
+  "notes": [
+    "Use full fat coconut milk for best results.",
+    "Multiply the recipe as needed to serve more people.",
+    "Pairs beautifully with basmati rice or warm flatbread.",
+    "Tastes even better the next day as flavors develop."
+  ],
+  "meta": {
+    "cuisine": [
+      "Indian"
+    ],
+    "features": [
+      "Aromatic",
+      "Creamy",
+      "Spiced",
+      "Vegetarian"
+    ],
+    "mainIngredients": [
+      "Chickpeas",
+      "Coconut Milk",
+      "Onion",
+      "Tomatoes",
+      "Garam Masala"
+    ]
+  }
+},
+  {
+  "id": "soft-tofu-black-bean-sauce",
+  "title": "Soft Tofu With Black Bean Sauce",
+  "description": "Silken tofu gently cooked in a savory black bean sauce with garlic, ginger, and a silky cornstarch-thickened gravy.",
+  "prepTime": "10 min",
+  "cookTime": "15 min",
+  "totalTime": "25 min",
+  "baseServings": 4,
+  "ingredients": [
+    {
+      "name": "Soft Tofu Or Firm Silken Tofu",
+      "amount": 14,
+      "unit": "ounces",
+      "notes": "Cut Into 3/4-Inch Cubes"
+    },
+    {
+      "name": "Potato Starch",
+      "amount": 1,
+      "unit": "tablespoon"
+    },
+    {
+      "name": "Cold Water",
+      "amount": 3,
+      "unit": "tablespoons",
+      "notes": "For Slurry"
+    },
+    {
+      "name": "Vegetable Oil",
+      "amount": 2,
+      "unit": "tablespoons"
+    },
+    {
+      "name": "Scallions",
+      "amount": 2,
+      "unit": "whole",
+      "notes": "Thinly Sliced, White And Green Parts Separated"
+    },
+    {
+      "name": "Fresh Ginger",
+      "amount": 1,
+      "unit": "tablespoon",
+      "notes": "Finely Chopped"
+    },
+    {
+      "name": "Fresh Garlic",
+      "amount": 1,
+      "unit": "tablespoon",
+      "notes": "Finely Chopped"
+    },
+    {
+      "name": "Fermented Black Beans",
+      "amount": 3,
+      "unit": "tablespoons"
+    },
+    {
+      "name": "Unsalted Stock Or Water",
+      "amount": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Soy Sauce",
+      "amount": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Kosher Salt",
+      "amount": 0.5,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Sugar",
+      "amount": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Toasted Sesame Oil",
+      "amount": 0.5,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Ground White Pepper",
+      "amount": 1,
+      "unit": "dash"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Step 1",
+      "description": "Cut the tofu into 3/4-inch cubes and set aside. Make a slurry by combining the potato starch with 3 tablespoons of cold water in a small bowl. Stir until smooth and set aside."
+    },
+    {
+      "title": "Step 2",
+      "description": "Heat a wok over medium heat until a drop of water evaporates immediately upon contact, then add the oil and swirl to coat the sides.",
+      "timer": 120
+    },
+    {
+      "title": "Step 3",
+      "description": "Add the scallion whites, ginger, and garlic and stir-fry until the garlic is fragrant but not yet browned, about 30 seconds.",
+      "timer": 30
+    },
+    {
+      "title": "Step 4",
+      "description": "Add the fermented black beans and stir-fry briefly to sizzle and release their flavor.",
+      "timer": 15
+    },
+    {
+      "title": "Step 5",
+      "description": "Add the stock, soy sauce, salt, and sugar. When the liquid is bubbling, gently add the tofu and reduce the heat to medium-low.",
+      "timer": 60
+    },
+    {
+      "title": "Step 6",
+      "description": "Cook the tofu for about 2 minutes, gently moving the wok under the tofu instead of stirring.",
+      "timer": 120
+    },
+    {
+      "title": "Step 7",
+      "description": "Give the slurry a stir and add half to the wok, using a spatula to fold it into the sauce until it thickens, then repeat with the remaining slurry.",
+      "timer": 60
+    },
+    {
+      "title": "Step 8",
+      "description": "Remove from the heat and garnish with the sesame oil, white pepper, and scallion greens."
+    }
+  ],
+  "toppings": [
+    "Steamed rice",
+    "Extra sesame oil",
+    "Additional scallion greens"
+  ],
+  "notes": [
+    "Handle tofu gently to avoid breaking the cubes.",
+    "The slurry should be added in two batches to ensure smooth sauce.",
+    "Serve immediately with steamed rice.",
+    "Fermented black beans are essential for authentic flavor."
+  ],
+  "meta": {
+    "cuisine": [
+      "Chinese",
+      "Asian"
+    ],
+    "features": [
+      "Aromatic",
+      "Quick",
+      "Vegetarian"
+    ],
+    "mainIngredients": [
+      "Soft Tofu",
+      "Fermented Black Beans",
+      "Garlic",
+      "Ginger",
+      "Scallions"
+    ]
+  }
+},
+  {
+  "id": "seafood-shirataki-pho-bowl",
+  "title": "High-Volume Seafood Shirataki Pho Bowl",
+  "description": "A huge, slurpable bowl of aromatic pho-style broth, seafood, and crunchy vegetables built on ultra-low-cal shirataki noodles for maximum volume under ~400 calories.",
+  "prepTime": "15 min",
+  "cookTime": "20 min",
+  "totalTime": "35 min",
+  "baseServings": 2,
+  "ingredients": [
+    {
+      "name": "Store-bought Pho Broth (e.g., Ocean's Halo)",
+      "amount": 4,
+      "unit": "cups"
+    },
+    {
+      "name": "Shirataki Noodles, Rinsed And Drained",
+      "amount": 8,
+      "unit": "oz"
+    },
+    {
+      "name": "Medium Shrimp, Peeled & Deveined",
+      "amount": 8,
+      "unit": "oz"
+    },
+    {
+      "name": "Sea Scallops (Or Extra Shrimp)",
+      "amount": 4,
+      "unit": "oz"
+    },
+    {
+      "name": "Fish Sauce (Optional, For Depth)",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Low-Sodium Chicken Base Or Bouillon",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Hoisin Sauce (Or Sugar-Free Substitute)",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Chili Paste (Sambal Oelek Or Sriracha)",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "name": "Green Cabbage, Thinly Sliced",
+      "amount": 2,
+      "unit": "cups"
+    },
+    {
+      "name": "Cremini Or Shiitake Mushrooms, Sliced",
+      "amount": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Green Onions, Sliced",
+      "amount": 4,
+      "unit": "stalks"
+    },
+    {
+      "name": "Fresh Cilantro, Chopped",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Fresh Basil (Thai If Possible)",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Jalapeño, Thinly Sliced",
+      "amount": 1,
+      "unit": "unit"
+    },
+    {
+      "name": "Lime, Cut Into Wedges",
+      "amount": 1,
+      "unit": "unit"
+    },
+    {
+      "name": "Bean Sprouts (Optional)",
+      "amount": 1,
+      "unit": "cup"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Step 1",
+      "description": "Rinse and drain shirataki noodles thoroughly to remove any odor. Slice cabbage, mushrooms, green onions, jalapeño, and chop cilantro and basil. Cut lime into wedges."
+    },
+    {
+      "title": "Step 2",
+      "description": "In a large pot, bring pho broth to a simmer. Stir in chicken base, fish sauce (if using), hoisin, and chili paste. Taste and adjust seasoning for salt and spice."
+    },
+    {
+      "title": "Cook Seafood",
+      "description": "Add shrimp and scallops to the simmering broth and cook 3–4 minutes until just opaque. Avoid overcooking to keep the seafood tender.",
+      "timer": 240
+    },
+    {
+      "title": "Warm Noodles And Veg",
+      "description": "Add shirataki noodles, cabbage, and mushrooms to the pot. Simmer 3–5 minutes to heat through and slightly soften vegetables while keeping some crunch.",
+      "timer": 300
+    },
+    {
+      "title": "Assemble Bowls",
+      "description": "Divide noodles, seafood, and vegetables between two large bowls. Ladle hot broth over each. Top with green onions, cilantro, basil, jalapeño, and bean sprouts.",
+      "timer": 180
+    },
+    {
+      "title": "Finish And Serve",
+      "description": "Squeeze lime over each bowl before eating. Add extra chili paste or a touch more hoisin at the table if desired.",
+      "timer": 60
+    }
+  ],
+  "toppings": [
+    "Extra Lime Wedges",
+    "Chili Paste Or Sriracha",
+    "Additional Fresh Herbs",
+    "Bean Sprouts"
+  ],
+  "notes": [
+    "Use premade pho broth for speed; it is typically ~40 calories per 2 cups but very flavorful.",
+    "Shirataki noodles keep calories extremely low while providing slurpable volume.",
+    "Swap seafood for thinly sliced lean beef added at the end if you prefer red meat."
+  ],
+  "meta": {
+    "cuisine": [
+      "Vietnamese-inspired",
+      "Asian"
+    ],
+    "features": [
+      "High-volume",
+      "Brothy",
+      "Low-calorie"
+    ],
+    "mainIngredients": [
+      "Pho Broth",
+      "Shirataki Noodles",
+      "Shrimp",
+      "Scallops",
+      "Cabbage"
+    ]
+  }
+},
+  {
+  "id": "peanut-coconut-chicken-curry",
+  "title": "High-Volume Peanut Coconut Chicken Curry",
+  "description": "A deeply flavored, high-volume curry loaded with chicken, sweet potatoes, peas, and aromatics in a light coconut-peanut sauce, designed to be filling at ~350–400 calories per large serving.",
+  "prepTime": "20 min",
+  "cookTime": "35 min",
+  "totalTime": "55 min",
+  "baseServings": 4,
+  "ingredients": [
+    {
+      "name": "Boneless, Skinless Chicken Breast, Cubed",
+      "amount": 1,
+      "unit": "lb"
+    },
+    {
+      "name": "Sweet Potatoes, Peeled And Cubed",
+      "amount": 2,
+      "unit": "medium"
+    },
+    {
+      "name": "Carrots, Sliced",
+      "amount": 2,
+      "unit": "medium"
+    },
+    {
+      "name": "Yellow Onion, Diced",
+      "amount": 1,
+      "unit": "large"
+    },
+    {
+      "name": "Garlic Cloves, Minced",
+      "amount": 4,
+      "unit": "cloves"
+    },
+    {
+      "name": "Fresh Ginger, Grated",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Neutral Oil (Canola/Avocado)",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Turmeric Powder",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "name": "Yellow Curry Powder",
+      "amount": 2,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Cayenne Pepper (To Taste)",
+      "amount": 0.25,
+      "unit": "tsp"
+    },
+    {
+      "name": "Salt",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Black Pepper",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "name": "Light Coconut Milk (Canned)",
+      "amount": 13.5,
+      "unit": "oz"
+    },
+    {
+      "name": "Low-Sodium Chicken Broth",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Creamy Peanut Butter Or Powdered Peanut Butter",
+      "amount": 2,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Coconut Aminos Or Low-Sodium Soy Sauce",
+      "amount": 2,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Frozen Green Peas",
+      "amount": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Bell Pepper, Sliced (Or Green Beans If Avoiding Peppers)",
+      "amount": 1,
+      "unit": "medium"
+    },
+    {
+      "name": "Fresh Lime, Juiced",
+      "amount": 1,
+      "unit": "unit"
+    },
+    {
+      "name": "Fresh Cilantro, Chopped",
+      "amount": 0.25,
+      "unit": "cup"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Brown Chicken",
+      "description": "Heat oil in a large pot over medium-high. Season chicken cubes with a pinch of salt and pepper. Sear 4–5 minutes until lightly browned but not fully cooked through, then remove to a bowl.",
+      "timer": 300
+    },
+    {
+      "title": "Sauté Aromatics And Vegetables",
+      "description": "In the same pot, add onion, sweet potatoes, and carrots. Cook 6–8 minutes until onions soften. Add garlic and ginger and cook 1 minute until fragrant.",
+      "timer": 480
+    },
+    {
+      "title": "Bloom Spices",
+      "description": "Sprinkle in turmeric, curry powder, cayenne, remaining salt, and black pepper. Stir and toast 30 seconds to bloom spices without burning.",
+      "timer": 30
+    },
+    {
+      "title": "Build The Sauce",
+      "description": "Stir in coconut milk, chicken broth, peanut butter, and coconut aminos/soy sauce until smooth. Bring to a gentle simmer.",
+      "timer": 240
+    },
+    {
+      "title": "Simmer Until Tender",
+      "description": "Return chicken to the pot and simmer 15–20 minutes, uncovered, stirring occasionally, until sweet potatoes are tender and chicken is cooked through.",
+      "timer": 1200
+    },
+    {
+      "title": "Finish With Veg And Lime",
+      "description": "Stir in peas and bell pepper (or green beans) and cook 5 minutes more. Turn off heat, add lime juice and cilantro, and adjust seasoning with extra curry powder, salt, or cayenne if needed.",
+      "timer": 300
+    }
+  ],
+  "toppings": [
+    "Extra Cilantro",
+    "Lime Wedges",
+    "Thinly Sliced Green Onion",
+    "Crushed Peanuts (Small Sprinkle)"
+  ],
+  "notes": [
+    "Each quarter of the pot is designed to land around 350–400 calories while being very filling due to high volume of vegetables and lean protein.",
+    "Using light coconut milk and modest peanut butter keeps the curry rich without excessive calories.",
+    "Serve over steamed vegetables or a small portion of rice if you want extra carbs; just add calories accordingly."
+  ],
+  "meta": {
+    "cuisine": [
+      "Indian-inspired",
+      "Fusion"
+    ],
+    "features": [
+      "High-volume",
+      "Meal-prep-friendly",
+      "Comforting"
+    ],
+    "mainIngredients": [
+      "Chicken Breast",
+      "Sweet Potatoes",
+      "Carrots",
+      "Peas",
+      "Light Coconut Milk"
+    ]
+  }
+},
+  {
+  "id": "spinach-orzo-stracciatella-soup",
+  "title": "Spinach Orzo Stracciatella Soup (Lightened)",
+  "description": "A brothy Italian-inspired soup with egg ribbons, spinach, and a small amount of orzo that delivers a cheesy, pasta-y feel for about 130–150 calories per bowl.",
+  "prepTime": "10 min",
+  "cookTime": "20 min",
+  "totalTime": "30 min",
+  "baseServings": 4,
+  "ingredients": [
+    {
+      "name": "Low-Sodium Chicken Broth",
+      "amount": 6,
+      "unit": "cups"
+    },
+    {
+      "name": "Baby Spinach, Loosely Packed",
+      "amount": 4,
+      "unit": "cups"
+    },
+    {
+      "name": "Dry Orzo Pasta",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Eggs",
+      "amount": 2,
+      "unit": "large"
+    },
+    {
+      "name": "Grated Parmesan Cheese",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Garlic Clove, Minced",
+      "amount": 2,
+      "unit": "cloves"
+    },
+    {
+      "name": "Salt",
+      "amount": 0.75,
+      "unit": "tsp"
+    },
+    {
+      "name": "Black Pepper",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "name": "Lemon, Juiced",
+      "amount": 0.5,
+      "unit": "unit"
+    },
+    {
+      "name": "Fresh Parsley, Chopped (Optional)",
+      "amount": 0.25,
+      "unit": "cup"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Cook Orzo In Broth",
+      "description": "In a pot, bring chicken broth to a boil. Add orzo and cook according to package directions (about 8–10 minutes) until al dente.",
+      "timer": 600
+    },
+    {
+      "title": "Add Spinach And Garlic",
+      "description": "Reduce heat to a gentle simmer. Stir in minced garlic and spinach. Cook 2–3 minutes until spinach wilts.",
+      "timer": 180
+    },
+    {
+      "title": "Step 3",
+      "description": "In a bowl, whisk eggs with grated Parmesan until smooth. Season with a pinch of salt and pepper."
+    },
+    {
+      "title": "Create Stracciatella",
+      "description": "With the soup at a bare simmer, slowly drizzle in the egg mixture while stirring the pot in a circular motion to form thin ribbons.",
+      "timer": 120
+    },
+    {
+      "title": "Season And Finish",
+      "description": "Turn off heat, stir in lemon juice and parsley. Taste and adjust salt and pepper. Let stand 2–3 minutes to slightly thicken before serving.",
+      "timer": 180
+    }
+  ],
+  "toppings": [
+    "Extra Grated Parmesan (Small Sprinkle)",
+    "Cracked Black Pepper",
+    "Lemon Zest"
+  ],
+  "notes": [
+    "A Redditor cites a Skinnytaste spinach stracciatella soup with orzo at about 135 calories per filling bowl.",
+    "Using plenty of broth and spinach with modest orzo keeps calories low while still feeling like a pasta soup.",
+    "Add more broth if you prefer an even higher-volume, lower-calorie bowl."
+  ],
+  "meta": {
+    "cuisine": [
+      "Italian-inspired"
+    ],
+    "features": [
+      "Brothy",
+      "Comforting",
+      "Light"
+    ],
+    "mainIngredients": [
+      "Chicken Broth",
+      "Spinach",
+      "Eggs",
+      "Orzo",
+      "Parmesan"
+    ]
+  }
+},
+  {
+  "id": "honey-sesame-chicken-broccoli-rice",
+  "title": "Honey Sesame Chicken & Broccoli Rice Bowl (Lightened)",
+  "description": "A takeout-style bowl of tender chicken, saucy broccoli, and rice using a lightened honey–sesame glaze for a satisfying ~400-calorie meal.",
+  "prepTime": "15 min",
+  "cookTime": "20 min",
+  "totalTime": "35 min",
+  "baseServings": 4,
+  "ingredients": [
+    {
+      "name": "Boneless, Skinless Chicken Breast, Cubed",
+      "amount": 1,
+      "unit": "lb"
+    },
+    {
+      "name": "Broccoli Florets (Fresh Or Frozen)",
+      "amount": 5,
+      "unit": "cups"
+    },
+    {
+      "name": "Cooked Jasmine Or Basmati Rice",
+      "amount": 3,
+      "unit": "cups"
+    },
+    {
+      "name": "Low-Sodium Soy Sauce",
+      "amount": 0.25,
+      "unit": "cup"
+    },
+    {
+      "name": "Honey",
+      "amount": 3,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Rice Vinegar",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Garlic Cloves, Minced",
+      "amount": 3,
+      "unit": "cloves"
+    },
+    {
+      "name": "Fresh Ginger, Grated",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Cornstarch",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "name": "Water (For Slurry And Steaming)",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Sesame Oil",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Toasted Sesame Seeds",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Neutral Oil (For Sautéing)",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Green Onions, Sliced (For Garnish)",
+      "amount": 3,
+      "unit": "stalks"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Steam Or Blanch Broccoli",
+      "description": "Steam or blanch broccoli in lightly salted water 3–4 minutes until crisp-tender. Drain and set aside.",
+      "timer": 240
+    },
+    {
+      "title": "Sear Chicken",
+      "description": "Heat neutral oil in a large skillet over medium-high. Add chicken, season lightly with salt and pepper, and cook 6–8 minutes until browned and cooked through. Remove to a plate.",
+      "timer": 480
+    },
+    {
+      "title": "Make Honey-Sesame Sauce",
+      "description": "In a bowl, whisk soy sauce, honey, rice vinegar, garlic, ginger, and a slurry of cornstarch with 2 tbsp water until smooth."
+    },
+    {
+      "title": "Cook Sauce",
+      "description": "In the skillet, pour the sauce and cook over medium heat 2–3 minutes, stirring, until thickened. Return chicken to the pan along with broccoli. Toss to coat.",
+      "timer": 180
+    },
+    {
+      "title": "Finish",
+      "description": "Drizzle sesame oil and top with sesame seeds and green onions. Serve over rice."
+    }
+  ],
+  "toppings": [
+    "Extra Sesame Seeds",
+    "Green Onions",
+    "Chili Flakes (Small Amount)"
+  ],
+  "notes": [
+    "The honey-sesame glaze is lightened compared to takeout versions but still very flavorful.",
+    "Serve over a modest portion of rice to keep overall calories controlled.",
+    "Pairs well with steamed bok choy or other quick-cooking greens."
+  ],
+  "meta": {
+    "cuisine": [
+      "Asian-inspired"
+    ],
+    "features": [
+      "High-volume",
+      "Takeout-style",
+      "Quick"
+    ],
+    "mainIngredients": [
+      "Chicken Breast",
+      "Broccoli",
+      "Honey",
+      "Sesame",
+      "Soy Sauce"
+    ]
+  }
+},
+  {
+  "id": "slow-cooker-soy-garlic-chicken",
+  "title": "Slow Cooker Soy Garlic Chicken With Veg",
+  "description": "A dump-and-go slow cooker chicken dish with soy, garlic, and mixed vegetables that tastes like takeout over a small amount of rice for controlled calories.",
+  "prepTime": "10 min",
+  "cookTime": "4 hr",
+  "totalTime": "4 hr 10 min",
+  "baseServings": 4,
+  "ingredients": [
+    {
+      "name": "Boneless, Skinless Chicken Breast Or Thighs",
+      "amount": 1.5,
+      "unit": "lb"
+    },
+    {
+      "name": "Mixed Frozen Stir-Fry Vegetables",
+      "amount": 4,
+      "unit": "cups"
+    },
+    {
+      "name": "Low-Sodium Soy Sauce",
+      "amount": 0.25,
+      "unit": "cup"
+    },
+    {
+      "name": "Water Or Chicken Broth",
+      "amount": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Minced Garlic",
+      "amount": 2,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Rice Vinegar Or Apple Cider Vinegar",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Brown Sugar Or Zero-Cal Sweetener",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Cornstarch (Optional, For Thicker Sauce)",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Green Onions, Sliced",
+      "amount": 3,
+      "unit": "stalks"
+    },
+    {
+      "name": "Toasted Sesame Seeds (Optional)",
+      "amount": 1,
+      "unit": "tbsp"
+    },
+    {
+      "name": "Cooked White Or Brown Rice (For Serving)",
+      "amount": 2,
+      "unit": "cups"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Load Slow Cooker",
+      "description": "Add chicken to the slow cooker. Top with frozen vegetables, soy sauce, water or broth, garlic, vinegar, and brown sugar or sweetener."
+    },
+    {
+      "title": "Cook Until Tender",
+      "description": "Cook on high for 4–6 hours or low for 6–8 hours, stirring once or twice if convenient, until chicken is very tender and shreds easily.",
+      "timer": 14400
+    },
+    {
+      "title": "Shred Chicken And Thicken Sauce",
+      "description": "Shred chicken in the pot with two forks. If you want a thicker sauce, stir cornstarch into a little cold water, then mix into the hot liquid and cook 10–15 minutes more.",
+      "timer": 900
+    },
+    {
+      "title": "Serve Over Rice",
+      "description": "Spoon chicken and vegetables with some sauce over about 1/2 cup cooked rice per serving. Top with green onions and sesame seeds.",
+      "timer": 300
+    }
+  ],
+  "toppings": [
+    "Extra Green Onions",
+    "Chili Flakes Or Chili Oil (Small Amount)",
+    "Sesame Seeds"
+  ],
+  "notes": [
+    "A popular meal prep suggestion using soy–garlic slow cooker chicken with mixed vegetables served over modest rice.",
+    "Using plenty of vegetables and a modest rice portion keeps calories in check while maintaining volume.",
+    "Use chicken breast for leaner macros or thighs for richer flavor."
+  ],
+  "meta": {
+    "cuisine": [
+      "Asian-inspired"
+    ],
+    "features": [
+      "Slow-cooker",
+      "Meal-prep-friendly",
+      "High-volume"
+    ],
+    "mainIngredients": [
+      "Chicken",
+      "Mixed Vegetables",
+      "Soy Sauce",
+      "Garlic"
+    ]
+  }
+},
+  {
+  "id": "high-volume-legume-soup",
+  "title": "High-Volume Smoky Bean & Lentil Soup",
+  "description": "A big pot of smoky legume soup built from pantry beans, lentils, tomatoes, and vegetables for a very filling, low-calorie meal.",
+  "prepTime": "15 min",
+  "cookTime": "35 min",
+  "totalTime": "50 min",
+  "baseServings": 6,
+  "ingredients": [
+    {
+      "name": "Dry Lentils, Rinsed",
+      "amount": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Canned Pinto Or Black Beans, Drained And Rinsed",
+      "amount": 15,
+      "unit": "oz"
+    },
+    {
+      "name": "Diced Tomatoes With Green Chiles (Rotel-Style)",
+      "amount": 10,
+      "unit": "oz"
+    },
+    {
+      "name": "Yellow Onion, Diced",
+      "amount": 1,
+      "unit": "medium"
+    },
+    {
+      "name": "Carrots, Diced",
+      "amount": 2,
+      "unit": "medium"
+    },
+    {
+      "name": "Celery Stalks, Diced",
+      "amount": 2,
+      "unit": "stalks"
+    },
+    {
+      "name": "Garlic Cloves, Minced",
+      "amount": 3,
+      "unit": "cloves"
+    },
+    {
+      "name": "Zucchini Or Yellow Squash, Diced",
+      "amount": 1,
+      "unit": "medium"
+    },
+    {
+      "name": "Low-Sodium Vegetable Or Chicken Broth",
+      "amount": 8,
+      "unit": "cups"
+    },
+    {
+      "name": "Smoked Paprika",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Ground Cumin",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Chili Powder",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Salt",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "name": "Black Pepper",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "name": "Lime, Cut Into Wedges",
+      "amount": 1,
+      "unit": "unit"
+    },
+    {
+      "name": "Fresh Cilantro, Chopped (Optional)",
+      "amount": 0.25,
+      "unit": "cup"
+    },
+    {
+      "name": "Hot Sauce (Optional)",
+      "amount": 2,
+      "unit": "tsp"
+    }
+  ],
+  "instructions": [
+    {
+      "title": "Sauté Aromatics",
+      "description": "In a large pot, sauté onion, carrots, and celery in a splash of broth or a teaspoon of oil over medium heat 5–7 minutes until softened.",
+      "timer": 420
+    },
+    {
+      "title": "Toast Spices And Add Garlic",
+      "description": "Add garlic, smoked paprika, cumin, and chili powder. Cook 1 minute, stirring, until fragrant but not burnt.",
+      "timer": 60
+    },
+    {
+      "title": "Add Legumes And Vegetables",
+      "description": "Add lentils, canned beans, diced tomatoes with chiles, zucchini, and broth. Stir to combine and bring to a boil.",
+      "timer": 300
+    },
+    {
+      "title": "Simmer Until Tender",
+      "description": "Reduce heat and simmer 20–25 minutes until lentils are tender and soup has thickened slightly. Season with salt and pepper.",
+      "timer": 1500
+    },
+    {
+      "title": "Finish And Serve",
+      "description": "Stir in hot sauce if using. Ladle into large bowls and garnish with cilantro and a squeeze of lime.",
+      "timer": 180
+    }
+  ],
+  "toppings": [
+    "Fresh Cilantro",
+    "Lime Wedges",
+    "Nonfat Greek Yogurt (Small Dollop)",
+    "Pickled Jalapeños"
+  ],
+  "notes": [
+    "Legume soups (lentils, split peas, mung beans) are one of the most satisfying low-calorie, high-volume meals.",
+    "Using a high broth-to-legume ratio keeps calories reasonable while letting you eat large bowls.",
+    "You can add extra non-starchy vegetables like cabbage or green beans with minimal calorie impact."
+  ],
+  "meta": {
+    "cuisine": [
+      "Mexican-inspired",
+      "Fusion"
+    ],
+    "features": [
+      "High-volume",
+      "Freezer-friendly",
+      "Pantry-friendly"
+    ],
+    "mainIngredients": [
+      "Lentils",
+      "Beans",
+      "Tomatoes",
+      "Vegetables",
+      "Broth"
+    ]
+  }
 }
 ]
