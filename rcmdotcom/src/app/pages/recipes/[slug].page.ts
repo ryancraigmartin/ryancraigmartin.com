@@ -77,33 +77,68 @@ interface Timer {
           </div>
         </div>
 
-        <!-- Servings Control -->
-        <div class="flex items-center gap-4 mb-6" role="group" aria-label="Servings adjustment">
-          <span class="font-semibold text-primary-800">Servings:</span>
-          <div class="flex items-center gap-3">
-            <button
-              (click)="decreaseServings()"
-              [disabled]="servings() <= 1"
-              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
-              aria-label="Decrease servings"
-              type="button"
-            >
-              -
-            </button>
-            <span class="text-2xl font-bold text-primary-800 min-w-[3rem] text-center" aria-live="polite" aria-atomic="true">
-              {{ servings() }}
-            </span>
-            <button
-              (click)="increaseServings()"
-              [disabled]="servings() >= 20"
-              class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
-              aria-label="Increase servings"
-              type="button"
-            >
-              +
-            </button>
+        <!-- Servings Control and Add to Shopping List -->
+        <div class="flex flex-wrap items-center gap-6 mb-6">
+          <!-- Servings Control -->
+          <div class="flex items-center gap-4" role="group" aria-label="Servings adjustment">
+            <span class="font-semibold text-primary-800">Servings:</span>
+            <div class="flex items-center gap-3">
+              <button
+                (click)="decreaseServings()"
+                [disabled]="servings() <= 1"
+                class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
+                aria-label="Decrease servings"
+                type="button"
+              >
+                -
+              </button>
+              <span class="text-2xl font-bold text-primary-800 min-w-[3rem] text-center" aria-live="polite" aria-atomic="true">
+                {{ servings() }}
+              </span>
+              <button
+                (click)="increaseServings()"
+                [disabled]="servings() >= 20"
+                class="w-10 h-10 rounded-full bg-primary-green text-primary-white font-bold hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:ring-2 focus:ring-primary-green focus:ring-offset-2"
+                aria-label="Increase servings"
+                type="button"
+              >
+                +
+              </button>
+            </div>
           </div>
+
+          <!-- Add to Shopping List Button -->
+          <button
+            (click)="addToShoppingList()"
+            [class.bg-primary-green]="isInShoppingList()"
+            [class.text-primary-white]="isInShoppingList()"
+            [class.bg-primary-alabaster]="!isInShoppingList()"
+            [class.text-primary-800]="!isInShoppingList()"
+            [class.border-primary-green]="!isInShoppingList()"
+            class="flex items-center gap-2 px-6 py-3 rounded-lg font-bold border-2 hover:opacity-80 transition-all duration-300"
+            [attr.aria-label]="isInShoppingList() ? 'Remove from shopping list' : 'Add ingredients to shopping list'"
+            type="button"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+            </svg>
+            @if (isInShoppingList()) {
+              <span>In Shopping List</span>
+            } @else {
+              <span>Add to Shopping List</span>
+            }
+          </button>
         </div>
+
+        <!-- Success Message -->
+        @if (showAddedMessage()) {
+        <div class="bg-primary-green text-primary-white px-4 py-3 rounded-lg mb-6 flex items-center gap-3 animate-fade-in">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span class="font-medium">Ingredients added to your shopping list! <a routerLink="/recipes" class="underline hover:no-underline">View shopping list →</a></span>
+        </div>
+        }
 
         <!-- Features -->
         <div class="flex flex-wrap gap-2">
@@ -310,6 +345,10 @@ export default class RecipeDetailPage implements OnDestroy {
   // Ingredient checkboxes
   checkedIngredients = signal<Set<number>>(new Set())
 
+  // Shopping list state
+  showAddedMessage = signal<boolean>(false)
+  private shoppingListKey = 'recipe-shopping-list-selections'
+
   // Timers
   timers = signal<Timer[]>([])
   activeTimers = signal<Set<number>>(new Set())
@@ -356,6 +395,51 @@ export default class RecipeDetailPage implements OnDestroy {
       return newChecked
     })
     this.savePersistedState()
+  }
+
+  /**
+   * Checks if the current recipe is in the shopping list
+   */
+  isInShoppingList(): boolean {
+    if (typeof window === 'undefined') return false
+    try {
+      const stored = localStorage.getItem(this.shoppingListKey)
+      if (!stored) return false
+      const selections = JSON.parse(stored) as string[]
+      return selections.includes(this.recipeId())
+    } catch {
+      return false
+    }
+  }
+
+  /**
+   * Adds or removes the current recipe from the shopping list
+   */
+  addToShoppingList() {
+    if (typeof window === 'undefined') return
+    
+    try {
+      const stored = localStorage.getItem(this.shoppingListKey)
+      let selections: string[] = stored ? JSON.parse(stored) : []
+      const recipeId = this.recipeId()
+      
+      if (selections.includes(recipeId)) {
+        // Remove from list
+        selections = selections.filter(id => id !== recipeId)
+      } else {
+        // Add to list
+        selections.push(recipeId)
+        // Show success message
+        this.showAddedMessage.set(true)
+        setTimeout(() => {
+          this.showAddedMessage.set(false)
+        }, 5000)
+      }
+      
+      localStorage.setItem(this.shoppingListKey, JSON.stringify(selections))
+    } catch (error) {
+      console.error('Error updating shopping list:', error)
+    }
   }
 
   /**

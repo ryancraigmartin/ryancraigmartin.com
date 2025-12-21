@@ -98,11 +98,25 @@ import { filterRecipesByIngredients } from '../../utils/ingredient-categorizatio
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         @for (recipe of filteredRecipes(); track recipe.id) {
         <article
-          class="bg-primary-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col"
-          [routerLink]="['/recipes', recipe.id]"
+          class="bg-primary-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col relative"
         >
-          <!-- Recipe Header -->
-          <div class="p-6 border-b border-primary-alabaster flex-grow">
+          <!-- Shopping List Badge (if selected) -->
+          @if (selectedRecipes().has(recipe.id)) {
+          <div class="absolute top-4 right-4 z-10">
+            <span class="inline-flex items-center gap-1 bg-primary-green text-primary-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              In List
+            </span>
+          </div>
+          }
+
+          <!-- Recipe Header (clickable) -->
+          <div 
+            class="p-6 border-b border-primary-alabaster flex-grow cursor-pointer"
+            [routerLink]="['/recipes', recipe.id]"
+          >
             <h2 class="text-2xl font-bold text-primary-800 mb-2">{{ recipe.title }}</h2>
             <p class="text-secondary-600 mb-4">{{ recipe.description }}</p>
 
@@ -125,10 +139,31 @@ import { filterRecipesByIngredients } from '../../utils/ingredient-categorizatio
             }
           </div>
 
-          <!-- View Recipe Button -->
-          <div class="px-6 pb-6">
+          <!-- Action Buttons -->
+          <div class="px-6 pb-6 flex gap-3">
             <button
-              class="w-full bg-primary-green text-primary-white px-4 py-2 rounded-lg font-medium hover:bg-primary-800 transition-colors duration-300"
+              (click)="toggleRecipe(recipe.id); $event.stopPropagation()"
+              [class.bg-primary-green]="selectedRecipes().has(recipe.id)"
+              [class.text-primary-white]="selectedRecipes().has(recipe.id)"
+              [class.bg-primary-alabaster]="!selectedRecipes().has(recipe.id)"
+              [class.text-primary-800]="!selectedRecipes().has(recipe.id)"
+              class="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium hover:opacity-80 transition-all duration-300 border-2 border-transparent hover:border-primary-green"
+              [attr.aria-label]="selectedRecipes().has(recipe.id) ? 'Remove from shopping list' : 'Add to shopping list'"
+              type="button"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              @if (selectedRecipes().has(recipe.id)) {
+                <span>In List</span>
+              } @else {
+                <span>Add to List</span>
+              }
+            </button>
+            <button
+              [routerLink]="['/recipes', recipe.id]"
+              class="flex-1 bg-primary-green text-primary-white px-4 py-2 rounded-lg font-medium hover:bg-primary-800 transition-colors duration-300"
+              type="button"
             >
               View Recipe →
             </button>
@@ -222,6 +257,42 @@ import { filterRecipesByIngredients } from '../../utils/ingredient-categorizatio
       </div>
       }
     </div>
+
+    <!-- Persistent Shopping List Footer -->
+    @if (selectedRecipes().size > 0 && activeTab() === 'recipes') {
+    <div class="fixed bottom-0 left-0 right-0 bg-primary-green text-primary-white shadow-2xl z-50 animate-slide-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+            </svg>
+            <div>
+              <div class="font-bold text-lg">{{ selectedRecipes().size }} {{ selectedRecipes().size === 1 ? 'Recipe' : 'Recipes' }} Selected</div>
+              <div class="text-sm opacity-90">{{ consolidatedIngredients().length }} total ingredients</div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button
+              (click)="setActiveTab('shopping')"
+              class="px-6 py-3 bg-primary-white text-primary-green rounded-lg font-bold hover:bg-primary-alabaster transition-colors duration-300 shadow-lg"
+              type="button"
+            >
+              View Shopping List →
+            </button>
+            <button
+              (click)="clearAllSelections()"
+              class="px-4 py-3 bg-transparent border-2 border-primary-white text-primary-white rounded-lg font-medium hover:bg-primary-800 transition-colors duration-300"
+              type="button"
+              aria-label="Clear all selections"
+            >
+              Clear All
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
   `,
   styles: [
     `
@@ -229,6 +300,18 @@ import { filterRecipesByIngredients } from '../../utils/ingredient-categorizatio
         display: block;
         min-height: 100vh;
         background: #fffbef;
+        padding-bottom: 100px; /* Space for fixed footer */
+      }
+      @keyframes slide-up {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+      .animate-slide-up {
+        animation: slide-up 0.3s ease-out;
       }
     `,
   ],
@@ -238,6 +321,22 @@ export default class RecipesIndexPage {
   activeTab = signal<'recipes' | 'shopping'>('recipes')
   selectedRecipes = signal<Set<string>>(new Set())
   checkedShoppingItems = signal<Set<string>>(new Set())
+  private shoppingListKey = 'recipe-shopping-list-selections'
+
+  constructor() {
+    // Load shopping list selections from localStorage on init
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = localStorage.getItem(this.shoppingListKey)
+        if (stored) {
+          const selections = JSON.parse(stored) as string[]
+          this.selectedRecipes.set(new Set(selections))
+        }
+      } catch (error) {
+        console.error('Error loading shopping list:', error)
+      }
+    }
+  }
 
   // Ingredient search
   ingredientSearchInput = ''
@@ -320,6 +419,15 @@ export default class RecipesIndexPage {
       }
       return newSelected
     })
+    // Save to localStorage
+    if (typeof window !== 'undefined') {
+      try {
+        const selections = Array.from(this.selectedRecipes())
+        localStorage.setItem(this.shoppingListKey, JSON.stringify(selections))
+      } catch (error) {
+        console.error('Error saving shopping list:', error)
+      }
+    }
   }
 
   toggleShoppingItem(itemName: string) {
@@ -336,6 +444,19 @@ export default class RecipesIndexPage {
 
   clearShoppingList() {
     this.checkedShoppingItems.set(new Set())
+  }
+
+  clearAllSelections() {
+    this.selectedRecipes.set(new Set())
+    this.checkedShoppingItems.set(new Set())
+    // Clear from localStorage
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem(this.shoppingListKey)
+      } catch (error) {
+        console.error('Error clearing shopping list:', error)
+      }
+    }
   }
 
   getIngredientsByCategory(category: string): RecipeIngredient[] {
