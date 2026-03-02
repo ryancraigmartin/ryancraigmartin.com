@@ -1,0 +1,245 @@
+{
+  "basics": {
+    "name": "Ryan Craig Martin",
+    "label": "Software / QA Engineer from Miami, FL",
+    "image": "https://res.cloudinary.com/ryan-martin/image/upload/f_auto/q_auto/ryan_craig_martin",
+    "email": "ryan@ryanmartin.io",
+    "phone": "305-791-3262",
+    "url": "https://ryanmartin.io",
+    "summary": "I graduated from Florida International University with a Bachelor's in Information Technology, where I balanced coursework with leadership roles including organizing the FIU Relay for Life event. After completing an intensive Full Stack Web Development bootcamp at Ironhack Miami, I began my professional journey at CareCloud, where I spent two years building practice management software and APIs using React, Golang, and GraphQL. I then spent several months at TRIM Agency building automation tools and microservices. Now I'm a Full Stack Engineer at Eldridge, working on modern web applications. I'm passionate about quality code, automated testing, and building tools that make a difference.",
+    "location": {
+      "city": "Miami",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "ryancraigmartin",
+        "url": "https://github.com/ryancraigmartin/"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "ryancraigmartin",
+        "url": "https://linkedin.com/in/ryancraigmartin/"
+      },
+      {
+        "network": "Twitter",
+        "username": "ryancraigmartin",
+        "url": "https://twitter.com/ryancraigmartin/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Sommsation",
+      "position": "Engineering Program Manager / Founding Full-Stack Engineer",
+      "url": "https://www.sommsation.com",
+      "location": "Miami, FL · Remote",
+      "startDate": "2020-09-01",
+      "summary": "First engineering hire and founding full-stack developer, initially under Eldridge contract (through Nov 2022) and later as direct Sommsation employee, serving as right hand to CTO from company inception through multiple product evolutions.",
+      "highlights": [
+        "Led 2 parallel engineering streams with 4–5 engineers on each project plus dedicated QA (3 on one, 1 on the other), balancing Angular and React implementations while keeping ContentStack at the center of both as the shared content platform",
+        "Acted as cross-functional utility player: go-to technical support for engineering and non-engineering teams, primary code reviewer across multiple repos, and trusted with direct access to AWS infrastructure and production systems",
+        "Partnered closely with Product Managers and Design to translate complex Figma concepts into modular, reusable ContentStack content models and frontend components, ensuring designs were viable, performant, and scalable in production",
+        "Represented Sommsation in vendor and strategy conversations with key MarTech and platform partners (ContentStack, Cloudinary, Klaviyo, SEO partners), including participation at ContentCon and supporting on-site activations at events like Art Basel",
+        "Drove company-wide analytics instrumentation across GA4 e-commerce, PostHog, and Klaviyo, owning event schemas, data layer design, and implementation details so marketing, product, and leadership could reliably track funnels, checkout behavior, and campaign impact",
+        "Built and maintained tracking for high-leverage user journeys such as checkout flows, error states, and campaign-specific pages, enabling experimentation in PostHog even before ContentStack variants were available",
+        "Implemented shipment and notification workflows, including integrating AfterShip for shipment notifications and tying those events into Klaviyo flows to keep customers informed post-purchase",
+        "Authored and managed a large portion of the core monorepo's non-infrastructure code, consistently ranking as the top contributor to the codebase over four years and becoming the de facto owner of many core services",
+        "Designed and began implementing a full SSR rewrite of core CMS-driven services and dynamic pages to improve Core Web Vitals and SEO, moving architecture away from prerender-only patterns (Prerender.io) toward a more modern, server-rendered model",
+        "Conceived, architected, and single-handedly delivered Sommsation's Affiliate Program in roughly six weeks after third-party platform issues (Impact.com), including data model, tracking, payout logic, and UI, then successfully onboarded 96 ambassadors on final day—creating what became Sommsation's largest and most consistent revenue driver to date",
+        "Contributed end-to-end across Sommsation's evolution: from digital tasting experiences during COVID pandemic, to launch and growth of marketplace, to expansion into in-person events at venues such as Super Bowl, Art Basel, and Park City film festivals, supporting portfolio that grew to 120+ wineries and 50+ sommeliers and earned coverage in Forbes, Food & Beverage Magazine, Wine Enthusiast, Surface Magazine, and others"
+      ]
+    },
+    {
+      "name": "Self-Employed",
+      "position": "Software Engineering Consultant",
+      "location": "Miami-Fort Lauderdale Area",
+      "startDate": "2020-02-01",
+      "endDate": "2020-09-01",
+      "summary": "Built custom automation tools and APIs for co-working spaces and micronutrient databases.",
+      "highlights": [
+        "Responsible for testing, deploying and maintaining new APIs and micro-services for an inherited codebase for a client using TypeScript, Docker, Node.js, Golang, and Heroku",
+        "Deployed Slack chatbots to manage sprint retrospectives, and handle requests for co-working spaces like package delivery notifications and order processing using TypeScript, Microsoft's Botkit framework, and the Nexudus co-working platform",
+        "Filled Quality Assurance roles, managed sprints, wrote technical documentation, and implemented testing infrastructure",
+        "Used Github and Gitlab for repository storage, container registry, and CI/CD as well as Heroku for the deployment of applications",
+        "Asana for story documentation, project management, and Harvest for transparent, client-facing, time tracking, and billing"
+      ]
+    },
+    {
+      "name": "CareCloud",
+      "position": "Associate Software Engineer II",
+      "url": "https://www.carecloud.com/go",
+      "location": "Miami, Florida",
+      "startDate": "2019-09-01",
+      "endDate": "2020-02-01",
+      "summary": "Worked on Frontend/UX team building Calendar/Scheduler application for next-generation Medical Practice Management/EHR software.",
+      "highlights": [
+        "Worked on the Frontend/UX team building a Calendar/Scheduler application for CareCloud's next-generation Medical Practice Management/Electronic Health records software, Go, according to FHIR v3 Specification, React and GraphQL",
+        "Previously built production-ready, FHIR compliant APIs, middleware, and business process management workflows for a micro service architecture using Golang, Netflix's Conductor, Node.js, Apollo GraphQL, JSON and YAML"
+      ]
+    },
+    {
+      "name": "CareCloud",
+      "position": "Associate Software Engineer",
+      "url": "https://www.carecloud.com/breeze",
+      "location": "Miami, Florida",
+      "startDate": "2018-06-01",
+      "endDate": "2019-09-01",
+      "summary": "Built and maintained GraphQL API integration tests and automated end-to-end test suites.",
+      "highlights": [
+        "Responsible for building and maintaining a growing suite of GraphQL API integration tests using Node.js, Jest, Joi, Frisby.js, Apollo GraphQL and CircleCI for CI/CD",
+        "Trained co-workers on the Automation team to write tests using Jest and increased overall test coverage for our micro-services",
+        "Wrote automated, behavior-driven, end to end test suites using CircleCI, Selenium, WebDriverIO, Cucumber, Gherkin, Mocha, and Chai",
+        "Used Atlassian Jira for Scrum and Kanban, VSCode Live Share for collaboration, Slack/Google Hangouts for communication, and GitHub for repository storage, code reviews, and CI/CD integration with CircleCI"
+      ]
+    },
+    {
+      "name": "City of Pembroke Pines",
+      "position": "Help Desk Technician II",
+      "url": "https://www.ppines.com",
+      "location": "Pembroke Pines, Florida",
+      "startDate": "2017-03-01",
+      "endDate": "2018-03-01",
+      "summary": "Provided technical support for City employees across various departments including Finance, Fire & Police, HR, Planning & Zoning, Parks & Recreation, and more.",
+      "highlights": [
+        "Provided onsite and remote technical support for incoming tickets to the Technology Services Department related to hardware and software used by City of Pembroke Pines employees across various departments",
+        "Managed and organized the indoor and outdoor video surveillance and card access infrastructure for the City of Pembroke Pines City Center using Identiv Connected Physical Access Manager (ICPAM) and Cisco Video Surveillance Operations Manager (VSOM)",
+        "Assisted the Pembroke Pines Police Department in the retrieval and documentation of crucial video surveillance evidence for cases",
+        "Was responsible for setting up the Pembroke Pines Emergency Operations & Training Center at the new City Hall",
+        "Trained by Citrix Instructor Ronald Warsaski and received a Certificate of Completion for the CXD-210I- XenApp and XenDesktop 7.1 Administration training"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Ironhack",
+      "url": "https://www.ironhack.com",
+      "location": "Miami, Florida",
+      "area": "Full Stack Web Development",
+      "studyType": "Bootcamp",
+      "startDate": "2018-04-01",
+      "endDate": "2018-06-01",
+      "highlights": [
+        "Won 1st Place at Ironhack Miami Hackathon for building a real-time collaborative whiteboard app",
+        "Won 2nd Place at Miami Tech Hackathon for building a food waste reduction platform"
+      ]
+    },
+    {
+      "institution": "Florida International University School of Computing and Information Sciences",
+      "url": "https://www.fiu.edu",
+      "location": "Miami, Florida",
+      "area": "Information Technology",
+      "studyType": "Bachelor of Science",
+      "startDate": "2012-06-01",
+      "endDate": "2016-12-01",
+      "highlights": [
+        "Organizing Committee: FIU Relay for Life - raised over $10,000 for the American Cancer Society",
+        "Member: FIU Computing and Information Sciences Student Association"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend Development",
+      "level": "Advanced",
+      "keywords": [
+        "React",
+        "Angular",
+        "Next.js",
+        "Gatsby"
+      ]
+    },
+    {
+      "name": "Backend Development",
+      "level": "Advanced",
+      "keywords": [
+        "Node.js",
+        "Express.js",
+        "GraphQL",
+        "REST APIs"
+      ]
+    },
+    {
+      "name": "Database",
+      "level": "Advanced",
+      "keywords": [
+        "MongoDB",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "Testing & QA",
+      "level": "Advanced",
+      "keywords": [
+        "Jest",
+        "Cypress",
+        "Selenium",
+        "WebDriverIO",
+        "Mocha",
+        "Cucumber"
+      ]
+    },
+    {
+      "name": "DevOps & Cloud",
+      "level": "Advanced",
+      "keywords": [
+        "AWS",
+        "Docker",
+        "CircleCI",
+        "Heroku",
+        "Git"
+      ]
+    },
+    {
+      "name": "CMS & Content Platforms",
+      "level": "Advanced",
+      "keywords": [
+        "ContentStack",
+        "Cloudinary"
+      ]
+    },
+    {
+      "name": "Analytics & Marketing Tools",
+      "level": "Advanced",
+      "keywords": [
+        "Google Analytics",
+        "PostHog",
+        "Klaviyo"
+      ]
+    },
+    {
+      "name": "Project Management",
+      "level": "Advanced",
+      "keywords": [
+        "JIRA",
+        "Asana",
+        "GitHub",
+        "GitLab"
+      ]
+    },
+    {
+      "name": "Programming Languages",
+      "level": "Advanced",
+      "keywords": [
+        "JavaScript",
+        "TypeScript",
+        "Go",
+        "HTML5",
+        "CSS3"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native Speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Intermediate"
+    }
+  ],
+  "projects": []
+}
+
